@@ -1,0 +1,85 @@
+.intro-section {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, rgb(144, 145, 149), #ffffff); /* Light pink to white gradient */  }
+  
+  .text-content {
+    text-align: left; /* Ensures left alignment */
+    
+  }
+  
+  /* Light pink transparent button */
+  .promo-btn {
+    background: rgba(125, 126, 129, 0.2); /* Light pink with transparency */
+    color: rgb(70, 71, 72);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Header text */
+  .intro-heading {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+  
+  /* "Food" in red */
+  .highlight-text {
+    /* color: rgb(70, 71, 72); */
+     color: rgb(207, 120, 70);
+  }
+  .appointment-button{
+    /* background: rgb(70, 71, 72); */
+    background: rgb(207, 120, 70);
+    border: none;
+  }
+  
+  /* Description text */
+  .text-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  /* Buttons */
+  .text-content .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+  
+  /* Video Button */
+  .video-btn {
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    border: none; /* Removes the border */
+  }
+  
+  .play-icon {
+    font-size: 1.2rem;
+  }
+  
+  /* Image Styling */
+  .image-content img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+  }
+  .text-content .btn-danger {
+    border-radius: 30px; /* More rounded corners */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .text-content {
+      text-align: center;
+    }
+  
+    .image-content {
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+  

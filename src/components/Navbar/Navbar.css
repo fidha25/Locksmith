@@ -1,0 +1,19 @@
+.custom-navbar-bg {
+  background-color: rgb(144, 145, 149);
+}
+
+/* Style for active link */
+.navbar-nav .nav-link.active {
+  color: #a11fc5 !important; /* Red text for active link */
+  font-weight: bold; /* Optional: Make the active link bold */
+}
+
+/* Custom gap between nav items */
+.navbar-nav .nav-item {
+  margin-right: 1.5rem; /* Adjust the gap size as needed */
+}
+
+.login-btn {
+  background: rgb(80, 80, 81);
+  border: none;
+}

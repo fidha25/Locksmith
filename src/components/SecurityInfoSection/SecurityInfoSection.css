@@ -1,0 +1,157 @@
+/* Center the entire component */
+.security-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+    background-color: white;
+  }
+  
+  /* Wrapper for structured alignment */
+  .content-wrapper {
+    max-width: 1100px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Headings */
+  .heading-container {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .subheading {
+    color: #a11fc5;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .main-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2d3748;
+  }
+  
+  /* Content Layout */
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (min-width: 768px) {
+    .content-container {
+      flex-direction: row;
+      align-items: start;
+    }
+  }
+  
+  /* Image Section */
+  .image-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    .image-container {
+      width: 50%;
+      margin-bottom: 0;
+    }
+  }
+  
+  .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    background: linear-gradient(to bottom, #a11fc5, white);
+    border-radius: 10px;
+  }
+  
+  .main-image {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Text Content */
+  .text-content {
+    width: 100%;
+    max-width: 500px;
+    padding-left: 0;
+    text-align: left;
+  }
+  
+  @media (min-width: 768px) {
+    .text-content {
+      padding-left: 40px;
+    }
+  }
+  
+  .description {
+    color: #4a5568;
+    margin-bottom: 15px;
+  }
+  
+  /* Features List */
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: center;
+    color: #2d3748;
+    margin-bottom: 10px;
+  }
+  
+  .icon {
+    color: #a11fc5;
+    margin-right: 10px;
+  }
+  
+  /* Contact Section */
+  .contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .learn-more-btn {
+    background-color: #a11fc5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .learn-more-btn:hover {
+    background-color: #a11fc5
+  }
+  
+  .phone-info {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #a11fc5
+  }
+  
+  .phone-icon {
+    margin-right: 5px;
+  }
+  
+  .phone-number {
+    font-size: 1.1rem;
+  }
+  

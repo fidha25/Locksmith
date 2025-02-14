@@ -1,0 +1,41 @@
+.LockSmith-section {
+    padding: 50px 0;
+  }
+  
+  .image-content img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .text-content h5 {
+    color: rgb(70, 71, 72); /* Lavender color */
+  }
+  
+  .text-content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .text-content p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* View More Button Styling */
+  .view-more-btn {
+    background-color: rgb(70, 71, 72); /* Lavender color */
+    border: none;
+    color: white; /* White text */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .view-more-btn:hover {
+    background-color: white; /* White background on hover */
+    color: rgb(70, 71, 72); /* Lavender text on hover */
+    border: 1px solid rgb(70, 71, 72); /* Optional: Add a border to maintain visibility */
+  }
