@@ -38,6 +38,7 @@ import Signup from './components/Login/Signup';
 import UserSignup from './components/Login/UserSignup';
 import Login from './components/Login/Login';
 import LockSmithForm from './components/LockSmithForm/LockSmithForm';
+import CreateService from './components/CreateServices/CreateServices';
 import './App.css';
 
 function App() {
@@ -53,6 +54,8 @@ function App() {
         <Route path="/usersignup" element={<UserSignup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/locksmith" element={<LockSmithForm />} />
+        <Route path="/create-service" element={<CreateService/>} />
+
 
 
       </Routes>

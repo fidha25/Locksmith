@@ -6,16 +6,9 @@ const AboutPara = () => {
   return (
     <section className="SecureAccess-section">
       <Container>
-        <Row className="align-items-center">
-          {/* Left Side - Image */}
-          <Col md={6} className="visual-content">
-            <img
-              src=""
-              alt="locksmith"
-              className="img-fluid"
-            />
-          </Col>
-
+        {/* Add justify-content-center to center the columns */}
+        <Row className="align-items-center justify-content-center gx-3">
+          
           {/* Right Side - Text Content */}
           <Col md={6} className="info-content">
             <h5>About Us</h5>
@@ -34,6 +27,15 @@ const AboutPara = () => {
                 <Button className="explore-btn">Explore More</Button>
               </Col>
             </Row>
+          </Col>
+
+          {/* Left Side - Image */}
+          <Col md={6} className="visual-content">
+            <img
+              src="/images/worker-client.jpg"
+              alt="locksmith"
+              className="img-fluid"
+            />
           </Col>
         </Row>
       </Container>

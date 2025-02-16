@@ -40,7 +40,7 @@
   
   .social-icon {
     font-size: 20px;
-    color: rgb(193, 57, 193);
+    color: rgb(70, 71, 72);
     cursor: pointer;
   }
   
@@ -61,7 +61,7 @@
   
   /* Send icon inside input field */
   .send-icon {
-    background: rgb(193, 57, 193);
+    background: rgb(70, 71, 72);
     color: white;
     border-radius: 50%;
     padding: 10px;

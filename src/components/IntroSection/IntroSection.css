@@ -30,11 +30,7 @@
     /* color: rgb(70, 71, 72); */
      color: rgb(207, 120, 70);
   }
-  .appointment-button{
-    /* background: rgb(70, 71, 72); */
-    background: rgb(207, 120, 70);
-    border: none;
-  }
+
   
   /* Description text */
   .text-content p {

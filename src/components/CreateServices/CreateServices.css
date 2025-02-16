@@ -1,0 +1,26 @@
+.create-service-container {
+    margin-top: 50px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-form {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .submit-btn {
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .message {
+    font-size: 1rem;
+    color: green;
+    margin-top: 10px;
+  }
+  

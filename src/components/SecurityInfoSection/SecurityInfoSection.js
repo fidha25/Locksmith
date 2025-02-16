@@ -1,62 +1,68 @@
 import React from "react";
-import { FaCheckCircle, FaPhoneAlt } from "react-icons/fa";
-import "./SecurityInfoSection.css"; // Import the CSS file
+import { Container, Row, Col, Button } from "react-bootstrap";
+import "./SecurityInfoSection.css"; // Ensure the CSS file is imported
 
 const SecurityInfoSection = () => {
   return (
-    <section className="security-section">
-      <div className="content-wrapper">
-        {/* Top Left: Headings */}
-        <div className="heading-container">
-          <h5 className="subheading">Who We Are</h5>
-          <h2 className="main-heading">Driven to Protect What Matters Most.</h2>
-        </div>
-
-        <div className="content-container">
-          {/* Left Side: Image */}
-          <div className="image-container">
-            <div className="gradient-overlay"></div>
+    <section className="locksmith-section py-5">
+      <Container>
+        <Row className="align-items-center">
+          {/* Left Side - Image Section */}
+          <Col lg={6} className="text-center text-lg-start">
             <img
-              src="images\worker-client.jpg"
-              alt="Worker and Client"
-              className="main-image"
+              src="images/pexels-sora-shimazaki-5668842.jpg"
+              alt="Locksmith Work"
+              className="img-fluid main-image"
             />
-          </div>
+          </Col>
 
-          {/* Right Side: Text Content */}
-          <div className="text-content">
+          {/* Right Side - Text Content */}
+          <Col lg={6} className="text-container">
+            <p className="welcome-text">WELCOME TO KEYMAN</p>
+            <h2 className="title">
+              We Have 15 Years of Experience in Locksmith Service
+            </h2>
             <p className="description">
-              Mus odio elementum rhoncus magnis nostra vestibulum phasellus
-              lobortis porta placerat semper tincidunt ut fames nisl sollicitudin
-              bibendum nec si dictum venenatis cursus.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi.
             </p>
 
-            {/* Features List */}
-            <ul className="features-list">
-              {[
-                "Expert Locksmiths Anytime: Trusted professionals available 24/7.",
-                "Fast & Reliable Service: Quick response with quality assurance.",
-                "Affordable & Customer-Focused: Competitive prices with client satisfaction priority.",
-                "Comprehensive Security Solutions: From basic repairs to advanced installations.",
-              ].map((text, index) => (
-                <li key={index} className="feature-item">
-                  <FaCheckCircle className="icon" />
-                  {text}
-                </li>
-              ))}
-            </ul>
+            <Row>
+              <Col md={6}>
+                <ul className="list-unstyled">
+                  <li><span className="brown-tick">✔</span> Deadlocks & Padlocks</li>
+                  <li><span className="brown-tick">✔</span> Keyless entry systems</li>
+                  <li><span className="brown-tick">✔</span> Free Consultations</li>
+                </ul>
+              </Col>
+              <Col md={6}>
+                <ul className="list-unstyled">
+                  <li><span className="brown-tick">✔</span> Installation and repair of locks</li>
+                  <li><span className="brown-tick">✔</span> Fast lock-out service</li>
+                  <li><span className="brown-tick">✔</span> Quick Tips and Advice</li>
+                </ul>
+              </Col>
+            </Row>
 
-            {/* Contact & Button */}
-            <div className="contact-container">
-              <button className="learn-more-btn">Learn More</button>
-              <div className="phone-info">
-                <FaPhoneAlt className="phone-icon" />
-                <span className="phone-number">+6221.2002.2012</span>
-              </div>
+            {/* Testimonial Section */}
+            <div className="testimonial p-3 mt-3">
+              <p className="quote">
+                <i>
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore."
+                </i>
+              </p>
+              <p className="author"><strong>Ronnie Sawyer</strong></p>
             </div>
-          </div>
-        </div>
-      </div>
+
+            {/* Button */}
+            <Button variant="dark" className="mt-3 more-btn">
+              MORE ABOUT US
+            </Button>
+          </Col>
+        </Row>
+      </Container>
     </section>
   );
 };

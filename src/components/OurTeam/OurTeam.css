@@ -1,0 +1,35 @@
+.team-section {
+    padding: 60px 0;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .section-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #666;
+    letter-spacing: 1px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+    margin-top: 10px;
+  }
+  
+  .section-text {
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+  
+  .team-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  

@@ -1,0 +1,72 @@
+.why-choose-us {
+  background-color: #ffffff; /* White background */
+  padding: 50px 0;
+}
+
+.text-content {
+  color: #000;
+}
+
+.services-btn {
+  background-color: rgb(70, 71, 72) !important; /* Changed from yellow */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.contact-box {
+  background-color: rgb(70, 71, 72); /* Changed from yellow */
+  padding: 15px;
+  margin-top: 20px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+/* Transparent Grey Box */
+.transparent-box {
+  background: rgba(128, 128, 128, 0.2); /* Light transparent grey */
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+/* Darken the grey box on hover */
+.transparent-box:hover {
+  background: rgba(128, 128, 128, 0.4);
+}
+
+/* Icon Styling */
+.icon {
+  font-size: 30px;
+  color: rgb(70, 71, 72); /* Changed all icon colors to grey */
+  margin-bottom: 10px;
+}
+.call-icon{
+  font-size: 30px;
+  color: rgb(0, 0, 0); /* Changed all icon colors to grey */
+  margin-bottom: 10px;
+}
+
+/* Phone icon inside the contact box */
+.phone-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .text-content {
+    text-align: center;
+  }
+
+  .transparent-box {
+    margin-bottom: 15px;
+  }
+}
