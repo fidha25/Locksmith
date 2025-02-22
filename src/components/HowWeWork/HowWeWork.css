@@ -1,0 +1,114 @@
+
+
+  .carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    justify-content: flex-start;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .step-card {
+    min-width: 350px;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    text-align: center;
+    padding: 25px;
+    background: white;
+    transition: transform 0.3s ease-in-out;
+    margin-right: 20px;
+    flex: 0 0 auto;
+    position: relative;
+    overflow: hidden;
+    transform: skew(-5deg); /* Skew the card for a unique shape */
+    scroll-snap-align: center;
+    color: black;
+  }
+  
+  .step-card::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(45deg, #4b4b4b, #e3e2e2);
+    transform: skew(5deg) rotate(10deg); /* Counter-skew and rotate for a dynamic effect */
+    z-index: -1;
+    opacity: 0.3;
+  }
+  
+  .our-process {
+    padding-top: 40px;
+  }
+  
+  .step-card:hover {
+    transform: skew(-5deg) scale(1.05); /* Maintain skew on hover */
+  }
+  
+  .step-card .card-body {
+    transform: skew(5deg); /* Counter-skew the content to make it readable */
+  }
+  
+  /* Navigation Buttons */
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .carousel-control-prev {
+    left: -50px;
+  }
+  
+  .carousel-control-next {
+    right: -50px;
+  }
+  
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    color: #777777;
+  }
+  
+  .step-icon {
+    color: #292929;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .carousel-container {
+      justify-content: center;
+    }
+  
+    .step-card {
+      min-width: 90%; /* Make the card fully visible */
+      max-width: 90%;
+      margin-right: 0;
+      transform: skew(0); /* Remove skew on smaller screens for better readability */
+    }
+  
+    .step-card::before {
+      transform: skew(0) rotate(0); /* Remove skew and rotation on smaller screens */
+    }
+  
+    .step-card .card-body {
+      transform: skew(0); /* Remove counter-skew on smaller screens */
+    }
+  
+    .carousel-control-prev {
+      left: 10px;
+    }
+  
+    .carousel-control-next {
+      right: 10px;
+    }
+  }
+  
