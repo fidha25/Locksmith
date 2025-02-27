@@ -1,0 +1,12 @@
+p {
+  font-size: 1.05rem; /* Correct syntax */
+}
+b{
+ 
+    font-weight: 500 !important; /* Medium boldness */
+  
+  
+}
+strong{
+  font-weight: 500 !important;
+}

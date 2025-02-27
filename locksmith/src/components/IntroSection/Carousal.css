@@ -1,0 +1,57 @@
+.carousel-item img {
+    height: 738px;
+    width: 100%;
+    
+  }
+  
+  .container_fluid {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Covering the full width */
+    height: 100%;
+    background-color: rgba(240, 240, 240, 0.2); /* Semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .overlay-content {
+    max-width: 80%; /* Adjust as needed */
+    text-align: center;
+  }
+  
+  
+  .carousel-indicators button {
+    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent indicators */
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent controls */
+    border-radius: 50%;
+    padding: 10px;
+  }
+  
+  .carousel-caption {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    color: white;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: "Cursive", cursive;
+  }
+  
+  .carousel-caption p {
+    font-size: 1.5rem;
+    font-family: "Cursive", cursive;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

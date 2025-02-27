@@ -1,0 +1,92 @@
+/* .team-section {
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .section-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #3e3e3e;
+    letter-spacing: 1px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+    margin-top: 10px;
+  }
+  
+  .section-text {
+    font-size: 16px;
+    color: #000000;
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+  
+  .team-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  */
+  .team-section {
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .section-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #000; /* Black color */
+    letter-spacing: 1px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000; /* Black color */
+    margin-top: 10px;
+  }
+  
+  .section-text {
+    font-size: 16px;
+    color: #000; /* Black color */
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+  
+  .team-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .location {
+    font-size: 14px;
+    color: #000; /* Black color */
+    margin-bottom: 10px; /* Remove default margin */
+  }
+  
+  .rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0; /* No gap between location and stars */
+  }
+  
+  .star {
+    font-size: 1.2rem;
+    color: white; /* Default star color */
+    -webkit-text-stroke: 2px black; /* Black border */
+    margin: 0 2px; /* Spacing between stars */
+    
+  }
+  
+  .star.filled {
+    color: #ffc107; /* Yellow color for filled stars */
+  }

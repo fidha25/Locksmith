@@ -1,0 +1,51 @@
+/* Background with linear gradient from white to lavender */
+.custom-container {
+    height: 700px;
+    background: linear-gradient(to bottom, #ffffff, rgb(144, 145, 149)); 
+    display: flex;
+}
+
+/* Increased padding for better spacing */
+.content-box {
+    padding: 50px;
+}
+
+/* Image size and margin */
+.sample-img {
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+/* Lavender button */
+.lavender-btn {
+    background-color: rgb(70, 71, 72);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+    max-width: 150px; /* Prevent excessive width */
+
+}
+
+.lavender-btn:hover {
+    background-color: #c6bfcb;
+}
+
+/* Spacing between elements */
+h5 {
+    margin-bottom: 15px;
+}
+
+h1 {
+    margin-bottom: 25px;
+}
+
+p {
+    margin-bottom: 30px;
+}
+
+.lavender-btn {
+    margin-top: 10px;
+}

@@ -1,0 +1,86 @@
+/* Remove bullets from the list */
+.custom-list {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+  }
+  .footer-section {
+    background: rgb(144, 145, 149);
+    margin-top: 0 !important;
+    padding-top: 0;
+}
+
+  /* Add gap between list items */
+  .custom-list li {
+    margin-bottom: 10px;
+  }
+  
+  /* Left-align all text */
+  .footer-column {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Logo and heading in same row */
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Add spacing between headings and list items */
+  .footer-heading {
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  /* Social icons styling */
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .social-icon {
+    font-size: 20px;
+    color: rgb(70, 71, 72);
+    cursor: pointer;
+  }
+  
+  /* Email Input Field */
+  .email-input {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Input field with rounded corners */
+  .rounded-input {
+    border-radius: 25px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    flex: 1;
+  }
+  
+  /* Send icon inside input field */
+  .send-icon {
+    background: rgb(38, 38, 38);
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+  }
+  p{
+    color: black;
+  }
+  li{
+    color: black;
+  }
+  .footer {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+}

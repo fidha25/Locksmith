@@ -1,0 +1,76 @@
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  justify-content: flex-start;
+  scroll-snap-type: x mandatory;
+  overflow-y: hidden; /* Prevents vertical scrolling */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari */
+}
+
+.step-card {
+  min-width: 350px;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  text-align: center;
+  padding: 25px;
+  background: white;
+  transition: transform 0.3s ease-in-out;
+  margin-right: 20px;
+  flex: 0 0 auto;
+  position: relative;
+  overflow: visible; /* Ensure content remains visible */
+  transform: skew(-5deg); 
+  scroll-snap-align: center;
+  color: black;
+}
+
+/* Navigation Buttons */
+.carousel-control-prev,
+.carousel-control-next {
+  color: rgb(70, 71, 71);
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  color: black; /* Changes to black on hover */
+}
+
+/* Remove skew effects on mobile for better readability */
+@media (max-width: 768px) {
+  .carousel-container {
+    justify-content: center;
+  }
+
+  .step-card {
+    min-width: 90%;
+    max-width: 90%;
+    margin-right: 0;
+    transform: none;
+  }
+
+  .step-card::before {
+    transform: none;
+  }
+
+  .step-card .card-body {
+    transform: none;
+  }
+
+  .carousel-control-prev {
+    left: 10px;
+  }
+
+  .carousel-control-next {
+    right: 10px;
+  }
+}
