@@ -12,7 +12,7 @@ const CommercialService = () => {
   return (
     <div className="commercial-service container">
       {/* Section 1: Introduction */}
-      <section className="intro-section text-center">
+      <section className="service-intro-section text-center">
         <h1 className="fw-bold">COMMERCIAL LOCKSMITH SERVICES – BUSINESS SECURITY LOCK SOLUTIONS</h1>
         <h4>The Importance of Commercial Security</h4>
         <p className="lead">

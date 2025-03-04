@@ -12,7 +12,7 @@ const SmartLockService = () => {
   return (
     <div className="smart-lock-service container">
       {/* Section 1: Introduction */}
-      <section className="intro-section text-center">
+      <section className="service-intro-section text-center">
         <h1 className="fw-bold">SMART LOCK SOLUTIONS – BEST SMART LOCK INSTALLATION</h1>
         <h4>Upgrade to Smart Locks</h4>
         <p className="lead">
@@ -23,7 +23,7 @@ const SmartLockService = () => {
         {/* Image Placeholder - Centered and Adjusted Width */}
         <div className="image-container">
   <div className="image-placeholder">
-    <img src="/images/key-duplication.jpg" alt="Automotive" />
+    <img src="/images/smart-lock.jpg" alt="Automotive" />
   </div>
 </div>
 

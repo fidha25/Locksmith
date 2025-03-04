@@ -25,7 +25,7 @@ const ServicePara = () => {
             </div>
 
             <p>
-            At LockQuick, we understand the importance of security. Whether you need a simple lock change or a complete <b>security system upgrade</b>, our team provides <b>professional locksmith services</b> to keep your home, business, and vehicle secure.
+            At LockQuick, we understand the importance of security. Whether you need a simple lock change or a complete security system upgrade, our team provides professional locksmith services to keep your home, business, and vehicle secure.<b> All our locksmiths are certified professionals, manually verified by our team to ensure reliability and expertise</b>. You can trust us to connect you with skilled and trustworthy locksmiths for any service you need.
             </p>
 
             {/* View More Button */}

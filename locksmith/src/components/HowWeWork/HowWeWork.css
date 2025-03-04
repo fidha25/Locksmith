@@ -1,3 +1,10 @@
+/* HowWeWork.css */
+.how-we-work-section {
+  /* background: linear-gradient(180deg, white, darkgrey); */
+  background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\new-grey-bg.png'); /* Add your image path here */
+
+  padding: 100px 0;
+}
 .carousel-container {
   display: flex;
   overflow-x: auto;
@@ -17,19 +24,27 @@
 .step-card {
   min-width: 350px;
   max-width: 400px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Increased shadow effect */
   border-radius: 20px;
   text-align: center;
   padding: 25px;
-  background: white;
+  background: linear-gradient(to right, #d3d3d3, #808080); /* Grey gradient background */
   transition: transform 0.3s ease-in-out;
   margin-right: 20px;
   flex: 0 0 auto;
   position: relative;
   overflow: visible; /* Ensure content remains visible */
-  transform: skew(-5deg); 
+  transform: skew(-5deg);
   scroll-snap-align: center;
   color: black;
+}
+
+.step-card:hover {
+  transform: skew(0) scale(1.05); /* Scale effect on hover */
+}
+
+.step-icon {
+  color: #202020; /* Color for the icons */
 }
 
 /* Navigation Buttons */

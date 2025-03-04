@@ -1,238 +1,85 @@
 import React, { useEffect } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { GiHouseKeys, GiCarKey, GiKeyLock, GiSiren } from 'react-icons/gi';
+import { FaBuildingLock, FaFingerprint } from 'react-icons/fa6';
+import { MdEmergency } from 'react-icons/md';
 import './Services.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const OurServices = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, delay: 200 });
   }, []);
 
-  // const services = [
-  //   { icon: 'fas fa-home', title: 'Residential Services', text: 'Ensure your home’s security with expert <block repairs, rekeying, and installations. We also offer best emergency locksmith services.', link: '#' },
-  //   { icon: 'fas fa-car', title: 'Automotive Services', text: 'Locked out of your vehicle? Our specialists offer fast key replacements and car lockout services.', link: '#' },
-  //   { icon: 'fas fa-building', title: 'Commercial Services', text: 'Secure your business with high-tech security systems and advanced access control solutions.', link: '#' },
-  //   { icon: 'fas fa-lock', title: 'Emergency Services', text: 'Locked out? We provide affordable 24/7 emergency locksmith services with quick response times.', link: '#' },
-  //   { icon: 'fas fa-key', title: 'Key Duplication', text: 'Locked out? We provide affordable 24/7 emergency locksmith services with quick response times.', link: '#' },
-  //   { icon: 'fas fa-shield-alt', title: 'Security Systems', text: 'Upgrade your security with advanced locks, keyless entry, and CCTV installations.', link: '#' },
-  // ];
   const services = [
     { 
-      icon: 'fas fa-home', 
-      title: '<strong>Residential Services</strong>', 
-      text: 'Ensure your home’s security with expert <strong>lock repairs</strong>, <strong>rekeying</strong>, and <strong>installations</strong>. We also offer <strong>best emergency locksmith</strong> services.', 
+      icon: <GiHouseKeys size={60} color="#2c3e50" />, 
+      title: 'Residential Locksmith Services', 
+      text: 'Secure your home with expert lock installations, repairs, rekeying, and smart lock upgrades. Fast and reliable emergency lockout assistance available.', 
       link: '#' 
     },
     { 
-      icon: 'fas fa-car', 
-      title: '<strong>Automotive Services</strong>', 
-      text: 'Locked out of your vehicle? Our specialists offer <strong>fast key replacements and car lockout services.</strong>', 
+      icon: <GiCarKey size={60} color="#2c3e50" />, 
+      title: 'Automotive Locksmith Services', 
+      text: 'Lost your keys or locked out? We provide car lockouts, ignition repairs, and key replacements for all vehicle makes and models.', 
       link: '#' 
     },
     { 
-      icon: 'fas fa-building', 
-      title: '<strong>Commercial Services</strong>', 
-      text: 'Secure your business with high-tech security systems and <strong>advanced access control solutions</strong>.', 
+      icon: <FaBuildingLock size={60} color="#2c3e50" />, 
+      title: 'Commercial Locksmith Services', 
+      text: 'Protect your business with high-security locks, access control systems, and master key solutions for offices, warehouses, and retail spaces.', 
       link: '#' 
     },
     { 
-      icon: 'fas fa-lock', 
-      title: '<strong>Emergency Services</strong>', 
-      text: 'Locked out? We provide <strong>affordable 24/7 emergency locksmith services</strong> with quick response times.', 
+      icon: <GiSiren size={60} color="#2c3e50" />, 
+      title: 'Emergency Locksmith Services', 
+      text: '24/7 emergency locksmith services for home, office, and car lockouts, broken locks, or urgent security needs with fast response times.', 
       link: '#' 
     },
     { 
-      icon: 'fas fa-key', 
-      title: '<strong>Key Duplication</strong>', 
-      text: 'Lost your keys? Our experts can <Strong>replace lost house keys fast</Strong> or duplicate any key type.', 
-      link: '#' 
-    },
-    { 
-      icon: 'fas fa-shield-alt', 
-      title: '<strong>Security Systems</strong>', 
-      text: 'Upgrade your security with <strong>advanced locks</strong>, <strong>keyless entry</strong>, and <strong>CCTV installations</strong>.', 
+      icon: <FaFingerprint size={60} color="#2c3e50" />, 
+      title: 'Smart Lock Solutions', 
+      text: 'Upgrade to smart locks, keyless entry, and biometric security systems for enhanced safety and convenient remote access.', 
       link: '#' 
     },
   ];
 
   return (
-    <Container className="our-services-section">
-      <div className="text-center mb-5">
-        <h2 className='fw-bold'>OUR SERVICES</h2>
-        <h4 className="mt-2"><b>Comprehensive Locksmith Solutions</b></h4>
-        <p>We provide expert locksmith services tailored to your needs:</p>
+    <Container className="our-services-section text-center">
+      <div className="mb-5">
+        <h2 className='fw-bold service-heading'>OUR SERVICES</h2>
+        <h4 className="mt-2"><b>Trusted Locksmith Solutions for Homes, Businesses & Vehicles</b></h4>
+        <p className='text-black'>
+          Security is our top priority. We provide expert locksmith services tailored to meet your needs—whether it’s securing your home, protecting your business, or assisting with automotive lock issues. Our skilled locksmiths ensure fast, reliable, and affordable solutions.
+        </p>
       </div>
       <Row className="justify-content-center">
         {services.map((service, index) => (
           <Col xs={12} sm={6} md={6} lg={4} className="mb-4 d-flex justify-content-center" key={index}>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Card className="service-card service-demo" data-aos="fade-up" data-aos-delay={index * 200}>
+              <Card className="service-card service-demo shadow-lg" data-aos="fade-up" data-aos-delay={index * 200}>
                 <div className="icon-container">
-                  <motion.i 
-                    className={`${service.icon} service-icon`}
-                    whileHover={{ scale: 1.2, rotate: 90 }}
-                    whileTap={{ scale: 0.8, rotate: -90, borderRadius: "100%" }}
-                  ></motion.i>
+                  <motion.div whileHover={{ scale: 1.2, rotate: 10 }} whileTap={{ scale: 0.8, rotate: -10 }}>
+                    {service.icon}
+                  </motion.div>
                 </div>
                 <Card.Body className="text-center d-flex flex-column">
-                  {/* <Card.Title >{service.title}</Card.Title> */}
-                  {/* <Card.Text className="flex-grow-1">{service.text}</Card.Text> */}
-                  <Card.Title className="flex-grow-1" dangerouslySetInnerHTML={{ __html: service.title }}></Card.Title>
-
-                  <Card.Text className="flex-grow-1" dangerouslySetInnerHTML={{ __html: service.text }}></Card.Text>
-
-                  <a href={service.link} className="learn-more-link mt-auto">
-                    Learn More <i className="fas fa-arrow-right"></i>
-                  </a>
+                  <Card.Title className="flex-grow-1">{service.title}</Card.Title>
+                  <Card.Text className="flex-grow-1 text-black">{service.text}</Card.Text>
                 </Card.Body>
               </Card>
             </motion.div>
           </Col>
         ))}
       </Row>
+      <div className="text-center mt-4">
+        <Button variant="dark" href="#" className="view-more-btn shadow">View More</Button>
+      </div>
     </Container>
   );
 };
 
 export default OurServices;
-
-
-
-
-
-// import React, { useEffect, useState } from 'react';
-// import { Container, Row, Col, Card, Spinner } from 'react-bootstrap';
-// import './Services.css'; // Import the CSS file for styling
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import '@fortawesome/fontawesome-free/css/all.min.css';
-// import axios from 'axios';
-
-// const OurServices = () => {
-//   const [services, setServices] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     const fetchServices = async () => {
-//       try {
-//         const response = await axios.get('http://192.168.1.8:8000/api/services/');
-//         setServices(response.data);
-//       } catch (error) {
-//         setError('Failed to fetch services. Please try again later.');
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchServices();
-//   }, []);
-
-//   return (
-//     <Container className="our-services-section">
-//       <div className="text-center mb-5">
-//         <h5>Our Services</h5>
-//         <h1 className="mt-2">Comprehensive Locksmith Solutions</h1>
-//       </div>
-//       {loading ? (
-//         <div className="text-center">
-//           <Spinner animation="border" variant="primary" />
-//         </div>
-//       ) : error ? (
-//         <div className="text-center text-danger">{error}</div>
-//       ) : (
-//         <Row className="justify-content-center">
-//           {services.map((service, index) => (
-//             <Col xs={12} sm={6} md={4} className="mb-4 d-flex justify-content-center" key={index}>
-//               <Card className="service-card">
-//                 <div className="icon-container">
-//                   <i className="fas fa-tools service-icon"></i>
-//                 </div>
-//                 <Card.Body className="text-center">
-//                   <Card.Title>{service.service_type}</Card.Title>
-//                   <Card.Text>Price: ${service.price || 'N/A'}</Card.Text>
-//                   <Card.Text>{service.description || 'Quality locksmith services available'}</Card.Text>
-//                   <a href="#" className="learn-more-link">
-//                     Learn More <i className="fas fa-arrow-right"></i>
-//                   </a>
-//                 </Card.Body>
-//               </Card>
-//             </Col>
-//           ))}
-//         </Row>
-//       )}
-//     </Container>
-//   );
-// };
-
-// export default OurServices;
-
-// import React, { useEffect, useState } from 'react';
-// import { Container, Row, Col, Card, Spinner } from 'react-bootstrap';
-// import './Services.css'; // Import the CSS file for styling
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import '@fortawesome/fontawesome-free/css/all.min.css';
-// import axios from 'axios';
-
-// const OurServices = () => {
-//   const [services, setServices] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     const fetchServices = async () => {
-//       try {
-//         const response = await axios.get('http://192.168.1.8:8000/api/services/');
-//         setServices(response.data);
-//       } catch (error) {
-//         console.error('Error fetching services:', error);
-//         setError('Failed to fetch services. Please try again later.');
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchServices();
-//   }, []);
-
-//   return (
-//     <Container className="our-services-section">
-//       <div className="text-center mb-5">
-//         <h5>Our Services</h5>
-//         <h1 className="mt-2">Comprehensive Locksmith Solutions</h1>
-//       </div>
-//       {loading ? (
-//         <div className="text-center">
-//           <Spinner animation="border" variant="primary" />
-//         </div>
-//       ) : error ? (
-//         <div className="text-center text-danger">{error}</div>
-//       ) : (
-//         <Row className="justify-content-center">
-//           {services.map((service, index) => (
-//             <Col xs={12} sm={6} md={4} className="mb-4 d-flex justify-content-center" key={index}>
-//               <Card className="service-card">
-//                 <div className="icon-container">
-//                   <i className="fas fa-tools service-icon"></i>
-//                 </div>
-//                 <Card.Body className="text-center">
-//                   <Card.Title>{service.service_type}</Card.Title>
-//                   <Card.Text>Price: ${service.price || 'N/A'}</Card.Text>
-//                   <Card.Text>{service.description || 'Quality locksmith services available'}</Card.Text>
-//                   <a href="#" className="learn-more-link">
-//                     Learn More <i className="fas fa-arrow-right"></i>
-//                   </a>
-//                 </Card.Body>
-//               </Card>
-//             </Col>
-//           ))}
-//         </Row>
-//       )}
-//     </Container>
-//   );
-// };
-
-// export default OurServices;

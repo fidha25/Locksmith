@@ -1,26 +1,29 @@
-.why-choose-us {
-  /* background-color: #ffffff;  */
-  
+.vision {
   padding: 50px 0;
 }
 
-.text-content {
-  color: #000;
+.text-content, .image-content {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+/* Styling for Buttons */
 .services-btn {
-  background-color: rgb(70, 71, 72) !important; /* Changed from yellow */
+  background-color: rgb(70, 71, 72) !important;
   color: white;
   border: none;
   padding: 10px 20px;
   font-weight: bold;
   margin-top: 20px;
-  max-width: 150px; /* Prevent excessive width */
-
+  max-width: 150px;
+  
 }
 
+/* Contact Box */
 .contact-box {
-  background: rgb(66, 66, 67); /* Changed from yellow */
+  background: rgb(66, 66, 67);
   padding: 15px;
   margin-top: 20px;
   text-align: center;
@@ -29,7 +32,7 @@
 
 /* Transparent Grey Box */
 .transparent-box {
-  background: rgba(128, 128, 128, 0.2); 
+  background: rgba(128, 128, 128, 0.2);
   padding: 15px;
   border-radius: 8px;
   text-align: center;
@@ -45,16 +48,17 @@
 /* Icon Styling */
 .icon {
   font-size: 30px;
-  color: rgb(70, 71, 72); /* Changed all icon colors to grey */
-  margin-bottom: 10px;
-}
-.call-icon{
-  font-size: 30px;
-  color: rgb(0, 0, 0); /* Changed all icon colors to grey */
+  color: rgb(70, 71, 72);
   margin-bottom: 10px;
 }
 
-/* Phone icon inside the contact box */
+.call-icon {
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+}
+
+/* Phone Icon */
 .phone-icon {
   display: flex;
   align-items: center;
@@ -62,6 +66,12 @@
   gap: 8px;
   font-size: 18px;
   font-weight: bold;
+}
+
+/* Image Styling */
+.locksmith-img {
+  max-height: 100%;
+  object-fit: cover;
 }
 
 /* Responsive Styles */
@@ -73,16 +83,16 @@
   .transparent-box {
     margin-bottom: 15px;
     height: 500px;
-
   }
 }
+
 @media (max-width: 500px) {
   .transparent-box {
     margin-bottom: 15px;
     height: 250px;
-
   }
 }
-p{
+
+p {
   font-size: 1.05rem;
 }

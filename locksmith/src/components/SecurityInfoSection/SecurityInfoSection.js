@@ -10,7 +10,7 @@ const SecurityInfoSection = () => {
           {/* Left Side - Image Section */}
           <Col lg={6} className="text-center text-lg-start">
             <img
-              src="images/abt1.png"
+              src="/images/Untitled design (1).png"
               alt="Locksmith Work"
               className="img-fluid main-image"
             />
@@ -26,10 +26,10 @@ const SecurityInfoSection = () => {
             {/* Welcome to LockQuick – Your Trusted Locksmith Experts Across Australia */}
             WELCOME TO LOCKQUICK – YOUR TRUSTED LOCKSMITH EXPERTS ACROSS AUSTRALIA
             </h1>
-            <p className="description">
+            <p className="description text-dark">
             For over 15 years, <b>LockQuick</b> has been a leading provider of <b>professional locksmith services</b> in <b>Brisbane, Canberra, Sydney, Melbourne, Adelaide, and Perth</b>. Our expert team is dedicated to ensuring the safety and security of homes, businesses, and vehicles with <b>fast, reliable, and affordable locksmith solutions</b>.
             </p>
-            <p>We understand that security is more than just locks and keys—it’s about <b>trust and peace of mind</b>. Whether you need a quick lock repair, emergency lockout assistance, or advanced security installations, <b>our mobile locksmiths are available 24/7 to help</b>.</p>
+            <p className="text-dark">We understand that security is more than just locks and keys—it’s about <b>trust and peace of mind</b>. Whether you need a quick lock repair, emergency lockout assistance, or advanced security installations, <b>our mobile locksmiths are available 24/7 to help</b>.</p>
 
             <Row>
               
@@ -50,7 +50,7 @@ const SecurityInfoSection = () => {
 
             {/* Testimonial Section */}
             <div className="testimonial p-3 mt-3">
-              <p className="quote">
+              <p className="quote text-dark">
                 <i>
                   "At LockQuick, your safety is our priority. We provide expert locksmith services tailored to your needs."
                 </i>

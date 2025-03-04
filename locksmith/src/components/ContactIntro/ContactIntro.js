@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap
 const ContactIntro = () => {
   return (
     <div
-      className="about-section d-flex align-items-center"
+      className="about-section d-flex align-items-center position-relative"
       style={{
         minHeight: "525px",
         display: "flex",
@@ -13,7 +13,15 @@ const ContactIntro = () => {
         background: "url('/images/contactus.jpg') no-repeat center center/cover",
       }}
     >
-      <div className="container">
+      {/* Black Transparent Overlay */}
+      <div
+        className="overlay position-absolute top-0 start-0 w-100 h-100"
+        style={{
+          background: "rgba(0, 0, 0, 0.5)", // Black with 50% transparency
+        }}
+      ></div>
+
+      <div className="container position-relative">
         <div className="row justify-content-center">
           <div className="col-md-8 text-center fade-in">
             <h1 className="text-light fw-bold">Contact Us</h1>

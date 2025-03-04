@@ -13,7 +13,7 @@ const EmergencyService = () => {
   return (
     <div className="emergency-service container">
       {/* Section 1: Introduction */}
-      <section className="intro-section text-center">
+      <section className="service-intro-section text-center">
         <h1 className="fw-bold">EMERGENCY LOCKSMITH SERVICES – 24 HOUR EMERGENCY LOCKSMITH </h1>
         <h4>Fast & Reliable Emergency Locksmith Services</h4>
         <p className="lead">

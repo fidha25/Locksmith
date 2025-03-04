@@ -81,14 +81,14 @@ const CardSection = () => {
     <Container >
       <div className="text-center mb-4">
         {/* <h2 className="mt-2 fw-bold">What We Do – Specialized Locksmith Services</h2> */}
-        <h2 className="mt-2 fw-bold">WHAT WE DO – SPECIALIZED LOCKSMITH SERVICES</h2>
+        <h2 className="mt-2 fw-bold text-light">WHAT WE DO – SPECIALIZED LOCKSMITH SERVICES</h2>
 
-        <h4 className='mt-3 mb-5 fw-bold'>Reliable & Efficient Locksmith Solutions</h4>
+        <h4 className='mt-3 mb-5 fw-bold text-light'>Reliable & Efficient Locksmith Solutions</h4>
       </div>
       <Row className="justify-content-center">
         {/* Card 1 */}
         <Col xs={12} sm={6} md={4} className="mb-4 d-flex justify-content-center">
-          <Card className="card-item" data-aos="flip-left">
+          <Card className="card-item bg-light"  data-aos="flip-left">
             <div className="card-icon">
               <FontAwesomeIcon icon={faUserShield} size="3x" />
             </div>
@@ -103,7 +103,7 @@ const CardSection = () => {
 
         {/* Card 2 */}
         <Col xs={12} sm={6} md={4} className="mb-4 d-flex justify-content-center">
-          <Card className="card-item" data-aos="flip-up">
+          <Card className="card-item bg-light"data-aos="flip-up">
             <div className="card-icon">
               <FontAwesomeIcon icon={faIdCard} size="3x" />
             </div>
@@ -118,7 +118,7 @@ const CardSection = () => {
 
         {/* Card 3 */}
         <Col xs={12} sm={6} md={4} className="mb-4 d-flex justify-content-center">
-          <Card className="card-item" data-aos="flip-right">
+          <Card className="card-item bg-light"  data-aos="flip-right">
             <div className="card-icon">
               <FontAwesomeIcon icon={faClock} size="3x" />
             </div>

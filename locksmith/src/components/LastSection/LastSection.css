@@ -1,13 +1,35 @@
-/* Background with linear gradient from white to lavender */
+/* Background image with dark overlay */
 .custom-container {
     height: 700px;
-    background: linear-gradient(to bottom, #ffffff, rgb(144, 145, 149)); 
+    background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\key-bg (1).png'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Increased padding for better spacing */
+/* Dark overlay */
+.custom-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    z-index: 1;
+}
+
+/* Content box styling */
 .content-box {
     padding: 50px;
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    border-radius: 10px;
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+    text-align: center;
 }
 
 /* Image size and margin */
@@ -18,19 +40,18 @@
 
 /* Lavender button */
 .lavender-btn {
-    background-color: rgb(70, 71, 72);
-    color: white;
+    background-color: #c6bfcb;
+    color: rgb(0, 0, 0);
     border: none;
     padding: 12px 24px;
     font-weight: bold;
     border-radius: 5px;
     transition: 0.3s;
     max-width: 150px; /* Prevent excessive width */
-
 }
 
 .lavender-btn:hover {
-    background-color: #c6bfcb;
+    background-color: rgb(70, 71, 72);
 }
 
 /* Spacing between elements */

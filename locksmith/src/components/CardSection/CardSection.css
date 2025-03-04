@@ -1,23 +1,31 @@
-.card-section {
+/* .card-section {
     padding: 50px 15px;
     background: #fff;
-}
+} */
+.card-section {
+    position: relative;
+    background: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\dark-grey-bg.png') no-repeat center center/cover;
+    padding: 100px 0; /* Adjust padding as needed */
+    overflow: hidden;
+  }
+  
 
 .card-item {
     border: none !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     width: 100%; /* Make sure the card takes full width */
     max-width: 350px; /* Set a max width */
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.6);
+
     background-color: rgb(235, 232, 232); /* Default background color */
-    border-radius: 10px; /* Rounded corners */
     overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
     min-height: 230px;
 }
 
 .card-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background-color: #d8d8d8; /* Lavender background on hover */
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    background-color: #c9c8c8; /* Lavender background on hover */
 }
 
 .card-icon {

@@ -54,6 +54,7 @@ import Residential from './components/DetailedServices/Services/Residential';
 import Commercial from './components/DetailedServices/Services/Commercial';
 import Emergency from './components/DetailedServices/Services/Emergency';
 import SmartLock from './components/DetailedServices/Services/SmartLock';
+import Careers from './Pages/Careers';
 
 
 function App() {
@@ -65,6 +66,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/careers" element={<Careers />} />
+
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/signup" element={<Signup />} /> {/* Route for the Login component */}
         <Route path="/usersignup" element={<UserSignup />} />

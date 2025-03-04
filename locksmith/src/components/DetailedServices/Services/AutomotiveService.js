@@ -12,7 +12,7 @@ const AutomotiveService = () => {
   return (
     <div className="automotive-service container">
       {/* Section 1: Introduction */}
-      <section className="intro-section text-center">
+      <section className="service-intro-section text-center">
         <h1 className="fw-bold">AUTOMOTIVE LOCKSMITH SERVICES – CAR KEY REPLACEMENT NEAR ME</h1>
         <p className="lead">
           Losing your car keys or dealing with a faulty ignition can be frustrating.

@@ -1,55 +1,8 @@
-/* .custom-navbar-bg {
-  background-color: rgb(144, 145, 149);
-} */
 
-/* .navbar-nav .nav-link.active {
-  color: #a11fc5 !important; 
-  font-weight: bold;
-}
-
-.navbar-nav .nav-item {
-  margin-right: 1.5rem; 
-}
-
-.login-btn {
-  background: rgb(80, 80, 81);
-  border: none;
-  color: white;
-} */
-
-
-
-
-/* .action-btn, .dropdown-toggle.action-btn {
-  background: rgb(80, 80, 81) !important;
-  border: none !important;
-  color: white !important;
-  height: 36px;
-  padding: 6px 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 14px;
-  margin-left: 0 !important;
-}
-
-.action-btn:hover, .dropdown-toggle.action-btn:hover {
-  background: rgb(60, 60, 61) !important;
-}
-@media (min-width: 992px) { 
-  .custom-nav {
-    margin-right: auto;
-  }
-
-  .ms-lg-auto {
-    gap: 10px; 
-  }
-} */
 .action-btn, .dropdown-toggle.action-btn {
-  background: rgb(80, 80, 81) !important;
+  background: #959595 !important;
   border: none !important;
-  color: white !important;
+  color: rgb(255, 255, 255) !important;
   height: 36px;
   padding: 6px 12px;
   display: flex;
@@ -65,16 +18,16 @@
 }
 
 .custom-navbar-bg {
-  padding: 4px 0 !important; /* Reduced padding to minimize height */
+  padding: 4px 0 !important; 
 }
 
 .custom-nav {
-  margin-left: auto !important;  /* Push items further right */
+  margin-left: auto !important; 
 }
 
 @media (min-width: 992px) { 
   .custom-nav {
-    margin-right: 20px; /* Further shifting items to the right */
+    margin-right: 20px; 
   }
 
   .ms-lg-auto {
@@ -87,56 +40,65 @@
   width: auto; 
 }
 
-.custom-navbar-bg {
+/* .custom-navbar-bg {
   background-color: rgb(124, 125, 126);
+  height: 90px; 
+} */
+.custom-navbar-bg {
+  background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\dark-grey-bg.png'); /* Path to your image */
+  background-size: cover; /* Ensures the image covers the entire navbar */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  padding: 4px 0 !important; /* Reduced padding to minimize height */
   height: 90px; /* Default height for larger screens */
 }
 
-/* Additional styles to reduce navbar height */
 .navbar {
-  min-height: 60px; /* Adjust this value to reduce the overall height of the navbar */
+  min-height: 60px; 
 }
 
 .navbar-brand {
-  padding: 0 !important; /* Remove padding around the logo */
+  padding: 0 !important;
 }
 
 .navbar-nav .nav-link {
-  padding: 0.5rem 1rem !important; /* Reduce padding for nav links */
+  padding: 0.5rem 1rem !important; 
 }
 
 .navbar-toggler {
-  padding: 0.25rem 0.5rem !important; /* Reduce padding for the toggle button */
+  padding: 0.25rem 0.5rem !important; 
 }
 
-/* Increase navbar height on small and medium devices */
 @media (max-width: 991.98px) {
   .custom-navbar-bg {
-    height: 150px; /* Increased height for small and medium devices */
+    height: 150px; 
   }
 }
 
-/* Overlay effect for navbar collapse on small devices */
 @media (max-width: 991.98px) {
   .navbar-collapse-overlay {
     position: absolute;
-    top: 100%; /* Position below the navbar */
+    top: 100%; 
     left: 0;
     right: 0;
-    background-color: rgb(124, 125, 126); /* Match navbar background */
-    z-index: 1000; /* Ensure it overlays other content */
+    background-color: rgb(124, 125, 126); 
+    z-index: 1000; 
     padding: 1rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Optional: Add a border */
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .navbar-collapse-overlay .nav-link {
-    padding: 0.5rem 0 !important; /* Adjust padding for overlay links */
+    padding: 0.5rem 0 !important;
   }
 }
 .navbar-toggler {
-  padding: 2px 6px !important; /* Reduce padding */
-  font-size: 14px; /* Reduce icon size */
-  width: auto; /* Adjust width */
-  height: auto; /* Adjust height */
-  border: none; /* Remove border if not needed */
+  padding: 2px 6px !important; 
+  font-size: 14px; 
+  width: auto; 
+  height: auto;
+  border: none; 
+}
+.navbar-nav .nav-link.active {
+  color: rgb(240, 178, 131) !important;
+  font-weight: bold;
 }
