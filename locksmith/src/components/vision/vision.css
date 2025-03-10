@@ -2,14 +2,13 @@
   padding: 50px 0;
 }
 
-.text-content, .image-content {
+.vision-text-content, .image-content {
   min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* Styling for Buttons */
 .services-btn {
   background-color: rgb(70, 71, 72) !important;
   color: white;
@@ -21,16 +20,15 @@
   
 }
 
-/* Contact Box */
-.contact-box {
+.vision-contact-box {
   background: rgb(66, 66, 67);
+  
   padding: 15px;
   margin-top: 20px;
   text-align: center;
   color: rgb(0, 0, 0);
 }
 
-/* Transparent Grey Box */
 .transparent-box {
   background: rgba(128, 128, 128, 0.2);
   padding: 15px;
@@ -40,12 +38,10 @@
   height: 285px;
 }
 
-/* Darken the grey box on hover */
 .transparent-box:hover {
   background: rgba(91, 90, 90, 0.4);
 }
 
-/* Icon Styling */
 .icon {
   font-size: 30px;
   color: rgb(70, 71, 72);
@@ -58,7 +54,6 @@
   margin-bottom: 10px;
 }
 
-/* Phone Icon */
 .phone-icon {
   display: flex;
   align-items: center;
@@ -68,13 +63,11 @@
   font-weight: bold;
 }
 
-/* Image Styling */
 .locksmith-img {
   max-height: 100%;
   object-fit: cover;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
   .text-content {
     text-align: center;

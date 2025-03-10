@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { BsBullseye, BsCheckCircle } from "react-icons/bs"; // Vision & Mission Icons
+import { FaEye } from "react-icons/fa"; // Vision Icon
+import { GiAchievement } from "react-icons/gi"; // Mission Icon
 import { FiPhoneCall } from "react-icons/fi"; // Call Icon
 import "./vision.css"; // Ensure the CSS file is updated
 
@@ -10,10 +11,10 @@ const WhyChooseUs = () => {
       <Container>
         <Row className="align-items-center h-100">
           {/* Left Side - Text Content */}
-          <Col md={6} className="text-content d-flex flex-column justify-content-center">
+          <Col md={6} className="vision-text-content d-flex flex-column justify-content-center">
             <h2 className="fw-bold">WHY CHOOSE LOCKQUICK?</h2>
             <h4>Your Security, Our Expertise</h4>
-            <p className="text-dark">
+            <p className="text-black">
               Finding a <b>trusted locksmith in Brisbane, Canberra, Sydney, Melbourne, Adelaide, or Perth</b> 
               can be challenging, but with <b>LockQuick</b>, you get the best service wherever you are.
             </p>
@@ -22,9 +23,9 @@ const WhyChooseUs = () => {
               <Col md={6}>
                 <div className="icon-box">
                   <div className="transparent-box">
-                    <BsBullseye className="icon" />
+                    <FaEye className="icon" />
                     <h5 className="fw-bold">Our Vision</h5>
-                    <p className="text-dark">
+                    <p className="text-black">
                       To be the most <b>trusted locksmith service provider across Australia</b>, delivering 
                       top-tier security solutions with integrity and professionalism.
                     </p>
@@ -34,9 +35,9 @@ const WhyChooseUs = () => {
               <Col md={6}>
                 <div className="icon-box">
                   <div className="transparent-box">
-                    <BsCheckCircle className="icon" />
+                    <GiAchievement className="icon" />
                     <h5 className="fw-bold">Our Mission</h5>
-                    <p className="text-dark">
+                    <p className="text-black">
                       To provide <b>fast, efficient, and affordable locksmith solutions</b>, integrating the latest 
                       security technologies for <b>homes, businesses, and vehicles</b>.
                     </p>
@@ -51,7 +52,7 @@ const WhyChooseUs = () => {
           {/* Right Side - Image */}
           <Col md={6} className="image-content d-flex flex-column justify-content-center">
             <img src="/images/worker-client.jpg" alt="Locksmith at work" className="img-fluid locksmith-img" />
-            <div className="contact-box">
+            <div className="vision-contact-box">
               <p><i>Locked out or need urgent security assistance? Call our experts now!</i></p>
               <p className="phone-icon">
                 <FiPhoneCall className="call-icon" /> (+62) 81 487 1843

@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import api from '../../api/api';
+
 import './Signup.css';
 
 export default function UserSignup() {
@@ -41,7 +43,7 @@ export default function UserSignup() {
     }
 
     try {
-      const response = await axios.post('http://192.168.1.7:8000/register/user/', formData);
+      const response = await api.post('/register/user/', formData);
       const { access, refresh, user } = response.data;
       localStorage.setItem('accessToken', access);
       localStorage.setItem('refreshToken', refresh);
@@ -107,7 +109,7 @@ export default function UserSignup() {
             </div>
             <button type="submit" className="btn btn-dark w-100" disabled={!agreeTerms}>Register</button>
             <div className="text-center mt-3">
-              <p>Already have an account? <Link to="/login?role=customer">Login</Link></p>
+              <p className='text-black'>Already have an account? <Link to="/login?role=customer">Login</Link></p>
             </div>
           </form>
         </div>

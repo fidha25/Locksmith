@@ -154,7 +154,7 @@ const CreateService = () => {
           return;
         }
 
-        const response = await axios.get("http://192.168.1.7:8000/api/admin/services/available_services/", {
+        const response = await axios.get("http://192.168.1.8:8000/api/admin/services/available_services/", {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
 

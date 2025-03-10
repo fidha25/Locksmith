@@ -120,7 +120,7 @@ const Alogin = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://192.168.1.7:8000/login/", formData);
+      const response = await axios.post("http://192.168.1.8:8000/login/", formData);
       
       if (response.status === 200) {
         const { access, refresh, role, username } = response.data;

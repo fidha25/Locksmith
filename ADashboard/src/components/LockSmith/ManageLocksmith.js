@@ -179,7 +179,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ManageLocksmith.css";
 
-const API_URL = "http://192.168.1.7:8000/api/locksmiths/";
+const API_URL = "http://192.168.1.8:8000/api/locksmiths/";
 
 const ManageLocksmith = () => {
   const [locksmiths, setLocksmiths] = useState([]);
@@ -213,7 +213,7 @@ const ManageLocksmith = () => {
     }
 
     try {
-      await axios.put(`http://192.168.1.7:8000/api/locksmiths/${id}/verify_locksmith/`, {}, {
+      await axios.put(`http://192.168.1.8:8000/api/locksmiths/${id}/verify_locksmith/`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -236,7 +236,7 @@ const ManageLocksmith = () => {
     }
 
     try {
-      await axios.put(`http://192.168.1.7:8000/api/locksmiths/${id}/reject_locksmith/`, {}, {
+      await axios.put(`http://192.168.1.8:8000/api/locksmiths/${id}/reject_locksmith/`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

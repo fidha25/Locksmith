@@ -122,6 +122,8 @@ const DashboardHome = () => <div>Welcome to Admin Dashboard</div>;
 
 const menuItems = [
   { name: "Dashboard", icon: Home, component: <DashboardHome /> },
+  { name: "My Profile", icon: Home, component: <DashboardHome /> },
+
   {
     name: "Manage Service",
     icon: Wrench,

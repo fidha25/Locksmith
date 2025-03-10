@@ -101,22 +101,22 @@
 // // //     </div>
 // // //   );
 // // // }
-export default function GradientBackground() {
-  return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        background: "linear-gradient(to bottom, rgb(144, 145, 149) 0%, rgb(144, 145, 149) 20%, #fff 40%, #fff 60%, rgb(144, 145, 149) 80%, rgb(144, 145, 149) 100%)", // Adjusted gradient
-        overflow: "hidden",
-        zIndex: -1,
-      }}
-    />
-  );
-}
+// export default function GradientBackground() {
+//   return (
+//     <div
+//       style={{
+//         position: "fixed",
+//         top: 0,
+//         left: 0,
+//         width: "100vw",
+//         height: "100vh",
+//         background: "linear-gradient(to bottom, rgb(144, 145, 149) 0%, rgb(144, 145, 149) 20%, #fff 40%, #fff 60%, rgb(144, 145, 149) 80%, rgb(144, 145, 149) 100%)", // Adjusted gradient
+//         overflow: "hidden",
+//         zIndex: -1,
+//       }}
+//     />
+//   );
+// }
 // export default function GradientBackground() {
 //   return (
 //     <div

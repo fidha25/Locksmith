@@ -55,6 +55,9 @@ import Commercial from './components/DetailedServices/Services/Commercial';
 import Emergency from './components/DetailedServices/Services/Emergency';
 import SmartLock from './components/DetailedServices/Services/SmartLock';
 import Careers from './Pages/Careers';
+import CreateStripeAccount from './components/CreateStripeAccount/CreateStripeAccount';
+import StripeOnboarding from './components/StripeOnboarding/StripeOnboarding';
+
 
 
 function App() {
@@ -75,7 +78,10 @@ function App() {
         <Route path="/locksmith" element={<LockSmithForm />} />
         <Route path="/create-service" element={<CreateService/>} />
         <Route path="/waiting-for-approval" element={<WaitingForApproval />} />
+        <Route path="/create-stripe" element={<CreateStripeAccount />} />
+        <Route path="/stripe-onboard" element={<StripeOnboarding />} />
         <Route path="/lock-dashboard" element={<LockDashboard />} />
+
 
         <Route path="/residential-service" element={<ResidentialService />} />
         <Route path="/automotive-service" element={<AutomotiveService />} />

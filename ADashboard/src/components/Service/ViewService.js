@@ -18,7 +18,7 @@ const ViewServices = () => {
     }
 
     axios
-      .get("http://192.168.1.7:8000/api/admin/services/", {
+      .get("http://192.168.1.8:8000/api/admin/services/", {
         headers: {
           Authorization: `Bearer ${accessToken}`, // Include token in header
         },

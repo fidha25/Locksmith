@@ -7,11 +7,17 @@ import ManageService from "../Services copy/ManageService";
 import ServiceRequest from "../Services copy/ServiceRequest";
 import CreateService from "../Services copy/CreateServices/CreateServices";
 import MyServices from "../Services copy/MyServices/MyServices";
+import CreateStripeAccount from "../CreateStripeAccount/CreateStripeAccount"; 
+import LocksmithAvailability from "../Services copy/LocksmithAvailability/LocksmithAvailability";
+import MyProfile from "../Services copy/MyProfile/MyProfile";
+import StripeOnboarding from "../StripeOnboarding/StripeOnboarding";
 
 const DashboardHome = () => <div>Welcome to Locksmith Dashboard</div>;
 
 const menuItems = [
   { name: "Dashboard", icon: Home, component: <DashboardHome /> },
+  { name: "My Profile", icon: Home, component: <MyProfile/> },
+
   {
     name: "Manage Service",
     icon: Wrench,
@@ -22,6 +28,12 @@ const menuItems = [
       { name: "My Services", icon: Wrench, component: <MyServices /> },],  
 
   },
+  { name: "Stripe", icon: Home, component: <CreateStripeAccount /> },
+  { name: "Availability", icon: Home, component: <LocksmithAvailability /> },
+  { name: "Onboard", icon: Home, component: <StripeOnboarding /> },
+
+
+
   
   
 

@@ -173,7 +173,7 @@ const ApproveService = () => {
         }
 
         const response = await axios.get(
-          "http://192.168.1.7:8000/api/admin/services/all_locksmith_services/",
+          "http://192.168.1.8:8000/api/admin/services/all_locksmith_services/",
           {
             headers: { Authorization: `Bearer ${accessToken}` },
           }
@@ -198,7 +198,7 @@ const ApproveService = () => {
         return;
       }
 
-      const apiUrl = `http://192.168.1.7:8000/api/admin/service-approval/${id}/${action}/`;
+      const apiUrl = `http://192.168.1.8:8000/api/admin/service-approval/${id}/${action}/`;
       await axios.post(
         apiUrl,
         {},

@@ -16,10 +16,10 @@ const EmergencyService = () => {
       <section className="service-intro-section text-center">
         <h1 className="fw-bold">EMERGENCY LOCKSMITH SERVICES – 24 HOUR EMERGENCY LOCKSMITH </h1>
         <h4>Fast & Reliable Emergency Locksmith Services</h4>
-        <p className="lead">
-          Locked out at midnight? Lost your keys while traveling? 
-          Our 24-hour emergency locksmith services ensure quick, reliable access 
-          to your home, business, or vehicle.
+        <p className="lead text-black">
+          Locked out <b>at midnight? Lost your keys while traveling? </b>
+          Our <b>24-hour emergency locksmith services</b> ensure <b>quick, reliable access 
+          to your home, business, or vehicle</b>.
         </p>
 
         {/* Image Placeholder - Centered and Adjusted Width */}
@@ -43,7 +43,7 @@ const EmergencyService = () => {
             <div className="service-box">
               <h4>1. Home & Car Lockouts</h4>
               <ul>
-                <li> Gain access to homes, apartments, offices, and vehicles</li>
+                <li> Gain access to <b>homes, apartments, offices, and vehicles</b></li>
               </ul>
             </div>
           </div>
@@ -53,8 +53,8 @@ const EmergencyService = () => {
             <div className="service-box">
               <h4>2. Emergency Lock Repairs</h4>
               <ul>
-                <li> Fix broken locks after break-ins</li>
-                <li> Secure damaged doors & windows</li>
+                <li> Fix <b>broken locks after break-ins</b></li>
+                <li> Secure <b>damaged doors & windows</b></li>
               </ul>
             </div>
           </div>
@@ -64,8 +64,8 @@ const EmergencyService = () => {
             <div className="service-box">
               <h4>3. Urgent Key Cutting & Replacements</h4>
               <ul>
-                <li> Get spare keys on-site</li>
-                <li> Replace stolen keys immediately</li>
+                <li> Get <b>spare keys on-site</b></li>
+                <li> Replace <b>stolen keys immediately</b></li>
               </ul>
             </div>
           </div>

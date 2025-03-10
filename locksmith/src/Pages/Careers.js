@@ -4,6 +4,7 @@ import CareersIntroPara from '../components/CareersIntroPara/CareersIntroPara'
 import WhyLocksmithCareers from '../components/WhyLocksmithCareers/WhyLocksmithCareers'
 import LocksmithSteps from '../components/LocksmithSteps/LocksmithSteps'
 import LockRequirements from '../components/LockRequirements/LockRequirements'
+import LocksmithNetwork from '../components/LocksmithNetwork/LocksmithNetwork'
 
 
 export default function Careers() {
@@ -13,6 +14,7 @@ export default function Careers() {
     <WhyLocksmithCareers/>
     <LocksmithSteps/>
     <LockRequirements/>
+    <LocksmithNetwork/>
     </div>
   )
 }

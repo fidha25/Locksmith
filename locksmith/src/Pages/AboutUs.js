@@ -12,7 +12,7 @@ export default function AboutUs() {
         <AboutIntro/>
         <SecurityInfoSection/>
         <WhyChooseUs/>
-        <TeamSection/>
+        {/* <TeamSection/> */}
 <AboutContact/>
         </div>
   )

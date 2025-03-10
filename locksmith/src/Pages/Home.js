@@ -9,11 +9,11 @@ import Footer from '../components/Footer/Footer';
 import Carousal from '../components/IntroSection/Carousal';
 import UnlockYourFuture from '../components/UnlockYourFuture/UnlockYourFuture';
 
+
 export default function Home() {
   return (
     <div>
-      {/* <Carousal/> */}
-    <IntroSection/>
+ <IntroSection/>
  <CardSection/>
  <LockSmith/>
  <UnlockYourFuture/>

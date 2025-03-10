@@ -119,7 +119,7 @@ export default function NavBar() {
             className="d-inline-block align-top logo"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle className='toggle-button' aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="navbar-collapse-overlay">
           
           {!isAuthenticated || userRole !== 'locksmith' ? (

@@ -20,7 +20,7 @@ const Footer = () => {
                 className="d-inline-block align-top logo-img"
               />
             </div>
-            <p>
+            <p className="text-light">
               Sydney en Virginia, encontró una de las palabras más oscuras de la
               lengua del latín, "consecteur".
             </p>
