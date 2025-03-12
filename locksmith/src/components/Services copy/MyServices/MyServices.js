@@ -156,6 +156,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Table, Container, Alert } from "react-bootstrap";
 import "./MyServices.css"; // Custom CSS file
+import api from '../../../api/api';
+
 
 const MyServices = () => {
   const [services, setServices] = useState([]);
@@ -170,7 +172,7 @@ const MyServices = () => {
           return;
         }
 
-        const response = await axios.get("http://192.168.1.8:8000/api/services/", {
+        const response = await api.get("/api/services/", {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
 

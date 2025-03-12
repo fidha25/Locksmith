@@ -46,6 +46,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./CreateService.css";
+import api from './../../api/api';
 
 const CreateService = () => {
   const [serviceName, setServiceName] = useState("");
@@ -72,7 +73,7 @@ const CreateService = () => {
     };
 
     try {
-      const response = await axios.post("http://192.168.1.8:8000/api/admin/services/", serviceData, {
+      const response = await api.post("/api/admin/services/", serviceData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",

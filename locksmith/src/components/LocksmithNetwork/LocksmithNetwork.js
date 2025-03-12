@@ -87,14 +87,14 @@ const LocksmithNetwork = () => {
       
       {/* Centered Section */}
       <div className="text-center mt-5">
-        <p className="image-description fw-medium text-muted">
+        <p className="image-description fw-medium text-black">
           Become part of a trusted <b>Australia-wide locksmith network</b>, helping people secure their homes, offices, and vehicles.
         </p>
-        <h4 className="text-dark fw-bold">Ready to Start? Apply Today – It’s 100% Free!</h4>
-        <p className="sub-description text-muted">
+        <h4 className="text-black fw-bold">Ready to Start? Apply Today – It’s 100% Free!</h4>
+        <p className="sub-description text-black">
           Click the <b>"Sign Up as a Locksmith"</b> button to begin. Our team will guide you through the process and ensure you <b>start receiving locksmith jobs immediately – at no cost!</b>
         </p>
-        <p className="sub-description text-dark fw-bold">
+        <p className="sub-description text-black fw-bold">
           Join us today and unlock new career opportunities!
         </p>
       </div>

@@ -28,9 +28,9 @@ const menuItems = [
       { name: "My Services", icon: Wrench, component: <MyServices /> },],  
 
   },
-  { name: "Stripe", icon: Home, component: <CreateStripeAccount /> },
+  // { name: "Stripe", icon: Home, component: <CreateStripeAccount /> },
   { name: "Availability", icon: Home, component: <LocksmithAvailability /> },
-  { name: "Onboard", icon: Home, component: <StripeOnboarding /> },
+  // { name: "Onboard", icon: Home, component: <StripeOnboarding /> },
 
 
 

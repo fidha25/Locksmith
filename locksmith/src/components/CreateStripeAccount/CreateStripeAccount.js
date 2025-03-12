@@ -59,6 +59,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Form, Button, Container, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import api from '../../api/api';
+
 import "./CreateStripeAccount.css";
 
 const CreateStripeAccount = () => {
@@ -81,8 +83,8 @@ const CreateStripeAccount = () => {
     }
 
     try {
-      await axios.post(
-        `http://192.168.1.8:8000/api/locksmiths/create_stripe_account/`,
+      await api.post(
+        `/api/locksmiths/create_stripe_account/`,
         {},
         {
           headers: {

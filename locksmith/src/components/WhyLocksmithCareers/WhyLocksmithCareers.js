@@ -11,7 +11,7 @@ const WhyLocksmithCareers = () => {
   }, []);
 
   return (
-    <section className="unlock-section">
+    <section className="lock-career-section">
       <Container>
         <Row className="align-items-center">
           {/* Left Side - Text Content */}

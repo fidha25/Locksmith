@@ -99,6 +99,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Commission.css"; // Custom CSS
 import { Button, Form, InputGroup, Alert, Spinner } from "react-bootstrap"; // Bootstrap components
+import api from '../../api/api';
+
 import axios from "axios"; // For making HTTP requests
 
 const SetCommission = () => {
@@ -120,7 +122,7 @@ const SetCommission = () => {
     // Fetch current commission
     const fetchCommission = async () => {
       try {
-        const response = await axios.get("http://192.168.1.7:8000/api/adminsettings/", {
+        const response = await api.get("/api/adminsettings/", {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
 
@@ -148,8 +150,8 @@ const SetCommission = () => {
 
     try {
       const accessToken = localStorage.getItem("accessToken");
-      const response = await axios.put(
-        "http://192.168.1.7:8000/api/adminsettings/1/", // Update endpoint
+      const response = await api.put(
+        "/api/adminsettings/1/", // Update endpoint
         { commission_amount: parseFloat(commission) },
         {
           headers: {

@@ -1,6 +1,6 @@
-.unlock-section {
+.lock-career-section {
     padding: 50px 0;
-    background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\dem (3).png'); 
+    background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\key-lock-img.png'); 
     /* background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\key-lock-img.png');  */
 
     background-size: cover; /* Ensures the image covers the entire section */
@@ -9,6 +9,17 @@
     position: relative; /* Needed for overlay */
     color: #000; /* Default text color */
   }
+  .lock-career-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    z-index: 1;
+}
+
   .unlock-heading{
 padding-top: 50px;
   }

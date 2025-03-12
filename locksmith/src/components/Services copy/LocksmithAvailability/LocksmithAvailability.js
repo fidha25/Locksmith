@@ -1,8 +1,10 @@
 
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
-// import { Form, Button, Container, Alert } from "react-bootstrap";
+// import { Form, Button, Container, Alert, Card } from "react-bootstrap";
 // import "./LocksmithAvailability.css"; // Custom CSS
+// import api from '../../../api/api';
+
 
 // const LocksmithAvailability = () => {
 //   const [message, setMessage] = useState(null);
@@ -25,7 +27,7 @@
 //         return;
 //       }
 
-//       const response = await axios.get("http://192.168.1.8:8000/api/locksmiths/locksmithform_val/", {
+//       const response = await api.get("/api/locksmiths/locksmithform_val/", {
 //         headers: {
 //           Authorization: `Bearer ${accessToken}`,
 //         },
@@ -76,9 +78,14 @@
 //     <Container className="availability-container">
 //       <h2 className="text-center">Locksmith Availability</h2>
 //       {message && <Alert variant={message.type}>{message.text}</Alert>}
-//       <h4 className="text-center">
-//         Status: {isAvailable === null ? "Loading..." : isAvailable ? "Open to Work" : "Not Available"}
-//       </h4>
+//       <Card className="status-card">
+//         <Card.Body>
+//           <h4>Status:</h4>
+//           <div className={`status-box ${isAvailable ? "available" : "not-available"}`}>
+//             {isAvailable === null ? "Loading..." : isAvailable ? "Open to Work" : "Not Available"}
+//           </div>
+//         </Card.Body>
+//       </Card>
 //       <Form>
 //         <Button
 //           variant="success"
@@ -101,9 +108,9 @@
 
 // export default LocksmithAvailability;
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Form, Button, Container, Alert, Card } from "react-bootstrap";
 import "./LocksmithAvailability.css"; // Custom CSS
+import api from '../../../api/api';
 
 const LocksmithAvailability = () => {
   const [message, setMessage] = useState(null);
@@ -113,7 +120,7 @@ const LocksmithAvailability = () => {
   useEffect(() => {
     const username = localStorage.getItem("username");
     if (username) {
-      setLocksmithId(username); // Assuming username is used as locksmith ID
+      setLocksmithId(username);
       fetchAvailability();
     }
   }, []);
@@ -126,7 +133,7 @@ const LocksmithAvailability = () => {
         return;
       }
 
-      const response = await axios.get("http://192.168.1.8:8000/api/locksmiths/locksmithform_val/", {
+      const response = await api.get("/api/locksmiths/locksmithform_val/", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -138,7 +145,7 @@ const LocksmithAvailability = () => {
     }
   };
 
-  const handleAvailability = async (url, status) => {
+  const handleAvailability = async (endpoint, status) => {
     if (!locksmithId) {
       setMessage({ type: "warning", text: "Locksmith ID not found. Please log in." });
       return;
@@ -151,18 +158,14 @@ const LocksmithAvailability = () => {
         return;
       }
 
-      await axios.post(
-        url,
-        {},
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      );
+      await api.post(endpoint, {}, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
 
-      setIsAvailable(status === "open"); // Update local state after successful change
+      setIsAvailable(status === "open");
       setMessage({
         type: status === "open" ? "success" : "info",
         text: status === "open" ? "You are now Open to Work!" : "You are marked as Not Available.",
@@ -189,14 +192,14 @@ const LocksmithAvailability = () => {
         <Button
           variant="success"
           className="mt-3 btn-sm"
-          onClick={() => handleAvailability("http://192.168.1.8:8000/api/locksmiths/mark_open_to_work/", "open")}
+          onClick={() => handleAvailability("/api/locksmiths/mark_open_to_work/", "open")}
         >
           Open to Work
         </Button>
         <Button
           variant="danger"
           className="mt-3 btn-sm"
-          onClick={() => handleAvailability("http://192.168.1.8:8000/api/locksmiths/mark_not_available/", "closed")}
+          onClick={() => handleAvailability("/api/locksmiths/mark_not_available/", "closed")}
         >
           Not Available
         </Button>

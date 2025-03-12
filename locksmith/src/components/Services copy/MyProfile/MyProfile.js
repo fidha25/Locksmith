@@ -178,6 +178,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./MyProfile.css";
+import api from '../../../api/api';
 
 const MyProfile = () => {
   const [formData, setFormData] = useState({
@@ -206,11 +207,13 @@ const MyProfile = () => {
           throw new Error("No access token found. Please login.");
         }
 
-        const response = await axios.get("http://192.168.1.8:8000/api/locksmiths/locksmithform_val/", {
+        const response = await api.get("/api/locksmiths/locksmithform_val/", {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
 
         const data = response.data;
+        const baseURL = api.defaults.baseURL; // Get base URL from axios instance
+
         setFormData({
           address: data.address || "",
           contact_number: data.contact_number || "",
@@ -220,10 +223,15 @@ const MyProfile = () => {
           photo: null,
         });
 
+        // setFileURLs({
+        //   pcc_file: data.pcc_file ? `http://192.168.1.8:8000${data.pcc_file}` : null,
+        //   license_file: data.license_file ? `http://192.168.1.8:8000${data.license_file}` : null,
+        //   photo: data.photo ? `http://192.168.1.8:8000${data.photo}` : null,
+        // });
         setFileURLs({
-          pcc_file: data.pcc_file ? `http://192.168.1.8:8000${data.pcc_file}` : null,
-          license_file: data.license_file ? `http://192.168.1.8:8000${data.license_file}` : null,
-          photo: data.photo ? `http://192.168.1.8:8000${data.photo}` : null,
+          pcc_file: data.pcc_file ? `${baseURL}${data.pcc_file}` : null,
+          license_file: data.license_file ? `${baseURL}${data.license_file}` : null,
+          photo: data.photo ? `${baseURL}${data.photo}` : null,
         });
 
       } catch (error) {
@@ -281,7 +289,7 @@ const MyProfile = () => {
         throw new Error("No access token found. Please login.");
       }
 
-      const response = await axios.put("http://192.168.1.8:8000/locksmith/profile/update/", data, {
+      const response = await api.put("/locksmith/profile/update/", data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${accessToken}`,

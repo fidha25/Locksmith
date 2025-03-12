@@ -122,14 +122,14 @@ const DashboardHome = () => <div>Welcome to Admin Dashboard</div>;
 
 const menuItems = [
   { name: "Dashboard", icon: Home, component: <DashboardHome /> },
-  { name: "My Profile", icon: Home, component: <DashboardHome /> },
+  // { name: "My Profile", icon: Home, component: <DashboardHome /> },
 
   {
     name: "Manage Service",
     icon: Wrench,
     subMenu: [
       { name: "Create Service", component: <CreateService /> },
-      { name: "Update Service", component: <ManageService /> },
+      // { name: "Update Service", component: <ManageService /> },
       // { name: "Update Rules", component: <ServiceRules /> },
       { name: "View Services", component: <ViewServices /> },
       { name: "Approve Services", component: <ApproveService /> },
@@ -137,8 +137,8 @@ const menuItems = [
     ],
   },
   { name: "Manage Locksmith", icon: Key, component: <ManageLocksmith /> },
-  { name: "Manage Customer", icon: Users, component: <ManageCustomer /> },
-  { name: "Set Commission", icon: Users, component: <SetCommission /> },
+  // { name: "Manage Customer", icon: Users, component: <ManageCustomer /> },
+  // { name: "Set Commission", icon: Users, component: <SetCommission /> },
 
   // { name: "Transaction Details", icon: Wallet, component: <TransactionTable /> },
   // { name: "Car Key Details", icon: Car, component: <CarKeyDetails /> },

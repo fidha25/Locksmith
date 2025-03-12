@@ -8,7 +8,17 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="footer-section">
+    <div className="footer-section" 
+    style={{
+      backgroundColor: "rgb(144, 145, 149)",
+      marginTop: "0 !important",
+      paddingTop: "0",
+      backgroundImage: "url('/images/dark-grey-bg.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      color: "white"
+    }}
+    >
       <Container className="footer">
         <Row>
           {/* First Column */}

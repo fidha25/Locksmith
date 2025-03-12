@@ -155,12 +155,12 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 15px;
-  color: #2c3e50;
+  color: #000000;
 }
 
 .subheading {
   font-size: 1.2rem;
-  color: #7f8c8d;
+  color: #000000;
   margin-bottom: 30px;
 }
 
@@ -222,12 +222,12 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 15px;
-  color: #2c3e50;
+  color: #000000;
 }
 
 .lock-step-description {
   font-size: 1rem;
-  color: #7f8c8d;
+  color: #000000;
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -248,7 +248,7 @@
 
 .details-box li {
   font-size: 1rem;
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -264,7 +264,7 @@
 
 .footer-text {
   font-size: 1.1rem;
-  color: #2c3e50;
+  color: #000000;
   margin-top: 40px;
   font-weight: 500;
 }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Table, Container, Alert } from "react-bootstrap";
+import api from './../../api/api';
+
 import axios from "axios";
 import "./ViewService.css"; // Import CSS
 
@@ -17,8 +19,8 @@ const ViewServices = () => {
       return;
     }
 
-    axios
-      .get("http://192.168.1.8:8000/api/admin/services/", {
+    api
+      .get("/api/admin/services/", {
         headers: {
           Authorization: `Bearer ${accessToken}`, // Include token in header
         },

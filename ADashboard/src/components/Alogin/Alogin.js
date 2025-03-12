@@ -89,7 +89,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Button, Container, Card, Alert } from "react-bootstrap";
-import axios from "axios";
+import api from '../../api/api';
 import "./Alogin.css";
 
 const Alogin = () => {
@@ -120,7 +120,7 @@ const Alogin = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://192.168.1.8:8000/login/", formData);
+      const response = await api.post("/login/", formData);
       
       if (response.status === 200) {
         const { access, refresh, role, username } = response.data;

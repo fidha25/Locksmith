@@ -127,6 +127,8 @@
 import React, { useState, useEffect } from "react";
 import { Button, Table, Modal } from "react-bootstrap";
 import axios from "axios";
+import api from './../../api/api';
+
 import "./ServiceRequest.css";
 
 const ServiceRequest = () => {
@@ -151,7 +153,7 @@ const ServiceRequest = () => {
     }
 
     try {
-      const response = await axios.get("http://192.168.1.8:8000/api/bookings/", {
+      const response = await api.get("/api/bookings/", {
         headers: { Authorization: `Bearer ${token}` }, // Attach token
       });
 
@@ -176,8 +178,8 @@ const ServiceRequest = () => {
     try {
       const updatedStatus = decision === "approve" ? "Approved" : "Rejected";
 
-      await axios.patch(
-        `http://192.168.1.8:8000/api/bookings/${selectedRequest.id}/`,
+      await api.patch(
+        `/api/bookings/${selectedRequest.id}/`,
         { status: updatedStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

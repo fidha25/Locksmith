@@ -131,6 +131,8 @@
 // export default CreateService;
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import api from '../../../api/api';
+
 import { Form, Button, Container, Alert } from "react-bootstrap";
 import "./CreateServices.css"; // Custom CSS
 
@@ -154,7 +156,7 @@ const CreateService = () => {
           return;
         }
 
-        const response = await axios.get("http://192.168.1.8:8000/api/admin/services/available_services/", {
+        const response = await api.get("/api/admin/services/available_services/", {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
 
@@ -197,7 +199,7 @@ const CreateService = () => {
         service_type: serviceType,
       };
 
-      await axios.post("http://192.168.1.7:8000/api/services/", newService, {
+      await api.post("/api/services/", newService, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,

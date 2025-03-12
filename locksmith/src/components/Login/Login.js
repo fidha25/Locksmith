@@ -31,42 +31,7 @@ export default function Login() {
     });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setError('');
-  //   setSuccess('');
 
-  //   try {
-  //     const response = await axios.post('http://192.168.1.8:8000/login/', {
-  //       ...loginData,
-  //       role: selectedRole, // Explicitly send the selected role
-  //     });
-
-  //     const { access, refresh, role, username } = response.data;
-
-  //     // **Role validation: Check if backend role matches selected role**
-  //     if (role !== selectedRole) {
-  //       setError(`Unauthorized access! You selected "${selectedRole}", but your account is "${role}".`);
-  //       return;
-  //     }
-
-  //     // Store user session details
-  //     localStorage.setItem('accessToken', access);
-  //     localStorage.setItem('refreshToken', refresh);
-  //     localStorage.setItem('userRole', role);
-  //     localStorage.setItem('username', username);
-
-  //     setSuccess('Login successful!');
-  //     setLoginData({ username: '', password: '', otp_code: '' });
-
-  //     // Redirect based on actual user role
-  //     navigate(role === 'customer' ? '/' : '/locksmith');
-      
-  //   } catch (err) {
-  //     setError(err.response?.data?.message || 'Login failed. Please try again.');
-  //     console.error('Error:', err);
-  //   }
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

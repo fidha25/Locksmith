@@ -178,8 +178,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ManageLocksmith.css";
+import api from '../../api/api';
 
-const API_URL = "http://192.168.1.8:8000/api/locksmiths/";
 
 const ManageLocksmith = () => {
   const [locksmiths, setLocksmiths] = useState([]);
@@ -193,7 +193,7 @@ const ManageLocksmith = () => {
         return;
       }
       try {
-        const response = await axios.get(API_URL, {
+        const response = await api.get("/api/locksmiths/", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setLocksmiths(response.data);
@@ -213,7 +213,7 @@ const ManageLocksmith = () => {
     }
 
     try {
-      await axios.put(`http://192.168.1.8:8000/api/locksmiths/${id}/verify_locksmith/`, {}, {
+      await api.put(`/api/locksmiths/${id}/verify_locksmith/`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -236,7 +236,7 @@ const ManageLocksmith = () => {
     }
 
     try {
-      await axios.put(`http://192.168.1.8:8000/api/locksmiths/${id}/reject_locksmith/`, {}, {
+      await api.put(`/api/locksmiths/${id}/reject_locksmith/`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

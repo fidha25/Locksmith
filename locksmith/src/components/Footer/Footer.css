@@ -5,15 +5,15 @@
   text-align: left;
 }
 
-.footer-section {
+/* .footer-section {
   background: rgb(144, 145, 149);
   margin-top: 0 !important;
   padding-top: 0;
-  background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\dark-grey-bg.png'); /* Add your background image path */
+  background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\dark-grey-bg.png'); 
   background-size: cover;
   background-position: center;
-  color: white; /* Set default text color to white */
-}
+  color: white; 
+} */
 
 /* Add gap between list items */
 .custom-list li {

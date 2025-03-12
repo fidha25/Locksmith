@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { setupAxiosInterceptors } from './utils/auth'; 
+// Set up Axios interceptors for token management
+setupAxiosInterceptors();
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

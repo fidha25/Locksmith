@@ -67,6 +67,8 @@
 // export default WaitingForApproval;
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import api from '../../api/api';
+
 import axios from "axios";
 
 const WaitingForApproval = () => {
@@ -86,7 +88,7 @@ const WaitingForApproval = () => {
     const checkApprovalStatus = async () => {
       try {
         console.log("Fetching approval status...");
-        const response = await axios.get("http://192.168.1.8:8000/api/Approvalverification/", {
+        const response = await api.get("/api/Approvalverification/", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -100,7 +102,7 @@ const WaitingForApproval = () => {
           console.log("User is approved, checking onboarding status...");
           
           try {
-            const onboardingResponse = await axios.get("http://192.168.1.8:8000/api/locksmiths/check_onboarding_status/", {
+            const onboardingResponse = await api.get("/api/locksmiths/check_onboarding_status/", {
               headers: {
                 Authorization: `Bearer ${token}`,
               },

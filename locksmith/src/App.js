@@ -57,6 +57,7 @@ import SmartLock from './components/DetailedServices/Services/SmartLock';
 import Careers from './Pages/Careers';
 import CreateStripeAccount from './components/CreateStripeAccount/CreateStripeAccount';
 import StripeOnboarding from './components/StripeOnboarding/StripeOnboarding';
+import MyBookings from './components/MyBookings/MyBookings';
 
 
 
@@ -75,6 +76,7 @@ function App() {
         <Route path="/signup" element={<Signup />} /> {/* Route for the Login component */}
         <Route path="/usersignup" element={<UserSignup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/mybookings" element={<MyBookings />} />
         <Route path="/locksmith" element={<LockSmithForm />} />
         <Route path="/create-service" element={<CreateService/>} />
         <Route path="/waiting-for-approval" element={<WaitingForApproval />} />

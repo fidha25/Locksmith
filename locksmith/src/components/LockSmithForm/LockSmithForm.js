@@ -252,6 +252,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./LockSmithForm.css";
 import { useNavigate } from "react-router-dom";
+import api from '../../api/api';
+
 
 const LockSmithForm = () => {
   const navigate = useNavigate();
@@ -278,7 +280,7 @@ const LockSmithForm = () => {
           throw new Error("No access token found. Please login.");
         }
 
-        const response = await axios.get("http://192.168.1.8:8000/api/locksmiths/locksmithform_val/", {
+        const response = await api.get("api/locksmiths/locksmithform_val/", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -333,7 +335,7 @@ const LockSmithForm = () => {
         throw new Error("No access token found. Please login.");
       }
 
-      const response = await axios.post("http://192.168.1.8:8000/locksmith/profile/update/", data, {
+      const response = await api.post("/locksmith/profile/update/", data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${accessToken}`,

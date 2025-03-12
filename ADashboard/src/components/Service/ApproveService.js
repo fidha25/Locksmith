@@ -1,8 +1,11 @@
+
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
 // import { Table, Container, Button, Alert } from "react-bootstrap";
 // import { useNavigate } from "react-router-dom";
 // import "./ApproveService.css"; // Custom CSS file
+// import api from './../../api/api';
+
 
 // const ApproveService = () => {
 //   const [services, setServices] = useState([]);
@@ -26,8 +29,8 @@
 //           return;
 //         }
 
-//         const response = await axios.get(
-//           "http://192.168.1.7:8000/api/admin/services/all_locksmith_services/",
+//         const response = await api.get(
+//           "/api/admin/services/all_locksmith_services/",
 //           {
 //             headers: { Authorization: `Bearer ${accessToken}` },
 //           }
@@ -52,9 +55,8 @@
 //         return;
 //       }
 
-//       const apiUrl = `http://192.168.1.7:8000/api/admin/service-approval/${id}/${action}/`;
-//       await axios.post(
-//         apiUrl,
+//       await api.post(
+//         `/api/admin/service-approval/${id}/${action}/`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${accessToken}` },
@@ -84,11 +86,13 @@
 //     <Container className="approve-service-container">
 //       <h2 className="text-center">Approve Locksmith Services</h2>
 //       {message && <Alert variant={message.type}>{message.text}</Alert>}
-//       <Table striped bordered hover responsive className="mt-3">
+//       <Table  bordered hover responsive className="mt-3">
 //         <thead>
 //           <tr>
 //             <th>ID</th>
-//             <th>Locksmith</th>
+//             <th>Locksmith Name</th>
+//             <th>Admin Service Name</th>
+//             <th>Service Type</th>
 //             <th>Admin Service ID</th>
 //             <th>Custom Price ($)</th>
 //             <th>Total Price ($)</th>
@@ -102,7 +106,9 @@
 //             services.map((service) => (
 //               <tr key={service.id}>
 //                 <td>{service.id}</td>
-//                 <td>{service.locksmith}</td>
+//                 <td>{service.locksmith_name}</td>
+//                 <td>{service.admin_service_name}</td>
+//                 <td>{service.service_type}</td>
 //                 <td>{service.admin_service_id}</td>
 //                 <td>{service.custom_price}</td>
 //                 <td>{service.total_price || "N/A"}</td>
@@ -132,7 +138,7 @@
 //             ))
 //           ) : (
 //             <tr>
-//               <td colSpan="8" className="text-center">
+//               <td colSpan="10" className="text-center">
 //                 No locksmith services found.
 //               </td>
 //             </tr>
@@ -149,18 +155,18 @@ import axios from "axios";
 import { Table, Container, Button, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./ApproveService.css"; // Custom CSS file
+import api from "./../../api/api";
 
 const ApproveService = () => {
   const [services, setServices] = useState([]);
   const [message, setMessage] = useState(null);
   const navigate = useNavigate();
 
-  // Check if the user is an admin
   useEffect(() => {
     const userRole = localStorage.getItem("userRole");
     if (userRole !== "admin") {
       setMessage({ type: "danger", text: "Access Denied! Admins only." });
-      setTimeout(() => navigate("/"), 2000); // Redirect non-admin users
+      setTimeout(() => navigate("/"), 2000);
       return;
     }
 
@@ -172,8 +178,8 @@ const ApproveService = () => {
           return;
         }
 
-        const response = await axios.get(
-          "http://192.168.1.8:8000/api/admin/services/all_locksmith_services/",
+        const response = await api.get(
+          "/api/admin/services/all_locksmith_services/",
           {
             headers: { Authorization: `Bearer ${accessToken}` },
           }
@@ -189,7 +195,6 @@ const ApproveService = () => {
     fetchServices();
   }, [navigate]);
 
-  // Handle approve/reject action
   const handleApproval = async (id, action) => {
     try {
       const accessToken = localStorage.getItem("accessToken");
@@ -198,9 +203,8 @@ const ApproveService = () => {
         return;
       }
 
-      const apiUrl = `http://192.168.1.8:8000/api/admin/service-approval/${id}/${action}/`;
-      await axios.post(
-        apiUrl,
+      await api.post(
+        `/api/admin/service-approval/${id}/${action}/`,
         {},
         {
           headers: { Authorization: `Bearer ${accessToken}` },
@@ -230,8 +234,8 @@ const ApproveService = () => {
     <Container className="approve-service-container">
       <h2 className="text-center">Approve Locksmith Services</h2>
       {message && <Alert variant={message.type}>{message.text}</Alert>}
-      <Table striped bordered hover responsive className="mt-3">
-        <thead>
+      <Table bordered hover responsive className="mt-3 custom-table">
+        <thead className="table-dark">
           <tr>
             <th>ID</th>
             <th>Locksmith Name</th>
@@ -260,7 +264,7 @@ const ApproveService = () => {
                 <td className={`status ${service.approved ? "approved" : "pending"}`}>
                   {service.approved ? "Approved" : "Pending"}
                 </td>
-                <td>
+                <td className="d-flex justify-content-center">
                   <Button
                     variant="success"
                     size="sm"
