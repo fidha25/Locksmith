@@ -1,8 +1,7 @@
 
 // import React, { useState } from 'react';
-// import axios from 'axios';
 // import { Link } from 'react-router-dom';
-
+// import api from '../../api/api'; // Importing api.js
 // import './Signup.css';
 
 // export default function Signup() {
@@ -42,8 +41,8 @@
 //     }
 
 //     try {
-//       const response = await axios.post('http://192.168.1.7:8000/register/locksmith/', formData);
-      
+//       const response = await api.post('/register/locksmith/', formData); // Using api.js
+
 //       const { access, refresh, user } = response.data;
 
 //       localStorage.setItem('accessToken', access);
@@ -115,7 +114,7 @@
 //   );
 // }
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import api from '../../api/api'; // Importing api.js
 import './Signup.css';
 
@@ -131,6 +130,7 @@ export default function Signup() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [totpData, setTotpData] = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -158,18 +158,21 @@ export default function Signup() {
     try {
       const response = await api.post('/register/locksmith/', formData); // Using api.js
 
-      const { access, refresh, user } = response.data;
+      // Ensure the response contains the TOTP data
+      const { user } = response.data;
 
-      localStorage.setItem('accessToken', access);
-      localStorage.setItem('refreshToken', refresh);
+      if (!user.totp_secret || !user.totp_qr_code || !user.totp_qr_code_url) {
+        throw new Error('TOTP data not found in response.');
+      }
 
-      setSuccess('Signup successful! Please login.');
+      setSuccess('Signup successful! Please scan the QR code to set up TOTP.');
       setTotpData({
         secret: user.totp_secret,
         qrCode: user.totp_qr_code,
         qrCodeUrl: user.totp_qr_code_url,
       });
 
+      // Clear the form
       setFormData({
         username: '',
         email: '',
@@ -178,6 +181,9 @@ export default function Signup() {
         totp_enabled: true,
       });
       setAgreeTerms(false);
+
+      // Redirect to login page after successful signup
+      // navigate('/login?role=locksmith');
     } catch (err) {
       setError(err.response?.data?.message || 'Signup failed. Please try again.');
       console.error('Error:', err);

@@ -1,57 +1,4 @@
-// import React, { useEffect, useState } from 'react';
-// import api from '../../api/api';
-// import './MyBookings.css';
 
-// export default function MyBookings() {
-//   const [bookings, setBookings] = useState([]);
-//   const [error, setError] = useState('');
-//   const userRole = localStorage.getItem('userRole');
-//   const accessToken = localStorage.getItem('accessToken');
-
-//   useEffect(() => {
-//     if (userRole !== 'customer') {
-//       setError('Unauthorized access. Only customers can view bookings.');
-//       return;
-//     }
-
-//     const fetchBookings = async () => {
-//       try {
-//         const response = await api.get('/api/bookings/', {
-//           headers: { Authorization: `Bearer ${accessToken}` },
-//         });
-//         setBookings(response.data);
-//       } catch (err) {
-//         setError('Failed to fetch bookings. Please try again.');
-//         console.error(err);
-//       }
-//     };
-
-//     fetchBookings();
-//   }, [accessToken, userRole]);
-
-//   return (
-//     <div className="bookings-container">
-//       <h2>My Bookings</h2>
-//       {error ? (
-//         <p className="error-message">{error}</p>
-//       ) : bookings.length === 0 ? (
-//         <p className="no-bookings">No bookings found.</p>
-//       ) : (
-//         <div className="bookings-list">
-//           {bookings.map((booking) => (
-//             <div key={booking.id} className="booking-card">
-//               <p><strong>Service Type:</strong> {booking.locksmith_service_type}</p>
-//               <p><strong>Service ID:</strong> {booking.locksmith_service}</p>
-//               <p><strong>Scheduled Date:</strong> {new Date(booking.scheduled_date).toLocaleString()}</p>
-//               <p><strong>Status:</strong> {booking.status}</p>
-//               <p><strong>Payment ID:</strong> {booking.payment_intent_id || 'N/A'}</p>
-//             </div>
-//           ))}
-//         </div>
-//       )}
-//     </div>
-//   );
-// }
 import React, { useEffect, useState } from 'react';
 import api from '../../api/api';
 import './MyBookings.css';
@@ -112,7 +59,7 @@ export default function MyBookings() {
               <th>Scheduled Date</th>
               <th>Status</th>
               <th>Payment ID</th>
-              <th>Action</th>
+              {/* <th>Action</th> */}
             </tr>
           </thead>
           <tbody>
@@ -123,11 +70,11 @@ export default function MyBookings() {
                 <td>{new Date(booking.scheduled_date).toLocaleString()}</td>
                 <td>{booking.status}</td>
                 <td>{booking.payment_intent_id || 'N/A'}</td>
-                <td>
+                {/* <td>
                   <button className="cancel-button" onClick={() => handleCancelBooking(booking.id)}>
                     Cancel Booking
                   </button>
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>

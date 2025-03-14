@@ -59,6 +59,8 @@ import CreateStripeAccount from './components/CreateStripeAccount/CreateStripeAc
 import StripeOnboarding from './components/StripeOnboarding/StripeOnboarding';
 import MyBookings from './components/MyBookings/MyBookings';
 import UserProfile from './components/UserProfile/UserProfile';
+import ConfirmPayment from './components/DetailedServices/Services/ConfirmPayment';
+import SuccessPayment from './components/SuccessPayment/SuccessPayment';
 
 
 
@@ -79,6 +81,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/mybookings" element={<MyBookings />} />    
         <Route path="/update-profile" element={<UserProfile />} />
+        <Route path="/confirm-payment" element={<ConfirmPayment />} />
+        <Route path="/success-payment" element={<SuccessPayment/>} />
         <Route path="/locksmith" element={<LockSmithForm />} />
         <Route path="/create-service" element={<CreateService/>} />
         <Route path="/waiting-for-approval" element={<WaitingForApproval />} />
@@ -98,11 +102,6 @@ function App() {
         <Route path="/commercial" element={<Commercial />} />
         <Route path="/emergency" element={<Emergency/>} />
         <Route path="/smart-lock" element={<SmartLock/>} />
-
-
-
-
-
 
       </Routes>
       <Footer/>
