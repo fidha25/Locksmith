@@ -9,7 +9,9 @@ const LastSection = () => {
   }, []);
 
   return (
-    <div className="custom-container d-flex justify-content-center align-items-center">
+    <div className="custom-container d-flex justify-content-center align-items-center"   style={{
+      backgroundImage: "url('/images/key-bg (1).webp')",
+    }}>
       <div className="content-box text-center p-4 p-md-5" data-aos="fade-up">
         <h2 className="mb-3 fw-bold text-light" data-aos="fade-down">
           SAFE & SECURE HOUSE

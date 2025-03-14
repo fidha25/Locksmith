@@ -3,7 +3,7 @@
   background: #f8f9fa; /* Fallback background color */
   padding: 80px 0;
   overflow: hidden;
-  background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\dem.png'); /* Add your background image path */
+  /* background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\dem.png'); */
   background-size: cover; /* Ensure the image covers the entire section */
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Prevent the image from repeating */

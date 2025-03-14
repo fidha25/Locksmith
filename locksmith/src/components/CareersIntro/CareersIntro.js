@@ -10,14 +10,14 @@ const CareersIntro = () => {
         display: "flex",
         justifyContent: "center",
         padding: "50px 0",
-        background: "url('/images/service_demo.png') no-repeat center center/cover",
+        background: "url('/images/service_demo.webp') no-repeat center center/cover",
       }}
     >
       {/* Black Transparent Overlay */}
       <div
         className="overlay position-absolute top-0 start-0 w-100 h-100"
         style={{
-          background: "rgba(0, 0, 0, 0.2)", 
+          background: "rgba(0, 0, 0, 0.5)", 
         }}
       ></div>
 

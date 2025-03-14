@@ -1,132 +1,56 @@
-// // import React, { useEffect, useState } from "react";
-// // import axios from "axios";
-// // import "./style.css";
-
-// // const Residential = () => {
-// //   const [services, setServices] = useState([]);
-// //   const [loading, setLoading] = useState(true);
-// //   const [error, setError] = useState(null);
-
-// //   useEffect(() => {
-// //     const fetchServices = async () => {
-// //       try {
-// //         const response = await axios.get(
-// //           "http://192.168.1.7:8000/api/admin/services/services_to_customer/?service_type=residential"
-// //         );
-// //         setServices(response.data);
-// //       } catch (err) {
-// //         setError("Failed to fetch services");
-// //       } finally {
-// //         setLoading(false);
-// //       }
-// //     };
-// //     fetchServices();
-// //   }, []);
-
-// //   if (loading) return <p>Loading...</p>;
-// //   if (error) return <p className="error">{error}</p>;
-
-// //   return (
-// //     <div className="residential-container">
-// //       <h2>Residential Locksmith Services</h2>
-// //       <div className="services-list">
-// //         {services.map((service, index) => (
-// //           <div key={index} className="services-card">
-// //             <p><strong>Locksmith:</strong> {service.locksmith_name}</p>
-// //             <p><strong>Service:</strong> {service.admin_service_name}</p>
-// //             <p><strong>Type:</strong> {service.service_type}</p>
-// //             <p><strong>Price:</strong> ${service.total_price}</p>
-// //             <p><strong>Details:</strong> {service.details}</p>
-// //             <button className="book-button">Book</button>
-// //           </div>
-// //         ))}
-// //       </div>
-// //     </div>
-// //   );
-// // };
-
-// // export default Residential;
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-// import "./style.css";
-// // import api from "../../../api/api"; // Importing centralized API
-
-
-
-// const Residential = () => {
-//   const [services, setServices] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     const fetchServices = async () => {
-//       try {
-//         const response = await axios.get(
-//           "http://192.168.1.8:8000/api/admin/services/services_to_customer/?service_type=residential"
-//         );
-//         // const response = await api.get("/api/admin/services/services_to_customer/?service_type=residential");
-
-//         setServices(response.data);
-//       } catch (err) {
-//         setError("Failed to fetch services");
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-//     fetchServices();
-//   }, []);
-
-//   if (loading) return <p>Loading...</p>;
-//   if (error) return <p className="error">{error}</p>;
-
-//   return (
-//     <div className="residential-container">
-//       <h2>Residential Locksmith Services</h2>
-//       <div className="services-list">
-//         {services.map((service, index) => (
-//           <div key={index} className="services-card">
-//             <div className="service-header">
-//               <h3>{service.admin_service_name}</h3>
-//               <p className="price">${service.total_price}</p>
-//             </div>
-//             <p className="text-black"><strong>Locksmith:</strong> {service.locksmith_name}</p>
-//             <p className="text-black"><strong>Type:</strong> {service.service_type}</p>
-//             <p className="details text-black">{service.details}</p>
-//             <button className="book-button">Book Now</button>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Residential;
 
 // import React, { useEffect, useState } from "react";
-// import axios from "axios";
+// import api from "../../../api/api";
 // import "./style.css";
 
 // const Residential = () => {
 //   const [services, setServices] = useState([]);
 //   const [loading, setLoading] = useState(true);
 //   const [error, setError] = useState(null);
+//   const [latitude, setLatitude] = useState(null);
+//   const [longitude, setLongitude] = useState(null);
 
 //   useEffect(() => {
-//     const fetchServices = async () => {
-//       try {
-//         const response = await axios.get(
-//           "http://192.168.1.8:8000/api/admin/services/services_to_customer/?service_type=residential"
-//         );
-
-//         setServices(response.data);
-//       } catch (err) {
-//         setError("Failed to fetch services");
-//       } finally {
+//     navigator.geolocation.getCurrentPosition(
+//       (position) => {
+//         setLatitude(position.coords.latitude);
+//         setLongitude(position.coords.longitude);
+//       },
+//       (error) => {
+//         console.error("Error getting location:", error);
+//         setError("Failed to retrieve location. Please enable location services.");
 //         setLoading(false);
 //       }
-//     };
-//     fetchServices();
+//     );
 //   }, []);
+
+//   useEffect(() => {
+//     if (latitude !== null && longitude !== null) {
+//       const fetchServices = async () => {
+//         try {
+//           const token = localStorage.getItem("accessToken");
+//           const response = await api.get("/api/admin/services/services_to_customer/", {
+//             params: { 
+//               service_type: "residential",
+//               latitude,
+//               longitude
+//             },
+//             headers: {
+//               Authorization: token ? `Bearer ${token}` : "",
+//             },
+//           });
+//           setServices(response.data);
+//         } catch (err) {
+//           console.error("API Error:", err.response?.data || err.message);
+//           setError(err.response?.data?.message || "Failed to fetch services");
+//         } finally {
+//           setLoading(false);
+//         }
+//       };
+      
+//       fetchServices();
+//     }
+//   }, [latitude, longitude]);
 
 //   const handleBooking = async (service) => {
 //     const token = localStorage.getItem("accessToken");
@@ -135,7 +59,7 @@
 //       return;
 //     }
 
-//     const currentTime = new Date().toISOString(); // Format: "2025-03-01T14:00:00Z"
+//     const currentTime = new Date().toISOString();
 
 //     const bookingData = {
 //       service_request: service.id,
@@ -146,17 +70,12 @@
 //     };
 
 //     try {
-//       const response = await axios.post(
-//         "http://192.168.1.8:8000/api/bookings/",
-//         bookingData,
-//         {
-//           headers: {
-//             Authorization: `Bearer ${token}`,
-//             "Content-Type": "application/json",
-//           },
-//         }
-//       );
-
+//       await api.post("/api/bookings/", bookingData, {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//           "Content-Type": "application/json",
+//         },
+//       });
 //       alert("Booking successful!");
 //     } catch (error) {
 //       console.error("Booking failed:", error);
@@ -174,13 +93,14 @@
 //         {services.map((service, index) => (
 //           <div key={index} className="services-card">
 //             <div className="service-header">
-//               <h3>{service.admin_service_name}</h3>
-//               <p className="price">${service.total_price}</p>
+//               <h3>{service.service.admin_service_name}</h3>
+//               <p className="price">${service.service.total_price}</p>
 //             </div>
-//             <p className="text-black"><strong>Locksmith:</strong> {service.locksmith_name}</p>
-//             <p className="text-black"><strong>Type:</strong> {service.service_type}</p>
-//             <p className="details text-black">{service.details}</p>
-//             <button className="book-button" onClick={() => handleBooking(service)}>
+//             <p className="text-black"><strong>Locksmith:</strong> {service.locksmith}</p>
+//             <p className="text-black"><strong>Type:</strong> {service.service.service_type}</p>
+//             <p className="text-black"><strong>Distance:</strong> {service.distance_km} km</p>
+//             <p className="details text-black">{service.service.details}</p>
+//             <button className="book-button" onClick={() => handleBooking(service.service)}>
 //               Book Now
 //             </button>
 //           </div>
@@ -192,6 +112,7 @@
 
 // export default Residential;
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../../../api/api";
 import "./style.css";
 
@@ -199,45 +120,51 @@ const Residential = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // const fetchServices = async () => {
-    //   try {
-    //     const response = await api.get(
-    //       "/api/admin/services/services_to_customer/",
-    //       {
-    //         params: { service_type: "residential" },
-    //       }
-    //     );
-    //     setServices(response.data);
-    //   } catch (err) {
-    //     setError("Failed to fetch services");
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // };
-    const fetchServices = async () => {
-      try {
-        const token = localStorage.getItem("accessToken"); // Get stored token
-    
-        const response = await api.get("/api/admin/services/services_to_customer/", {
-          params: { service_type: "residential" },
-          headers: {
-            Authorization: token ? `Bearer ${token}` : "", // Pass token if available
-          },
-        });
-    
-        setServices(response.data);
-      } catch (err) {
-        console.error("API Error:", err.response?.data || err.message);
-        setError(err.response?.data?.message || "Failed to fetch services");
-      } finally {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+      },
+      (error) => {
+        console.error("Error getting location:", error);
+        setError("Failed to retrieve location. Please enable location services.");
         setLoading(false);
       }
-    };
-    
-    fetchServices();
+    );
   }, []);
+
+  useEffect(() => {
+    if (latitude !== null && longitude !== null) {
+      const fetchServices = async () => {
+        try {
+          const token = localStorage.getItem("accessToken");
+          const response = await api.get("/api/admin/services/services_to_customer/", {
+            params: { 
+              service_type: "residential",
+              latitude,
+              longitude
+            },
+            headers: {
+              Authorization: token ? `Bearer ${token}` : "",
+            },
+          });
+          setServices(response.data);
+        } catch (err) {
+          console.error("API Error:", err.response?.data || err.message);
+          setError(err.response?.data?.message || "Failed to fetch services");
+        } finally {
+          setLoading(false);
+        }
+      };
+      
+      fetchServices();
+    }
+  }, [latitude, longitude]);
 
   const handleBooking = async (service) => {
     const token = localStorage.getItem("accessToken");
@@ -247,7 +174,6 @@ const Residential = () => {
     }
 
     const currentTime = new Date().toISOString();
-
     const bookingData = {
       service_request: service.id,
       locksmith: service.locksmith_id,
@@ -263,7 +189,7 @@ const Residential = () => {
           "Content-Type": "application/json",
         },
       });
-      alert("Booking successful!");
+      navigate("/confirm-payment", { state: { service } });
     } catch (error) {
       console.error("Booking failed:", error);
       alert("Booking failed. Please try again.");
@@ -280,13 +206,14 @@ const Residential = () => {
         {services.map((service, index) => (
           <div key={index} className="services-card">
             <div className="service-header">
-              <h3>{service.admin_service_name}</h3>
-              <p className="price">${service.total_price}</p>
+              <h3>{service.service.admin_service_name}</h3>
+              <p className="price">${service.service.total_price}</p>
             </div>
-            <p className="text-black"><strong>Locksmith:</strong> {service.locksmith_name}</p>
-            <p className="text-black"><strong>Type:</strong> {service.service_type}</p>
-            <p className="details text-black">{service.details}</p>
-            <button className="book-button" onClick={() => handleBooking(service)}>
+            <p className="text-black"><strong>Locksmith:</strong> {service.locksmith}</p>
+            <p className="text-black"><strong>Type:</strong> {service.service.service_type}</p>
+            <p className="text-black"><strong>Distance:</strong> {service.distance_km} km</p>
+            <p className="details text-black">{service.service.details}</p>
+            <button className="book-button" onClick={() => handleBooking(service.service)}>
               Book Now
             </button>
           </div>

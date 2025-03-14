@@ -101,7 +101,10 @@ const LockSmith = () => {
   }, []);
 
   return (
-    <section className="LockSmith-section">
+    <section className="LockSmith-section"   style={{
+      backgroundImage: "url('/images/dem.webp')",
+    
+    }}>
       <Container>
         <Row className="align-items-center">
           {/* Left Side - Image (for large screens) */}

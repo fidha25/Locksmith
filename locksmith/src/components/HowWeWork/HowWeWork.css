@@ -1,7 +1,7 @@
 /* HowWeWork.css */
 .how-we-work-section {
   /* background: linear-gradient(180deg, white, darkgrey); */
-  background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\new-grey-bg.png'); /* Add your image path here */
+  /* background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\new-grey-bg.png');  */
 
   padding: 100px 0;
 }
@@ -24,16 +24,16 @@
 .step-card {
   min-width: 350px;
   max-width: 400px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Increased shadow effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
   border-radius: 20px;
   text-align: center;
   padding: 25px;
-  background: linear-gradient(to right, #d3d3d3, #808080); /* Grey gradient background */
+  background: linear-gradient(to right, #d3d3d3, #808080);
   transition: transform 0.3s ease-in-out;
   margin-right: 20px;
   flex: 0 0 auto;
   position: relative;
-  overflow: visible; /* Ensure content remains visible */
+  overflow: visible; 
   transform: skew(-5deg);
   scroll-snap-align: center;
   color: black;

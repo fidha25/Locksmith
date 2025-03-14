@@ -13,13 +13,13 @@ const Footer = () => {
       backgroundColor: "rgb(144, 145, 149)",
       marginTop: "0 !important",
       paddingTop: "0",
-      backgroundImage: "url('/images/dark-grey-bg.png')",
+      backgroundImage: "url('/images/dark-grey-bg.webp')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       color: "white"
     }}
     >
-      <Container className="footer">
+      <Container className="footer ">
         <Row>
           {/* First Column */}
           <Col sm={12} md={4} lg={4} className="footer-column">

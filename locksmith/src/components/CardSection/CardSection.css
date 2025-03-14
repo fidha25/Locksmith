@@ -4,7 +4,7 @@
 } */
 .card-section {
     position: relative;
-    background: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\dark-grey-bg.png') no-repeat center center/cover;
+    /* background: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\dark-grey-bg.png') no-repeat center center/cover; */
     padding: 100px 0; /* Adjust padding as needed */
     overflow: hidden;
   }

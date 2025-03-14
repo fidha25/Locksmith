@@ -11,7 +11,10 @@ const WhyLocksmithCareers = () => {
   }, []);
 
   return (
-    <section className="lock-career-section">
+    <section className="lock-career-section"   style={{
+      backgroundImage: "url('/images/key-lock-img.png')",
+      
+    }}>
       <Container>
         <Row className="align-items-center">
           {/* Left Side - Text Content */}

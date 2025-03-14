@@ -10,7 +10,10 @@ const LockRequirements = () => {
   }, []);
 
   return (
-    <section className="LockRequirements-section">
+    <section className="LockRequirements-section"   style={{
+      backgroundImage: "url('/images/Careernew.png')",
+      
+    }}>
       <Container>
         <Row className="align-items-center">
           <Col md={12} lg={6} className="image-content d-lg-block d-none" data-aos="zoom-in">

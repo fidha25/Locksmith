@@ -88,7 +88,7 @@ const SecurityInfoSection = () => {
           {/* Left Side - Image Section */}
           <Col lg={6} className="text-center text-lg-start">
             <motion.img
-              src="/images/Untitled design (1).png"
+              src="/images/abt-new.png"
               alt="Locksmith Work"
               className="img-fluid main-image"
               initial={{ opacity: 0, x: -50 }}

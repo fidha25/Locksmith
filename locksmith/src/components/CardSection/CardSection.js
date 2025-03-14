@@ -77,7 +77,14 @@ const CardSection = () => {
   }, []);
 
   return (
-    <Container fluid className="card-section">
+    <Container fluid className="card-section"
+    style={{
+      backgroundImage: "url('/images/dark-grey-bg.webp')",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+    }}
+    >
     <Container >
       <div className="text-center mb-4">
         {/* <h2 className="mt-2 fw-bold">What We Do – Specialized Locksmith Services</h2> */}

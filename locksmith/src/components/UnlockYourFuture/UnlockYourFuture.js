@@ -11,7 +11,10 @@ const UnlockYourFuture = () => {
   }, []);
 
   return (
-    <section className="unlock-section">
+    <section className="unlock-section"   style={{
+      backgroundImage: "url('/images/dem (3).webp')",
+     
+    }}>
       <Container>
         <Row className="align-items-center">
           {/* Left Side - Text Content */}

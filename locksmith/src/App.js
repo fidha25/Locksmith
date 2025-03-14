@@ -58,6 +58,7 @@ import Careers from './Pages/Careers';
 import CreateStripeAccount from './components/CreateStripeAccount/CreateStripeAccount';
 import StripeOnboarding from './components/StripeOnboarding/StripeOnboarding';
 import MyBookings from './components/MyBookings/MyBookings';
+import UserProfile from './components/UserProfile/UserProfile';
 
 
 
@@ -76,7 +77,8 @@ function App() {
         <Route path="/signup" element={<Signup />} /> {/* Route for the Login component */}
         <Route path="/usersignup" element={<UserSignup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/mybookings" element={<MyBookings />} />
+        <Route path="/mybookings" element={<MyBookings />} />    
+        <Route path="/update-profile" element={<UserProfile />} />
         <Route path="/locksmith" element={<LockSmithForm />} />
         <Route path="/create-service" element={<CreateService/>} />
         <Route path="/waiting-for-approval" element={<WaitingForApproval />} />

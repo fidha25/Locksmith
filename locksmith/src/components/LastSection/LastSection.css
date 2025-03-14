@@ -67,7 +67,7 @@ p {
 /* Background image with dark overlay */
 .custom-container {
     height: 700px;
-    background-image: url('C:/Users/hp/OneDrive/Desktop/LockSmith/locksmith/public/images/key-bg (1).png'); /* Replace with your image path */
+    /* background-image: url('C:/Users/hp/OneDrive/Desktop/LockSmith/locksmith/public/images/key-bg (1).png');  */
     background-size: cover;
     background-position: center;
     position: relative;

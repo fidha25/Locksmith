@@ -1,6 +1,5 @@
 
-
-// import React from 'react';
+// import React,{ useState, useEffect } from 'react';
 // import { Link, useNavigate, useLocation } from 'react-router-dom';
 // import Container from 'react-bootstrap/Container';
 // import Navbar from 'react-bootstrap/Navbar';
@@ -24,13 +23,40 @@
 //     localStorage.removeItem('username');
 //     navigate('/');
 //   };
+//   const [navHeight, setNavHeight] = useState(window.innerWidth <= 768 ? 150 : 90);
 
+//   useEffect(() => {
+//     const handleResize = () => {
+//       setNavHeight(window.innerWidth <= 768 ? 150 : 90);
+//     };
+
+//     window.addEventListener("resize", handleResize);
+//     return () => window.removeEventListener("resize", handleResize);
+//   }, []);
 //   return (
-//     <Navbar className="custom-navbar-bg" expand="lg">
+    
+//     <Navbar className="custom-navbar-bg" expand="lg" 
+//     // style={{
+//     //   backgroundImage: "url('/images/dark-grey-bg.png')",
+//     //   backgroundSize: "cover",
+//     //   backgroundPosition: "center",
+//     //   backgroundRepeat: "no-repeat",
+//     //   padding: "4px 0",
+//     //   height: "90px",
+//     // }}
+//     style={{
+//       backgroundImage: "url('/images/dark-grey-bg.webp')",
+//       backgroundSize: "cover",
+//       backgroundPosition: "center",
+//       backgroundRepeat: "no-repeat",
+//       padding: "4px 0",
+//       height: `${navHeight}px`,
+//     }}
+//     >
 //       <Container>
 //         <Navbar.Brand as={Link} to="/">
 //           <img
-//             alt=""
+//             alt="Logo"
 //             src="images/logo.webp"
 //             width="40"
 //             height="40"
@@ -42,31 +68,11 @@
           
 //           {!isAuthenticated || userRole !== 'locksmith' ? (
 //             <Nav className="custom-nav mx-auto text-center">
-//               <Nav.Link 
-//                 as={Link} 
-//                 to="/" 
-//                 className={`me-lg-3 fw-bold text-light ${location.pathname === '/' ? 'active' : ''}`}
-//               >Home</Nav.Link>
-//               <Nav.Link 
-//                 as={Link} 
-//                 to="/about-us" 
-//                 className={`me-lg-3 fw-bold text-light ${location.pathname === '/about-us' ? 'active' : ''}`}
-//               >About Us</Nav.Link>
-//               <Nav.Link 
-//                 as={Link} 
-//                 to="/services" 
-//                 className={`me-lg-3 fw-bold text-light ${location.pathname === '/services' ? 'active' : ''}`}
-//               >Services</Nav.Link>
-//               <Nav.Link 
-//                 as={Link} 
-//                 to="/careers" 
-//                 className={`me-lg-3 fw-bold text-light ${location.pathname === '/careers' ? 'active' : ''}`}
-//               >Careers</Nav.Link>
-//               <Nav.Link 
-//                 as={Link} 
-//                 to="/contact-us" 
-//                 className={`me-lg-3 fw-bold text-light ${location.pathname === '/contact-us' ? 'active' : ''}`}
-//               >Contact Us</Nav.Link>
+//               <Nav.Link as={Link} to="/" className={`me-lg-3 fw-bold text-light ${location.pathname === '/' ? 'active' : ''}`}>Home</Nav.Link>
+//               <Nav.Link as={Link} to="/about-us" className={`me-lg-3 fw-bold text-light ${location.pathname === '/about-us' ? 'active' : ''}`}>About Us</Nav.Link>
+//               <Nav.Link as={Link} to="/services" className={`me-lg-3 fw-bold text-light ${location.pathname === '/services' ? 'active' : ''}`}>Services</Nav.Link>
+//               <Nav.Link as={Link} to="/careers" className={`me-lg-3 fw-bold text-light ${location.pathname === '/careers' ? 'active' : ''}`}>Careers</Nav.Link>
+//               <Nav.Link as={Link} to="/contact-us" className={`me-lg-3 fw-bold text-light ${location.pathname === '/contact-us' ? 'active' : ''}`}>Contact Us</Nav.Link>
 //             </Nav>
 //           ) : (
 //             <Nav className="mx-auto text-center"></Nav>
@@ -76,14 +82,17 @@
 //             {isAuthenticated ? (
 //               <>
 //                 <Nav.Link className="me-lg-3 fw-bold text-light">Welcome, {username}</Nav.Link>
+//                 {userRole === 'customer' && (
+//                   <Button as={Link} to="/mybookings" className="action-btn my-2 my-lg-0">Bookings</Button>
+                  
+//                 )}
 //                 <Button className="action-btn my-2 my-lg-0" onClick={handleLogout}>Logout</Button>
 //               </>
 //             ) : (
 //               <>
+                
 //                 <Dropdown className="my-2 my-lg-0">
-//                   <Dropdown.Toggle as={Button} className="action-btn">
-//                     Login
-//                   </Dropdown.Toggle>
+//                   <Dropdown.Toggle as={Button} className="drop-action-btn">Login</Dropdown.Toggle>
 //                   <Dropdown.Menu>
 //                     <Dropdown.Item as={Link} to="/login?role=customer">User</Dropdown.Item>
 //                     <Dropdown.Item as={Link} to="/login?role=locksmith">Locksmith</Dropdown.Item>
@@ -98,7 +107,7 @@
 //     </Navbar>
 //   );
 // }
-import React from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -123,16 +132,29 @@ export default function NavBar() {
     navigate('/');
   };
 
+  const [navHeight, setNavHeight] = useState(window.innerWidth <= 768 ? 150 : 90);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setNavHeight(window.innerWidth <= 768 ? 150 : 90);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    
-    <Navbar className="custom-navbar-bg" expand="lg" 
-    // style={{
-    //   backgroundImage: "url('/images/dark-grey-bg.png')",
-    //   backgroundSize: "cover",
-    //   backgroundPosition: "center",
-    //   padding: "4px 0 !important",
-    //   height: "90px",
-    // }}
+    <Navbar 
+      className="custom-navbar-bg" 
+      expand="lg"
+      style={{
+        backgroundImage: "url('/images/dark-grey-bg.webp')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        padding: "4px 0",
+        height: `${navHeight}px`,
+      }}
     >
       <Container>
         <Navbar.Brand as={Link} to="/">
@@ -164,13 +186,15 @@ export default function NavBar() {
               <>
                 <Nav.Link className="me-lg-3 fw-bold text-light">Welcome, {username}</Nav.Link>
                 {userRole === 'customer' && (
-                  <Button as={Link} to="/mybookings" className="action-btn my-2 my-lg-0">Bookings</Button>
+                  <>
+                    <Button as={Link} to="/mybookings" className="action-btn my-2 my-lg-0">Bookings</Button>
+                    <Button as={Link} to="/update-profile" className="action-btn my-2 my-lg-0">Profile</Button>
+                  </>
                 )}
                 <Button className="action-btn my-2 my-lg-0" onClick={handleLogout}>Logout</Button>
               </>
             ) : (
               <>
-                
                 <Dropdown className="my-2 my-lg-0">
                   <Dropdown.Toggle as={Button} className="drop-action-btn">Login</Dropdown.Toggle>
                   <Dropdown.Menu>
