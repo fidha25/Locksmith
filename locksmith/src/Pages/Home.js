@@ -12,12 +12,12 @@ import UnlockYourFuture from '../components/UnlockYourFuture/UnlockYourFuture';
 export default function Home() {
   return (
     <div>
- {/* <IntroSection/>
+ <IntroSection/>
  <CardSection/>
  <LockSmith/>
  <UnlockYourFuture/>
  <OurServices/>
- <HowWeWork/> */}
+ <HowWeWork/>
  <LastSection/>
  </div>
   )

@@ -1,8 +1,5 @@
-/* HowWeWork.css */
 .how-we-work-section {
-  /* background: linear-gradient(180deg, white, darkgrey); */
-  /* background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\new-grey-bg.png');  */
-
+  
   padding: 100px 0;
 }
 .carousel-container {
@@ -12,13 +9,13 @@
   padding: 20px 0;
   justify-content: flex-start;
   scroll-snap-type: x mandatory;
-  overflow-y: hidden; /* Prevents vertical scrolling */
-  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  overflow-y: hidden; 
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
 }
 
 .carousel-container::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome, Safari */
+  display: none; 
 }
 
 .step-card {
@@ -40,14 +37,13 @@
 }
 
 .step-card:hover {
-  transform: skew(0) scale(1.05); /* Scale effect on hover */
+  transform: skew(0) scale(1.05); 
 }
 
 .step-icon {
-  color: #202020; /* Color for the icons */
+  color: #202020; 
 }
 
-/* Navigation Buttons */
 .carousel-control-prev,
 .carousel-control-next {
   color: rgb(70, 71, 71);
@@ -57,10 +53,10 @@
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-  color: black; /* Changes to black on hover */
+  color: black; 
 }
 
-/* Remove skew effects on mobile for better readability */
+
 @media (max-width: 768px) {
   .carousel-container {
     justify-content: center;
