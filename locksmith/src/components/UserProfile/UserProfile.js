@@ -34,7 +34,7 @@ export default function UserProfile() {
       try {
         console.log("Fetching user profile...");
         const response = await api.get(
-          "http://192.168.1.12:8000/api/customer-profile/",
+          "/api/customer-profile/",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -103,7 +103,7 @@ export default function UserProfile() {
     try {
       console.log("Updating profile...");
       const response = await api.put(
-        `http://192.168.1.12:8000/api/customer-profile/${updatedProfile.id}/`,
+        `/api/customer-profile/${updatedProfile.id}/`,
         updatedProfile,
         {
           headers: {

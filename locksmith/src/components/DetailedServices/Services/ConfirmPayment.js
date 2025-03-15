@@ -2,6 +2,7 @@
 
 // import React from "react";
 // import { useLocation, useNavigate } from "react-router-dom";
+// import api from '../../../api/api'; // Use your custom API instance
 // import "./ConfirmPayment.css"; // Import the CSS file
 
 // const ConfirmPayment = () => {
@@ -9,9 +10,33 @@
 //   const navigate = useNavigate();
 //   const { service } = location.state;
 
-//   const handleConfirmPayment = () => {
-//     // Redirect to Stripe payment page
-//     navigate("/payment", { state: { service } });
+//   const handleConfirmPayment = async () => {
+//     const accessToken = localStorage.getItem('accessToken');
+
+//     if (!accessToken) {
+//       alert("You need to login first.");
+//       navigate("/login");
+//       return;
+//     }
+
+//     try {
+//       const response = await api.post(
+//         "/api/bookings/12/process_payment/",
+//         { service_id: service.id }, // Adjust the payload as needed
+//         {
+//           headers: {
+//             Authorization: `Bearer ${accessToken}`,
+//           },
+//         }
+//       );
+
+//       const { checkout_url } = response.data;
+//       window.location.href = checkout_url; // Redirect to the checkout URL
+//     } catch (error) {
+//       console.error("Payment processing failed:", error);
+//       console.error("Error response:", error.response); // Log the full error response
+//       alert("Payment processing failed. Please try again.");
+//     }
 //   };
 
 //   return (
@@ -38,16 +63,16 @@
 
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import api from '../../../api/api'; // Use your custom API instance
+import api from "../../../api/api"; // Use your custom API instance
 import "./ConfirmPayment.css"; // Import the CSS file
 
 const ConfirmPayment = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { service } = location.state;
+  const { service } = location.state; // Get service details from navigation state
 
   const handleConfirmPayment = async () => {
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem("accessToken");
 
     if (!accessToken) {
       alert("You need to login first.");
@@ -57,8 +82,8 @@ const ConfirmPayment = () => {
 
     try {
       const response = await api.post(
-        "/api/bookings/12/process_payment/",
-        { service_id: service.id }, // Adjust the payload as needed
+        `/api/bookings/${service.id}/process_payment/`, // Use dynamic booking ID
+        { service_id: service.id }, // Ensure payload includes correct service ID
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -67,10 +92,9 @@ const ConfirmPayment = () => {
       );
 
       const { checkout_url } = response.data;
-      window.location.href = checkout_url; // Redirect to the checkout URL
+      window.location.href = checkout_url; // Redirect to payment checkout
     } catch (error) {
       console.error("Payment processing failed:", error);
-      console.error("Error response:", error.response); // Log the full error response
       alert("Payment processing failed. Please try again.");
     }
   };

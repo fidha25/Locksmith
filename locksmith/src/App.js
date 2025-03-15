@@ -67,7 +67,7 @@ import SuccessPayment from './components/SuccessPayment/SuccessPayment';
 function App() {
   return (
     <Router>
-      <NavBar /> {/* Navbar will be visible on all pages */}
+      <NavBar /> 
       {/* <SnowFallBg/> */}
       <Routes>
         <Route path="/" element={<Home />} />

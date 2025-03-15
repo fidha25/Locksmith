@@ -1,9 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import api from '../../api/api';
-
 import './Signup.css';
 
 export default function UserSignup() {
@@ -19,16 +17,13 @@ export default function UserSignup() {
   const [success, setSuccess] = useState('');
   const [totpData, setTotpData] = useState(null);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  const resetForm = () => {
+    setFormData({ username: '', email: '', password: '', role: 'customer', totp_enabled: true });
+    setAgreeTerms(false);
   };
 
-  const handleCheckboxChange = (e) => {
-    setAgreeTerms(e.target.checked);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
@@ -44,26 +39,15 @@ export default function UserSignup() {
 
     try {
       const response = await api.post('/register/user/', formData);
-      const { access, refresh, user } = response.data;
-      localStorage.setItem('accessToken', access);
-      localStorage.setItem('refreshToken', refresh);
-
-      setSuccess('Signup successful!');
-      setTotpData({
-        secret: user.totp_secret,
-        qrCode: user.totp_qr_code,
-      });
-
-      setFormData({
-        username: '',
-        email: '',
-        password: '',
-        role: 'customer',
-        totp_enabled: true,
-      });
-      setAgreeTerms(false);
+      setSuccess('Signup successful! Please log in.');
+      setTotpData({ secret: response.data.user.totp_secret, qrCode: response.data.user.totp_qr_code });
+      resetForm();
     } catch (err) {
-      setError(err.response?.data?.message || 'Signup failed. Please try again.');
+      if (err.response?.status === 409) {
+        alert('User already exists. Please use a different username or email.');
+      } else {
+        setError(err.response?.data?.message || 'Signup failed. Please try again.');
+      }
       console.error('Error:', err);
     }
   };
@@ -73,14 +57,14 @@ export default function UserSignup() {
       <div className="row justify-content-center">
         <div className="col-md-6">
           <form onSubmit={handleSubmit} className="signup-form p-4 shadow">
-            <h2 className="text-center mb-4">Sign Up</h2>
+            <h2 className="text-center mb-4">Sign Up as Customer</h2>
             {error && <p className="text-danger text-center">{error}</p>}
             {success && <p className="text-success text-center">{success}</p>}
             {totpData && (
               <div className="text-center mb-3">
-                <p><strong>Secret Key:</strong> {totpData.secret}</p>
+                <p className='text-black'><strong>Secret Key:</strong> {totpData.secret}</p>
                 <img src={totpData.qrCode} alt="TOTP QR Code" style={{ width: '150px', height: '150px' }} />
-                <p>Scan the QR code using your authenticator app.</p>
+                <p className='text-black'>Scan the QR code using your authenticator app.</p>
               </div>
             )}
             <div className="mb-3">
@@ -96,13 +80,7 @@ export default function UserSignup() {
               <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} className="form-control" required />
             </div>
             <div className="mb-3 form-check">
-              <input
-                type="checkbox"
-                id="agreeTerms"
-                className="form-check-input"
-                checked={agreeTerms}
-                onChange={handleCheckboxChange}
-              />
+              <input type="checkbox" id="agreeTerms" className="form-check-input" checked={agreeTerms} onChange={(e) => setAgreeTerms(e.target.checked)} />
               <label htmlFor="agreeTerms" className="form-check-label">
                 I agree to the <a href="/docs/Terms of Use.pdf" target="_blank" rel="noopener noreferrer">Terms of use</a> and <a href="/docs/Privacy Policy.pdf" target="_blank" rel="noopener noreferrer">Privacy policy</a>
               </label>
@@ -117,125 +95,3 @@ export default function UserSignup() {
     </div>
   );
 }
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import axios from 'axios';
-// import './Signup.css';
-
-// export default function UserSignup() {
-//   const [formData, setFormData] = useState({
-//     username: '',
-//     email: '',
-//     password: '',
-//     role: 'customer',
-//     totp_enabled: true,
-//   });
-//   const [agreeTerms, setAgreeTerms] = useState(false);
-//   const [error, setError] = useState('');
-//   const [success, setSuccess] = useState('');
-//   const [totpData, setTotpData] = useState(null);
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({
-//       ...formData,
-//       [name]: value,
-//     });
-//   };
-
-//   const handleCheckboxChange = (e) => {
-//     setAgreeTerms(e.target.checked);
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setError('');
-//     setSuccess('');
-//     setTotpData(null);
-
-//     if (!agreeTerms) {
-//       setError('You must agree to the terms and policies to register.');
-//       return;
-//     }
-
-//     try {
-//       const response = await axios.post('http://192.168.1.7:8000/register/user/', formData);
-
-//       // If registration is successful
-//       const { access, refresh, user } = response.data;
-//       localStorage.setItem('accessToken', access);
-//       localStorage.setItem('refreshToken', refresh);
-
-//       setSuccess('Signup successful!');
-//       setTotpData({
-//         secret: user.totp_secret,
-//         qrCode: user.totp_qr_code,
-//       });
-
-//       setFormData({
-//         username: '',
-//         email: '',
-//         password: '',
-//         role: 'customer',
-//         totp_enabled: true,
-//       });
-//       setAgreeTerms(false);
-//     } catch (err) {
-//       if (err.response?.status === 409) {
-//         alert('User already exists. Please use a different username or email.');
-//       } else {
-//         setError(err.response?.data?.message || 'Signup failed. Please try again.');
-//       }
-//       console.error('Error:', err);
-//     }
-//   };
-
-//   return (
-//     <div className="container mt-5">
-//       <div className="row justify-content-center">
-//         <div className="col-md-6">
-//           <form onSubmit={handleSubmit} className="signup-form p-4 shadow">
-//             <h2 className="text-center mb-4">Sign Up</h2>
-//             {error && <p className="text-danger text-center">{error}</p>}
-//             {success && <p className="text-success text-center">{success}</p>}
-//             {totpData && (
-//               <div className="text-center mb-3">
-//                 <p><strong>Secret Key:</strong> {totpData.secret}</p>
-//                 <img src={totpData.qrCode} alt="TOTP QR Code" style={{ width: '150px', height: '150px' }} />
-//                 <p>Scan the QR code using your authenticator app.</p>
-//               </div>
-//             )}
-//             <div className="mb-3">
-//               <label htmlFor="username" className="form-label">Username:</label>
-//               <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} className="form-control" required />
-//             </div>
-//             <div className="mb-3">
-//               <label htmlFor="email" className="form-label">Email:</label>
-//               <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="form-control" required />
-//             </div>
-//             <div className="mb-3">
-//               <label htmlFor="password" className="form-label">Password:</label>
-//               <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} className="form-control" required />
-//             </div>
-//             <div className="mb-3 form-check">
-//               <input
-//                 type="checkbox"
-//                 id="agreeTerms"
-//                 className="form-check-input"
-//                 checked={agreeTerms}
-//                 onChange={handleCheckboxChange}
-//               />
-//               <label htmlFor="agreeTerms" className="form-check-label">
-//                 I agree to the <a href="/docs/Terms of Use.pdf" target="_blank" rel="noopener noreferrer">Terms of use</a> and <a href="/docs/Privacy Policy.pdf" target="_blank" rel="noopener noreferrer">Privacy policy</a>
-//               </label>
-//             </div>
-//             <button type="submit" className="btn btn-dark w-100" disabled={!agreeTerms}>Register</button>
-//             <div className="text-center mt-3">
-//               <p>Already have an account? <Link to="/login?role=customer">Login</Link></p>
-//             </div>
-//           </form>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
