@@ -32,11 +32,14 @@
 .logo-container {
   display: flex;
   align-items: center;
+  height: 120px;  /* Adjusted to match the new size */
+  width: 140px;   /* Adjusted to match the new size */
 }
 
 .logo-img {
-  height: 120px;  /* Adjusted to match the new size */
-  width: 140px;   /* Adjusted to match the new size */
+  height: 190px;  /* Adjusted to match the new size */
+  width: 210px;   /* Adjusted to match the new size */
+  
 }
 
 /* Add spacing between headings and list items */
@@ -130,4 +133,17 @@ body, html {
 
 .social-icon:hover {
   color: #007bff; /* Change color on hover */
+}
+
+.custom-list li a {
+  text-decoration: none;  /* Removes underline */
+  color: white; /* Ensures text remains visible */
+}
+
+.custom-list li a:hover {
+  text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+.social-icons a {
+  text-decoration: none; /* Removes underline from social media icons */
 }

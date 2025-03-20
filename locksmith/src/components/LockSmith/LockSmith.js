@@ -93,6 +93,8 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 import "./LockSmith.css";
 
 const LockSmith = () => {
@@ -102,8 +104,7 @@ const LockSmith = () => {
 
   return (
     <section className="LockSmith-section"   style={{
-      backgroundImage: "url('/images/dem.webp')",
-    
+      backgroundImage: "url('/images/dem.webp')",    
     }}>
       <Container>
         <Row className="align-items-center">
@@ -130,7 +131,11 @@ const LockSmith = () => {
             {/* View More Button */}
             <Row className="align-items-center mt-4">
               <Col xs={12} className="text-md-center text-lg-start" data-aos="zoom-in">
-                <Button className="view-more-btn" variant="dark">View More</Button>
+                <Link to="/about-us" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+  <Button className="view-more-btn" variant="dark">
+    View More
+  </Button>
+</Link>
               </Col>
             </Row>
           </Col>

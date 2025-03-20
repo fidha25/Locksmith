@@ -1,6 +1,6 @@
-
+/* Tab Container */
 .residential-container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: auto;
   padding: 20px;
   font-family: Arial, sans-serif;
@@ -10,48 +10,28 @@
 h2 {
   color: #333;
   margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
-/* .services-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  justify-content: center;
-} */
+/* Services List */
 .services-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Ensures each card maintains its width */
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
   justify-content: center;
+  margin-top: 40px;
 }
 
-/* Ensures 3 cards in a row on large screens and 2 on medium screens */
-@media (min-width: 1024px) {
-  .services-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .services-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 767px) {
-  .services-list {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-
+/* Services Card */
 .services-card {
-  width: 350px; /* Fixed width */
-  height: 350px; /* Fixed height */
-  border-radius: 10px;
+  width: 100%;
+  max-width: 350px;
+  min-height: 350px;
+  border-radius: 0;
   padding: 20px;
   background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-in-out;
   text-align: left;
   display: flex;
@@ -72,16 +52,26 @@ h2 {
   margin-bottom: 10px;
 }
 
+.Mui-selected {
+  color: rgb(240, 178, 131) !important;
+  background-color: #fff !important;
+}
+
+.MuiTabs-indicator {
+  background-color: rgb(240, 178, 131) !important;
+}
+
 .price {
   font-weight: bold;
   color: #e7a030;
+  font-size: 1.2rem;
 }
 
 .details {
   font-size: 14px;
-  color: #000000;
-  line-height: 1.5;
-  flex-grow: 1; /* Makes sure the details take up the remaining space */
+  color: #555;
+  line-height: 1.4;
+  flex-grow: 1;
 }
 
 .book-button {
@@ -93,38 +83,18 @@ h2 {
   cursor: pointer;
   width: 100%;
   font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .book-button:hover {
   background-color: #000000;
 }
 
-.services-card p {
-  margin: 3px 0; /* Reduce vertical spacing between text elements */
+.book-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(240, 178, 131, 0.5);
 }
 
-.details {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.4; /* Slightly reduced line height */
-  flex-grow: 1; /* Makes sure the details take up the remaining space */
-}
-.services-card {
-  text-align: center; /* Centers all text inside the card */
-}
-
-.services-card p {
-  margin: 3px 0; /* Reduces vertical spacing */
-  text-align: center; /* Ensures paragraph text is centered */
-}
-
-.details {
-  font-size: 15px;
-  color: #555;
-  line-height: 1.4;
-  flex-grow: 1;
-  text-align: center; /* Centers details text */
-}
 /* Loading Container */
 .loading-container {
   display: flex;
@@ -137,8 +107,8 @@ h2 {
 
 /* Loading Spinner */
 .loading-spinner {
-  border: 6px solid #f3f3f3; /* Light grey */
-  border-top: 6px solid #424446; /* Blue */
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #424446;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -165,11 +135,108 @@ h2 {
   margin-top: 20px;
   font-size: 1.2rem;
 }
+
+/* Success Message */
 .success-message {
-  background-color: #4caf50; /* Green background */
-  color: white; /* White text */
-  padding: 10px; /* Padding */
-  margin-bottom: 20px; /* Space below the message */
-  border-radius: 5px; /* Rounded corners */
-  text-align: center; /* Center the text */
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* No Services Message */
+.no-services-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 20px;
+}
+
+/* Filter Container */
+.filter-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.filter-dropdown {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.filter-dropdown:hover {
+  border-color: #aaa;
+  background-color: #f9f9f9;
+}
+
+.filter-dropdown:focus {
+  outline: none;
+  border-color: rgb(240, 178, 131);
+  box-shadow: 0 0 5px rgba(240, 178, 131, 0.5);
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 1024px) {
+  .services-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .services-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .services-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .MuiTabs-root {
+    width: 100%;
+  }
+
+  .MuiTab-root {
+    min-width: 200px !important; /* Ensure minimum width for tabs on larger screens */
+  }
+}
+
+@media (max-width: 1023px) {
+  .MuiTab-root {
+    min-width: 150px !important; /* Adjust for smaller screens */
+  }
+}
+/* Availability Status Styles */
+.availability-status {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.availability-status.available {
+  background-color: #e8f5e9; /* Light green background */
+  color: #2e7d32; /* Dark green text */
+}
+
+.availability-status.unavailable {
+  background-color: #ffebee; /* Light red background */
+  color: #c62828; /* Dark red text */
+}
+
+/* Disabled Button Styles */
+.book-button:disabled {
+  background-color: #b0bec5; /* Gray background */
+  color: #546e7a; /* Dark gray text */
+  cursor: not-allowed;
 }

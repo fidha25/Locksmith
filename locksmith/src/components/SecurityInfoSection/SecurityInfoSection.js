@@ -165,7 +165,7 @@ const SecurityInfoSection = () => {
             </motion.div>
 
             {/* Button */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 1.2 }}
@@ -174,7 +174,7 @@ const SecurityInfoSection = () => {
               <Button variant="dark" className="mt-3 more-btn">
                 MORE ABOUT US
               </Button>
-            </motion.div>
+            </motion.div> */}
           </Col>
         </Row>
       </Container>

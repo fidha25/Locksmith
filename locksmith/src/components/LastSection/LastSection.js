@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./LastSection.css";
+import { Link } from "react-router-dom";
 
 const LastSection = () => {
   useEffect(() => {
@@ -35,8 +36,13 @@ const LastSection = () => {
                 <b>Get in touch today – your security is just a click away!</b>
               </p>
               <div className="mt-3" data-aos="flip-up">
-                <button className="btn lavender-btn">Contact Us</button>
-              </div>
+  <Link
+    to="/contact-us"
+    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+  >
+    <button className="btn lavender-btn">Contact Us</button>
+  </Link>
+</div>
             </div>
           </div>
         </div>

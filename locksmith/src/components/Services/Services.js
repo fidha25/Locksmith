@@ -6,6 +6,8 @@ import 'aos/dist/aos.css';
 import { GiHouseKeys, GiCarKey, GiKeyLock, GiSiren } from 'react-icons/gi';
 import { FaBuildingLock, FaFingerprint } from 'react-icons/fa6';
 import { MdEmergency } from 'react-icons/md';
+import { Link } from "react-router-dom";
+
 import './Services.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -76,8 +78,15 @@ const OurServices = () => {
         ))}
       </Row>
       <div className="text-center mt-4">
-        <Button variant="dark" href="#" className="view-more-btn shadow">View More</Button>
-      </div>
+  <Link
+    to="/services"
+    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+  >
+    <Button variant="dark" className="view-more-btn shadow">
+      Explore
+    </Button>
+  </Link>
+</div>
     </Container>
   );
 };

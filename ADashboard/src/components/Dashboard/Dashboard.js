@@ -138,7 +138,7 @@ const menuItems = [
   },
   { name: "Manage Locksmith", icon: Key, component: <ManageLocksmith /> },
   // { name: "Manage Customer", icon: Users, component: <ManageCustomer /> },
-  // { name: "Set Commission", icon: Users, component: <SetCommission /> },
+  { name: "Set Commission", icon: Users, component: <SetCommission /> },
 
   // { name: "Transaction Details", icon: Wallet, component: <TransactionTable /> },
   // { name: "Car Key Details", icon: Car, component: <CarKeyDetails /> },

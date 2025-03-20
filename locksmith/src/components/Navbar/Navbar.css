@@ -117,3 +117,7 @@
   color: rgb(240, 178, 131) !important;
   font-weight: bold;
 }
+
+.navbar-collapse {
+  transition: height 0.2s ease-in-out !important; /* Reduce animation duration */
+}

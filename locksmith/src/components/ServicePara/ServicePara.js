@@ -30,7 +30,7 @@ const ServicePara = () => {
 
             {/* View More Button */}
             <Row className="align-items-center mt-4">
-              <Col xs={12} className="text-md-center text-lg-start"> {/* Center on md, left on lg */}
+              <Col xs={12} className="text-md-center text-lg-start"> 
                 <Button className="view-more-btn" variant="dark">Learn More</Button>
               </Col>
             </Row>

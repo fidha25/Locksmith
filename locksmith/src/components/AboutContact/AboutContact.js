@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Button } from "react-bootstrap";
 import "./AboutContact.css";
+import { Link } from "react-router-dom";
 
 const AboutContact = () => {
   return (
@@ -23,8 +24,11 @@ const AboutContact = () => {
         </p>
         <p className="text-dark"><i>We are available 24/7 to provide quick, efficient, and professional locksmith services—because your security can’t wait!</i></p>
         <p className="text-dark"><b>Sign up now for immediate assistance!</b></p>
-        <Button className="contact-btn text-light"  variant="dark">CONTACT US</Button>
-      </Container>
+        <Link to="/contact-us" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+  <Button className="contact-btn text-light" variant="dark">
+    CONTACT US
+  </Button>
+</Link>      </Container>
     </section>
   );
 };

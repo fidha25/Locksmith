@@ -184,7 +184,7 @@ const LocksmithAvailability = () => {
         <Card.Body>
           <h4>Status:</h4>
           <div className={`status-box ${isAvailable ? "available" : "not-available"}`}>
-            {isAvailable === null ? "Loading..." : isAvailable ? "Open to Work" : "Not Available"}
+            {isAvailable === null ? "Are You Available?" : isAvailable ? "Open to Work" : "Not Available"}
           </div>
         </Card.Body>
       </Card>

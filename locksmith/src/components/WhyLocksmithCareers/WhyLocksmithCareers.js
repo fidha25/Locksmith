@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
+import { Link } from "react-router-dom";
 
 import "./WhyLocksmithCareers.css";
 
@@ -22,7 +23,7 @@ const WhyLocksmithCareers = () => {
             <h2 className="fw-bold text-light unlock-heading">
             WHY CHOOSE OUR LOCKSMITH CAREERS?
             </h2>
-            <p>
+            <p className="text-white">
             Joining our team means more than just a job—it’s a chance to work with a trusted company that values your expertise. Here’s why locksmiths across Australia prefer working with us:
 
             </p>
@@ -58,9 +59,11 @@ const WhyLocksmithCareers = () => {
               </li>
             </ul>
 
-            <Button className="services-btn" data-aos="zoom-in">
-              Start Earning!
-            </Button>
+            {/* <Link to="/signup" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+  <Button className="services-btn" data-aos="zoom-in">
+    Start Earning!
+  </Button>
+</Link> */}
           </Col>
 
           {/* Right Side - Image */}

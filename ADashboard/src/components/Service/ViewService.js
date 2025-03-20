@@ -48,7 +48,6 @@ const ViewServices = () => {
             <tr>
               <th>ID</th>
               <th>Service Name</th>
-              <th>Base Price ($)</th>
               <th>Description</th>
             </tr>
           </thead>
@@ -57,7 +56,6 @@ const ViewServices = () => {
               <tr key={service.id}>
                 <td>{service.id}</td>
                 <td>{service.name}</td>
-                <td>${service.base_price}</td>
                 <td>{service.description}</td>
               </tr>
             ))}

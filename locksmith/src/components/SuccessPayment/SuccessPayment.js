@@ -9,7 +9,7 @@ const SuccessPayment = () => {
           <i className="fas fa-check-circle success-icon"></i>
         </div>
         <h1 className="success-title mb-3">Payment Successful!</h1>
-        <p className="success-message mb-4">
+        <p className="success-message mb-4 text-white">
           Thank you for your purchase. Your payment has been successfully processed. 
           A confirmation email has been sent to your registered email address.
         </p>

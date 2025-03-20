@@ -4,6 +4,8 @@ import { FaEye } from "react-icons/fa"; // Vision Icon
 import { GiAchievement } from "react-icons/gi"; // Mission Icon
 import { FiPhoneCall } from "react-icons/fi"; // Call Icon
 import "./vision.css"; // Ensure the CSS file is updated
+import { Link } from "react-router-dom";
+
 
 const WhyChooseUs = () => {
   return (
@@ -46,16 +48,19 @@ const WhyChooseUs = () => {
               </Col>
             </Row>
 
-            <Button className="services-btn">OUR SERVICES</Button>
-          </Col>
+            <Link to="/services" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+  <Button className="services-btn">
+    OUR SERVICES
+  </Button>
+</Link>          </Col>
 
           {/* Right Side - Image */}
           <Col md={6} className="image-content d-flex flex-column justify-content-center">
             <img src="/images/worker-client.jpg" alt="Locksmith at work" className="img-fluid locksmith-img" />
             <div className="vision-contact-box">
-              <p><i>Locked out or need urgent security assistance? Call our experts now!</i></p>
-              <p className="phone-icon">
-                <FiPhoneCall className="call-icon" /> (+62) 81 487 1843
+              <p className="text-white"><i>Locked out or need urgent security assistance? Call our experts now!</i></p>
+              <p className="phone-icon text-white">
+                <FiPhoneCall className="call-icon text-white" /> (+62) 81 487 1843
               </p>
             </div>
           </Col>

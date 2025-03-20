@@ -1,55 +1,52 @@
-// import React from "react";
-// import "./ServiceStyle.css";
-// import { useEffect } from "react";
 
+// import React, { useEffect } from "react";
 // import { Link } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
+// import "./ServiceStyle.css";
 
 // const ResidentialService = () => {
 //   useEffect(() => {
-//     window.scrollTo(0, 0); // Scroll to top when the component loads
+//     window.scrollTo(0, 0);
 //   }, []);
+
 //   return (
 //     <div className="residential-service container">
 //       {/* Section 1: Introduction */}
-//       <section className="intro-section text-center">
-//         {/* <h1 className="fw-bold">Residential Locksmith Services – Home Lock Change Service</h1> */}
+//       <section className="service-intro-section text-center">
 //         <h1 className="fw-bold">RESIDENTIAL LOCKSMITH SERVICES – HOME LOCK CHANGE SERVICE</h1>
 //         <h4>Why Secure Your Home?</h4>
-//         <p className="lead">
-//         A strong and reliable lock is the first line of defense for your home. Whether you've <b>moved to a new house, lost your keys, or need better security</b>, a professional <b>home lock change service</b> ensures safety for your family and belongings.
+//         <p className="lead text-black">
+//           A strong and reliable lock is the first line of defense for your home. Whether you've <b>moved to a new house, lost your keys, or need better security</b>, a professional <b>home lock change service</b> ensures safety for your family and belongings.
 //         </p>
 
-//         {/* Image Placeholder - Centered and Adjusted Width */}
+//         {/* Image Placeholder */}
 //         <div className="image-container">
-//   <div className="image-placeholder">
-//     <img src="/images/residential.jpg" alt="Automotive" />
-//   </div>
-// </div>
-
-//         {/* Button Below Image */}
-//         <div className="text-center"><Link to="/residential">
-//           <button className="btn btn-primary view-locksmiths-btn">View Services</button></Link>
+//           <div className="image-placeholder">
+//             <img src="/images/residential.jpg" alt="Residential Locksmith Service" />
+//           </div>
 //         </div>
+
+//         {/* Button - Visible only on medium devices */}
+//         <div className="text-center">
+//         <Link to="/residential">
+//                   <button className="btn btn-primary view-locksmiths-btn">View Services</button></Link>        </div>
 //       </section>
 
 //       {/* Section 2: Services Offered */}
 //       <section className="services-section">
 //         <h2 className="text-center fw-bold">OUR RESIDENTIAL LOCKSMITH SERVICES IN AUSTRALIA</h2>
 //         <div className="row">
-//           {/* Home Lock Installation & Upgrades */}
 //           <div className="col-md-6">
 //             <div className="service-box">
 //               <h4>1. Home Lock Installation & Upgrades</h4>
 //               <ul>
-//                 <li> Install <b>high-security locks</b> (deadbolts, digital locks, smart locks)</li>
+//                 <li> Install <b>high-security locks</b> (deadbolts,
+//                  digital locks, smart locks)</li>
 //                 <li> Replace outdated or damaged locks with durable <b>Australian-standard locks</b></li>
-//                 <li> Choose from top brands like <b>Gainsborough, Carbine, and Lockwood</b></li>
+//                 <li> Choose from top brands like <b> Carbine and Lockwood</b></li>
 //               </ul>
 //             </div>
 //           </div>
-
-//           {/* Lock Repairs & Maintenance */}
 //           <div className="col-md-6">
 //             <div className="service-box">
 //               <h4>2. Lock Repairs & Maintenance</h4>
@@ -59,25 +56,21 @@
 //               </ul>
 //             </div>
 //           </div>
-
-//           {/* Re-keying & Master Key Systems */}
 //           <div className="col-md-6">
 //             <div className="service-box">
 //               <h4>3. Re-keying & Master Key Systems</h4>
 //               <ul>
-//                 <li> Change the internal lock mechanism to work with a new key</li>
-//                 <li> Set up master key systems for rental properties and multi-door access</li>
+//                 <li> Change the internal lock mechanism to <b>work with a new key</b></li>
+//                 <li> Set up <b>master key systems</b> for <b>rental properties and multi-door access</b></li>
 //               </ul>
 //             </div>
 //           </div>
-
-//           {/* Emergency Home Lockouts */}
 //           <div className="col-md-6">
 //             <div className="service-box">
 //               <h4>4. Emergency Home Lockouts</h4>
 //               <ul>
-//                 <li> Locked out of your house? Get fast, damage-free entry assistance</li>
-//                 <li> Available 24/7 in Sydney, Melbourne, Brisbane, and other cities</li>
+//                 <li> Locked out of your house? Get <b>fast, damage-free entry assistance</b></li>
+//                 <li> Available <b>24/7 in Sydney, Melbourne, Brisbane, and other cities</b></li>
 //               </ul>
 //             </div>
 //           </div>
@@ -88,9 +81,9 @@
 //       <section className="why-choose-section text-center">
 //         <h2 className="fw-bold">WHY CHOOSE US?</h2>
 //         <ul className="list-unstyled">
-//           <li>✔ Certified and insured locksmiths across Sydney, Melbourne, Perth, and Brisbane</li>
-//           <li>✔ Same-day lock change service available</li>
-//           <li>✔ Affordable pricing with upfront quotes</li>
+//           <li>✔ Certified and insured locksmiths across <b>Brisbane, Canberra, Sydney, Melbourne, Adelaide, Perth</b></li>
+//           <li>✔ <b>Same-day lock change service</b> available</li>
+//           <li>✔ <b>Affordable pricing with upfront quotes</b></li>
 //         </ul>
 //       </section>
 //     </div>
@@ -99,14 +92,28 @@
 
 // export default ResidentialService;
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ServiceStyle.css";
 
 const ResidentialService = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleViewServices = () => {
+    const accessToken = localStorage.getItem("accessToken");
+    const userRole = localStorage.getItem("userRole");
+
+    if (!accessToken || userRole !== "customer") {
+      alert("Please log in to access this service.");
+      navigate("/login?role=customer");
+      return;
+    }
+    navigate("/residential");
+  };
 
   return (
     <div className="residential-service container">
@@ -127,8 +134,8 @@ const ResidentialService = () => {
 
         {/* Button - Visible only on medium devices */}
         <div className="text-center">
-        <Link to="/residential">
-                  <button className="btn btn-primary view-locksmiths-btn">View Services</button></Link>        </div>
+          <button className="btn btn-dark view-locksmiths-btn" onClick={handleViewServices}>View Services</button>
+        </div>
       </section>
 
       {/* Section 2: Services Offered */}
@@ -139,10 +146,9 @@ const ResidentialService = () => {
             <div className="service-box">
               <h4>1. Home Lock Installation & Upgrades</h4>
               <ul>
-                <li> Install <b>high-security locks</b> (deadbolts,
-                 digital locks, smart locks)</li>
+                <li> Install <b>high-security locks</b> (deadbolts, digital locks, smart locks)</li>
                 <li> Replace outdated or damaged locks with durable <b>Australian-standard locks</b></li>
-                <li> Choose from top brands like <b> Carbine and Lockwood</b></li>
+                <li> Choose from top brands like <b>Carbine and Lockwood</b></li>
               </ul>
             </div>
           </div>

@@ -50,7 +50,6 @@ import api from './../../api/api';
 
 const CreateService = () => {
   const [serviceName, setServiceName] = useState("");
-  const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
@@ -68,7 +67,6 @@ const CreateService = () => {
 
     const serviceData = {
       name: serviceName,
-      base_price: parseFloat(amount),
       description: description,
     };
 
@@ -81,7 +79,6 @@ const CreateService = () => {
       });
       setSuccess("Service created successfully!");
       setServiceName("");
-      setAmount("");
       setDescription("");
     } catch (err) {
       setError("Failed to create service. Please try again.");
@@ -104,16 +101,7 @@ const CreateService = () => {
             required
           />
         </div>
-        <div className="form-group">
-          <label>Base price</label>
-          <input
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            placeholder="Enter amount"
-            required
-          />
-        </div>
+        
         <div className="form-group">
           <label>Description</label>
           <textarea

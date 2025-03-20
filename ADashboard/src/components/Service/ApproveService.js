@@ -234,7 +234,7 @@ const ApproveService = () => {
     <Container className="approve-service-container">
       <h2 className="text-center">Approve Locksmith Services</h2>
       {message && <Alert variant={message.type}>{message.text}</Alert>}
-      <Table bordered hover responsive className="mt-3 custom-table">
+      <Table bordered responsive className="mt-3 custom-table">
         <thead className="table-dark">
           <tr>
             <th>ID</th>
