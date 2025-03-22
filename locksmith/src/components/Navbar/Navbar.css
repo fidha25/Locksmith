@@ -26,6 +26,19 @@
 .action-btn:hover, .dropdown-toggle.action-btn:hover, .drop-action-btn:hover {
   background: rgb(60, 60, 61) !important;
 }
+.logout-action-btn{
+  background: #959595 !important;
+  border: none !important;
+  color: rgb(255, 255, 255) !important;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 0 !important;
+  width:100px;
+}
 
 .custom-navbar-bg {
   padding: 4px 0 !important; 
@@ -50,16 +63,6 @@
   width: auto; 
 }
 
-/* .custom-navbar-bg {
-  background-image: url('C:\Users\hp\OneDrive\Desktop\LockSmith\locksmith\public\images\dark-grey-bg.png'); 
-  background-size: cover;
-  background-position: center; 
-  background-repeat: no-repeat;
-  padding: 4px 0 !important; 
-  height: 90px; 
-} */
-
-
 
 .navbar {
   min-height: 60px; 
@@ -79,7 +82,7 @@
   width: auto; 
   height: auto;
   border: none; 
-  color: rgb(240, 178, 131) !important; /* Golden color for the toggle icon */
+  color: rgb(240, 178, 131) !important; 
 }
 
 .navbar-toggler-icon {
@@ -87,7 +90,7 @@
 }
 
 .navbar-toggler:hover {
-  opacity: 0.8; /* Slightly reduce opacity on hover */
+  opacity: 0.8; 
 }
 
 @media (max-width: 991.98px) {
@@ -119,5 +122,23 @@
 }
 
 .navbar-collapse {
-  transition: height 0.2s ease-in-out !important; /* Reduce animation duration */
+  transition: height 0.2s ease-in-out !important; 
+}
+
+
+
+ /* Welcome message for small and medium devices */
+.welcome-message {
+  background-color: #333; /* Dark background */
+  color: white; /* White text */
+  padding: 8px 0; /* Padding for the message */
+  font-size: 14px; /* Font size */
+  font-weight: bold; /* Bold text */
+}
+
+/* Ensure the welcome message is only visible on small and medium devices */
+@media (min-width: 992px) {
+  .welcome-message {
+    display: none;
+  }
 }

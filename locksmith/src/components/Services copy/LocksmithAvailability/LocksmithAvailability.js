@@ -168,10 +168,10 @@ const LocksmithAvailability = () => {
       setIsAvailable(status === "open");
       setMessage({
         type: status === "open" ? "success" : "info",
-        text: status === "open" ? "You are now Open to Work!" : "You are marked as Not Available.",
+        text: status === "open" ? "You are now Open to Service!" : "You are marked as Not Available.",
       });
     } catch (error) {
-      setMessage({ type: "danger", text: `Failed to update status to ${status === "open" ? "Open to Work" : "Not Available"}.` });
+      setMessage({ type: "danger", text: `Failed to update status to ${status === "open" ? "Open to Service" : "Not Available"}.` });
       console.error("Error updating availability status:", error);
     }
   };
@@ -184,21 +184,21 @@ const LocksmithAvailability = () => {
         <Card.Body>
           <h4>Status:</h4>
           <div className={`status-box ${isAvailable ? "available" : "not-available"}`}>
-            {isAvailable === null ? "Are You Available?" : isAvailable ? "Open to Work" : "Not Available"}
+            {isAvailable === null ? "Are You Available?" : isAvailable ? "Open to Service" : "Not Available"}
           </div>
         </Card.Body>
       </Card>
       <Form>
         <Button
           variant="success"
-          className="mt-3 btn-sm"
+          className="mt-3 btn-sm custom-button"
           onClick={() => handleAvailability("/api/locksmiths/mark_open_to_work/", "open")}
         >
-          Open to Work
+          Open to Service
         </Button>
         <Button
           variant="danger"
-          className="mt-3 btn-sm"
+          className="mt-3 btn-sm custom-button"
           onClick={() => handleAvailability("/api/locksmiths/mark_not_available/", "closed")}
         >
           Not Available

@@ -15,6 +15,9 @@
   margin-bottom: 15px;
 }
 
-button {
-  width: 100%;
+
+.custom-button {
+  width: 50%; /* Adjust this value to your desired width */
+  margin: 0 auto; /* Center the button */
+  display: block; /* Ensure the button is treated as a block element */
 }
