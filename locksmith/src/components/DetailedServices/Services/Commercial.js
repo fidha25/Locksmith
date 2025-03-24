@@ -252,39 +252,6 @@ const Commercial = () => {
 };
 
 
-// const ServiceCard = ({ service, onBook }) => (
-//   <div className="services-card">
-//     <div className="service-header">
-//       <h3>{service.service.admin_service_name}</h3>
-//       <p className="price">${service.service.total_price}</p>
-//     </div>
-//     <p className="text-black">
-//       <strong>Locksmith:</strong> {service.locksmith}
-//     </p>
-//     <p className="text-black">
-//       <strong>Type:</strong> {service.service.service_type}
-//     </p>
-//     <p className="text-black">
-//       <strong>Distance:</strong> {service.distance_km} km
-//     </p>
-//     {/* Availability Status */}
-//     <div
-//       className={`availability-status ${
-//         service.service.is_available ? "available" : "unavailable"
-//       }`}
-//     >
-//       {service.service.is_available ? "Open for Service" : "Currently Unavailable"}
-//     </div>
-//     <p className="details text-black">{service.service.details}</p>
-//     <button
-//       className="book-button"
-//       onClick={() => onBook(service.service)}
-//       disabled={!service.service.is_available} // Disable button if unavailable
-//     >
-//       {service.service.is_available ? "Book Now" : "Unavailable"}
-//     </button>
-//   </div>
-// );
 
 const ServiceCard = ({ service, onBook }) => (
   <div className="services-card">

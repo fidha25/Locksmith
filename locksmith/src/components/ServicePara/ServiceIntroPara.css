@@ -3,9 +3,10 @@
   }
   
   /* Image Styling */
-  .main-image {
+  .service-intro-image {
     border-radius: 8px;
     width: 100%;
+    /* height: 550px; */
     height: auto;
   }
   

@@ -12,7 +12,7 @@ const ServiceIntroPara = () => {
             <img
               src="/images/serv-1.png"
               alt="Locksmith Work"
-              className="img-fluid main-image"
+              className="img-fluid service-intro-image"
             />
           </Col>
 

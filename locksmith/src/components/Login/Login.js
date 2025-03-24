@@ -1,10 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import './Signup.css';
 import api from '../../api/api';
-
 
 export default function Login() {
   const [loginData, setLoginData] = useState({
@@ -18,6 +16,7 @@ export default function Login() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const selectedRole = queryParams.get('role') || 'customer'; // Default to 'customer'
+  const from = queryParams.get('from'); // Check if the user was redirected from ResidentialService
 
   useEffect(() => {
     console.log("Selected Role:", selectedRole);
@@ -39,7 +38,7 @@ export default function Login() {
     setSuccess('');
   
     try {
-      const response = await api.post('/login/', {  // <--- Uses api.js with baseURL
+      const response = await api.post('/login/', {
         ...loginData,
         role: selectedRole,
       });
@@ -59,14 +58,27 @@ export default function Login() {
       setSuccess('Login successful!');
       setLoginData({ username: '', password: '', otp_code: '' });
   
-      navigate(role === 'customer' ? '/' : '/locksmith');
-      
+      // Redirect to Commercial page if the user was redirected from CommercialService
+      if (from === 'commercialService') {
+        navigate('/commercial');
+      } else if (from === 'residentialService') {
+        navigate('/residential');
+      } else if (from === 'automotiveService') {
+        navigate('/automotive');
+      } else if (from === 'emergencyService') {
+        navigate('/emergency');
+      } else if (from === 'smartLockService') {
+        navigate('/smart-lock');
+      } else {
+        navigate(role === 'customer' ? '/' : '/locksmith');
+      }
+  
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Please try again.');
       console.error('Error:', err);
     }
   };
-  
+
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
@@ -88,7 +100,7 @@ export default function Login() {
               <input type="text" id="otp_code" name="otp_code" value={loginData.otp_code} onChange={handleChange} className="form-control" required />
             </div>
             <button type="submit" className="btn btn-dark w-100">Login</button>
-            
+
             <div className="text-center mt-3">
               {selectedRole === 'customer' ? (
                 <p className='text-black'>Don't have an account? <Link to="/usersignup">Sign up </Link>here</p>
