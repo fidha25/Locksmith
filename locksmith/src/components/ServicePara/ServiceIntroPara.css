@@ -2,14 +2,21 @@
     /* background-color: #bcbcbc; */
   }
   
-  /* Image Styling */
-  .service-intro-image {
+  /* .service-intro-image {
     border-radius: 8px;
     width: 100%;
-    /* height: 550px; */
     height: auto;
-  }
-  
+  } */
+  /* Image Styling */
+/* Image Styling */
+.service-intro-image {
+  width: 85%; /* Reduced size */
+  height: auto;
+  padding: 20px; /* Added inner padding */
+  background-color: #f1f1f1; /* Optional: Add a light background for better visibility */
+}
+
+
   /* Text Styling */
   .welcome-text {
     color: rgb(0, 0, 0); /* Changed from yellow */

@@ -2,11 +2,19 @@
     padding: 50px 0;
   }
   
-  .lock-image-content img {
+  /* .lock-image-content img {
     max-width: 100%;
     height: auto;
   }
-  
+   */
+   /* Image Styling */
+.image-content img,
+.lock-image-content img {
+  width: 85%; /* Reduced size */
+  height: auto;
+  background-color: #ffffff; /* Optional: Light background for contrast */
+}
+
   /* Default: Left align text */
   .lock-text-content {
     text-align: left;

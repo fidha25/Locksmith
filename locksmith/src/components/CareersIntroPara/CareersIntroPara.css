@@ -1,13 +1,14 @@
-.locksmith-section {
-    /* background-color: #bcbcbc; */
-    
-  }
+
   
   /* Image Styling */
   .main-image {
-    border-radius: 8px;
+    /* border-radius: 8px;
     width: 100%;
+    height: auto; */
+    width: 85%; /* Reduced size */
     height: auto;
+    padding: 20px; /* Added inner padding */
+    background-color: #f1f1f1; /* Optional: Add a light background for better visibility */
   }
   
   /* Text Styling */

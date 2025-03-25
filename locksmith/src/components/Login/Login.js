@@ -67,7 +67,7 @@ export default function Login() {
         navigate('/automotive');
       } else if (from === 'emergencyService') {
         navigate('/emergency');
-      } else if (from === 'smartLockService') {
+      } else if (from === 'smart-lockService') {
         navigate('/smart-lock');
       } else {
         navigate(role === 'customer' ? '/' : '/locksmith');

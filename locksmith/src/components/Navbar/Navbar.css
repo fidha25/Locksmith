@@ -1,3 +1,5 @@
+
+
 .action-btn, .dropdown-toggle.action-btn {
   background: #959595 !important;
   border: none !important;
@@ -10,7 +12,8 @@
   font-size: 14px;
   margin-left: 0 !important;
 }
-.drop-action-btn{
+
+.drop-action-btn {
   background: #959595 !important;
   border: none !important;
   color: rgb(255, 255, 255) !important;
@@ -26,7 +29,8 @@
 .action-btn:hover, .dropdown-toggle.action-btn:hover, .drop-action-btn:hover {
   background: rgb(60, 60, 61) !important;
 }
-.logout-action-btn{
+
+.logout-action-btn {
   background: #959595 !important;
   border: none !important;
   color: rgb(255, 255, 255) !important;
@@ -37,7 +41,7 @@
   text-decoration: none;
   font-size: 14px;
   margin-left: 0 !important;
-  width:100px;
+  width: 100px;
 }
 
 .custom-navbar-bg {
@@ -62,7 +66,6 @@
   height: 180px; 
   width: auto; 
 }
-
 
 .navbar {
   min-height: 60px; 
@@ -125,20 +128,59 @@
   transition: height 0.2s ease-in-out !important; 
 }
 
-
-
- /* Welcome message for small and medium devices */
+/* Welcome message for small and medium devices */
 .welcome-message {
-  background-color: #333; /* Dark background */
-  color: white; /* White text */
-  padding: 8px 0; /* Padding for the message */
-  font-size: 14px; /* Font size */
-  font-weight: bold; /* Bold text */
+  background-color: #333;
+  color: white;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 /* Ensure the welcome message is only visible on small and medium devices */
 @media (min-width: 992px) {
   .welcome-message {
     display: none;
+  }
+}
+
+.custom-dropdown-menu {
+  background-color: #333 !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.dropdown-item-custom {
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+}
+
+.dropdown-item-custom:hover, 
+.dropdown-item-custom:focus {
+  background-color: #444 !important;
+  color: rgb(240, 178, 131) !important;
+}
+
+/* .nav-link.dropdown-toggle {
+  background-color: transparent !important;
+} */
+.nav-link.dropdown-toggle {
+  background-color: transparent !important;
+  border: none !important; /* Remove border */
+  outline: none !important; /* Remove any focus outline */
+  box-shadow: none !important; /* Ensure no shadow appears */
+}
+
+
+@media (max-width: 991.98px) {
+  .custom-dropdown-menu {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .dropdown-item-custom {
+    padding-left: 0 !important;
+    text-align: center !important;
   }
 }
