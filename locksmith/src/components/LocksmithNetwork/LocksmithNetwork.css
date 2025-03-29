@@ -83,3 +83,6 @@
       font-size: 0.9rem;
     }
   }
+  .view-more-btn {
+    pointer-events: auto !important;
+  }

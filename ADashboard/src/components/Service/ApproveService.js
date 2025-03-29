@@ -4,20 +4,18 @@
 // import { Table, Container, Button, Alert } from "react-bootstrap";
 // import { useNavigate } from "react-router-dom";
 // import "./ApproveService.css"; // Custom CSS file
-// import api from './../../api/api';
-
+// import api from "./../../api/api";
 
 // const ApproveService = () => {
 //   const [services, setServices] = useState([]);
 //   const [message, setMessage] = useState(null);
 //   const navigate = useNavigate();
 
-//   // Check if the user is an admin
 //   useEffect(() => {
 //     const userRole = localStorage.getItem("userRole");
 //     if (userRole !== "admin") {
 //       setMessage({ type: "danger", text: "Access Denied! Admins only." });
-//       setTimeout(() => navigate("/"), 2000); // Redirect non-admin users
+//       setTimeout(() => navigate("/"), 2000);
 //       return;
 //     }
 
@@ -46,7 +44,6 @@
 //     fetchServices();
 //   }, [navigate]);
 
-//   // Handle approve/reject action
 //   const handleApproval = async (id, action) => {
 //     try {
 //       const accessToken = localStorage.getItem("accessToken");
@@ -86,8 +83,8 @@
 //     <Container className="approve-service-container">
 //       <h2 className="text-center">Approve Locksmith Services</h2>
 //       {message && <Alert variant={message.type}>{message.text}</Alert>}
-//       <Table  bordered hover responsive className="mt-3">
-//         <thead>
+//       <Table bordered responsive className="mt-3 custom-table">
+//         <thead className="table-dark">
 //           <tr>
 //             <th>ID</th>
 //             <th>Locksmith Name</th>
@@ -116,7 +113,7 @@
 //                 <td className={`status ${service.approved ? "approved" : "pending"}`}>
 //                   {service.approved ? "Approved" : "Pending"}
 //                 </td>
-//                 <td>
+//                 <td className="d-flex justify-content-center">
 //                   <Button
 //                     variant="success"
 //                     size="sm"
@@ -217,11 +214,9 @@ const ApproveService = () => {
             service.id === id ? { ...service, approved: true } : service
           )
         );
-
         setMessage({ type: "success", text: "Service approved successfully!" });
       } else if (action === "reject") {
         setServices((prevServices) => prevServices.filter((service) => service.id !== id));
-
         setMessage({ type: "success", text: "Service rejected and removed successfully!" });
       }
     } catch (error) {
@@ -245,6 +240,10 @@ const ApproveService = () => {
             <th>Custom Price ($)</th>
             <th>Total Price ($)</th>
             <th>Details</th>
+            <th>Manufacturer</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Buttons</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
@@ -261,6 +260,10 @@ const ApproveService = () => {
                 <td>{service.custom_price}</td>
                 <td>{service.total_price || "N/A"}</td>
                 <td>{service.details}</td>
+                <td>{service.car_key_details?.manufacturer || "N/A"}</td>
+                <td>{service.car_key_details?.model || "N/A"}</td>
+                <td>{service.car_key_details?.year || "N/A"}</td>
+                <td>{service.car_key_details?.number_of_buttons || "N/A"}</td>
                 <td className={`status ${service.approved ? "approved" : "pending"}`}>
                   {service.approved ? "Approved" : "Pending"}
                 </td>
@@ -286,7 +289,7 @@ const ApproveService = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="10" className="text-center">
+              <td colSpan="14" className="text-center">
                 No locksmith services found.
               </td>
             </tr>

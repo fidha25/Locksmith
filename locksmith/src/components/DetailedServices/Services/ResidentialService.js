@@ -47,7 +47,7 @@ const ResidentialService = () => {
         {/* Image Placeholder */}
         <div className="image-container">
           <div className="image-placeholder">
-            <img src="/images/residential.jpg" alt="Residential Locksmith Service" />
+            <img src="/images/residential.webp" alt="Residential Locksmith Service" />
           </div>
         </div>
 

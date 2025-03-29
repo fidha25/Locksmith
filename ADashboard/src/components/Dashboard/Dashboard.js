@@ -1,52 +1,50 @@
 
-// import { useState } from "react";
+
+// import { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 // import "./Dashboard.css";
-// import { Home, Wrench, ChevronDown, ChevronUp, Key, Users, Car, Wallet, BarChart2, LogOut } from "lucide-react";
+// import { Home, Wrench, ChevronDown, ChevronUp, Key, Users, LogOut } from "lucide-react";
 // import CreateService from "../Service/CreateService";
 // import ManageLocksmith from "../LockSmith/ManageLocksmith";
-// import ManageCustomer from "../Customer/ManageCustomer";
-// import ManageService from "../Service/ManageService";
-// import TransactionTable from "../Transaction/Transaction";
-// import StatisticsReports from "../StatisticsReports/StatisticsReports";
-// import CarKeyDetails from "../CarKeyDetails/CarKeyDetails";
-// import ServiceRules from "../ServiceRules/ServiceRules";
 // import SetCommission from "../Commission/Commission";
 // import ViewServices from "../Service/ViewService";
 // import ApproveService from "../Service/ApproveService";
-
+// import ViewMessages from "../ViewMessage/ViewMessages";
+// import api from "../../api/api";
 
 // const DashboardHome = () => <div>Welcome to Admin Dashboard</div>;
 
 // const menuItems = [
 //   { name: "Dashboard", icon: Home, component: <DashboardHome /> },
-//   // { name: "My Profile", icon: Home, component: <DashboardHome /> },
-
 //   {
 //     name: "Manage Service",
 //     icon: Wrench,
 //     subMenu: [
 //       { name: "Create Service", component: <CreateService /> },
-//       // { name: "Update Service", component: <ManageService /> },
-//       // { name: "Update Rules", component: <ServiceRules /> },
 //       { name: "View Services", component: <ViewServices /> },
 //       { name: "Approve Services", component: <ApproveService /> },
-
 //     ],
 //   },
 //   { name: "Manage Locksmith", icon: Key, component: <ManageLocksmith /> },
-//   // { name: "Manage Customer", icon: Users, component: <ManageCustomer /> },
 //   { name: "Set Commission", icon: Users, component: <SetCommission /> },
+//   { name: "View Messages", icon: Users, component: <ViewMessages /> },
 
-//   // { name: "Transaction Details", icon: Wallet, component: <TransactionTable /> },
-//   // { name: "Car Key Details", icon: Car, component: <CarKeyDetails /> },
-//   // { name: "Statistics Reports", icon: BarChart2, component: <StatisticsReports /> },
 // ];
 
 // const Dashboard = () => {
 //   const [activeTab, setActiveTab] = useState("Dashboard");
 //   const [expandedMenu, setExpandedMenu] = useState(null);
 //   const navigate = useNavigate();
+
+//   // 🔒 Authorization Check
+//   useEffect(() => {
+//     const accessToken = localStorage.getItem("accessToken");
+//     const userRole = localStorage.getItem("userRole");
+
+//     if (!accessToken || userRole !== "admin") {
+//       navigate("/"); // Redirect to login if not authorized
+//     }
+//   }, [navigate]);
 
 //   const handleMenuClick = (item) => {
 //     if (item.subMenu) {
@@ -56,12 +54,31 @@
 //     }
 //   };
 
-//   const handleLogout = () => {
-//     localStorage.removeItem("accessToken");
-//     localStorage.removeItem("refreshToken");
-//     localStorage.removeItem("userRole");
-//     localStorage.removeItem("username");
-//     navigate("/");
+//   // 🔴 Logout Function
+//   const handleLogout = async () => {
+//     const refreshToken = localStorage.getItem("refreshToken");
+
+//     if (!refreshToken) {
+//       alert("No refresh token found. Please log in again.");
+//       navigate("/");
+//       return;
+//     }
+
+//     try {
+//       await api.post(
+//         "/logout/",
+//         { refresh: refreshToken },
+//         { headers: { "Content-Type": "application/json" } }
+//       );
+
+//       // Remove tokens & redirect
+//       localStorage.clear();
+//       alert("Logout successful!");
+//       navigate("/");
+//     } catch (err) {
+//       console.error("Logout Error:", err);
+//       alert("Logout failed. Please try again.");
+//     }
 //   };
 
 //   const ActiveComponent = menuItems
@@ -119,18 +136,17 @@
 // };
 
 // export default Dashboard;
-
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
-import { Home, Wrench, ChevronDown, ChevronUp, Key, Users, LogOut } from "lucide-react";
+import { Home, Wrench, ChevronDown, ChevronUp, Key, Users, LogOut, MessageCircle } from "lucide-react";
 import CreateService from "../Service/CreateService";
 import ManageLocksmith from "../LockSmith/ManageLocksmith";
 import SetCommission from "../Commission/Commission";
 import ViewServices from "../Service/ViewService";
 import ApproveService from "../Service/ApproveService";
-import api from '../../api/api';
+import ViewMessages from "../ViewMessage/ViewMessages";
+import api from "../../api/api";
 
 
 const DashboardHome = () => <div>Welcome to Admin Dashboard</div>;
@@ -148,6 +164,7 @@ const menuItems = [
   },
   { name: "Manage Locksmith", icon: Key, component: <ManageLocksmith /> },
   { name: "Set Commission", icon: Users, component: <SetCommission /> },
+  { name: "View Messages", icon: MessageCircle, component: <ViewMessages /> },
 ];
 
 const Dashboard = () => {
@@ -155,7 +172,7 @@ const Dashboard = () => {
   const [expandedMenu, setExpandedMenu] = useState(null);
   const navigate = useNavigate();
 
-  // Authorization Check
+  // 🔒 Authorization Check
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     const userRole = localStorage.getItem("userRole");
@@ -173,38 +190,30 @@ const Dashboard = () => {
     }
   };
 
+  // 🔴 Logout Function
   const handleLogout = async () => {
-    const refreshToken = localStorage.getItem('refreshToken');
-    console.log('Refresh Token:', refreshToken); // Log the refresh token
-  
+    const refreshToken = localStorage.getItem("refreshToken");
+
     if (!refreshToken) {
-      alert('No refresh token found. Please log in again.');
-      navigate('/login');
+      alert("No refresh token found. Please log in again.");
+      navigate("/");
       return;
     }
-  
+
     try {
-      const response = await api.post(
-        '/logout/',
+      await api.post(
+        "/logout/",
         { refresh: refreshToken },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-          },
-        }
+        { headers: { "Content-Type": "application/json" } }
       );
-  
-      alert(response.data.message || 'Logout successful!');
-      localStorage.removeItem('accessToken');
-      localStorage.removeItem('refreshToken');
-      localStorage.removeItem('userRole');
-      localStorage.removeItem('username');
-      navigate('/');
+
+      // Remove tokens & redirect
+      localStorage.clear();
+      alert("Logout successful!");
+      navigate("/");
     } catch (err) {
-      console.error('Error:', err);
-      console.error('Error Response:', err.response?.data); // Log the full error response
-      alert(err.response?.data?.message || 'Logout failed. Please try again.');
+      console.error("Logout Error:", err);
+      alert("Logout failed. Please try again.");
     }
   };
 
@@ -217,7 +226,9 @@ const Dashboard = () => {
       <div className="row dashboard-container">
         {/* Sidebar */}
         <div className="col-md-3 col-lg-2 sidebar">
-          <div className="brand">LockQuick</div>
+          <div className="brand">
+            <img src="images/logo.webp" alt="LockQuick Logo" className="logo-img" />
+          </div>
           <div className="menu">
             {menuItems.map((item) => (
               <div key={item.name}>
@@ -255,7 +266,7 @@ const Dashboard = () => {
           <div className="card">
             <div className="card-body">{ActiveComponent}</div>
           </div>
-          <div className="footer">Copyright © 2025</div>
+          <div className="footer"></div>
         </div>
       </div>
     </div>

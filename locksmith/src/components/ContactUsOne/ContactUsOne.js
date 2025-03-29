@@ -43,12 +43,12 @@ const ContactUsOne = () => {
                 <i className="fas fa-map-marker-alt"></i>
               </div>
               <h5 className="text-white">Office Location</h5>
-              <p>Jl. Raya Puputan No 142, Denpasar</p>
+              <p>Queensland, Australia</p>
             </div>
           </Col>
 
           {/* Phone Contact Card with Flip Animation */}
-          <Col md={4} sm={12} className="contact-card">
+          {/* <Col md={4} sm={12} className="contact-card">
             <div
               className="contact-box phone-bg"
               data-aos="flip-up" // Flip animation
@@ -60,7 +60,7 @@ const ContactUsOne = () => {
               <h5 className="text-white">Give Us A Call</h5>
               <p>(+62)81 115 8596 / (+62)81 115 8749</p>
             </div>
-          </Col>
+          </Col> */}
 
           {/* Email Contact Card with Flip Animation */}
           <Col md={4} sm={12} className="contact-card">
@@ -73,7 +73,7 @@ const ContactUsOne = () => {
                 <i className="fas fa-envelope"></i>
               </div>
               <h5 className="text-white">Email Us</h5>
-              <p>support@domain.com</p>
+              <p>contact@lockquick.com.au</p>
             </div>
           </Col>
         </Row>

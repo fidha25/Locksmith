@@ -1,16 +1,17 @@
 
-
-// // import React, { useState } from "react";
+// // import React, { useState, useEffect } from "react"; 
 // // import axios from "axios";
 // // import "./LockSmithForm.css";
 // // import { useNavigate } from "react-router-dom";
+// // import api from '../../api/api';
+
 
 // // const LockSmithForm = () => {
 // //   const navigate = useNavigate();
 // //   const [formData, setFormData] = useState({
 // //     address: "",
 // //     contact_number: "",
-// //     serviceArea: "",
+// //     service_area: "",
 // //     longitude: "",
 // //     latitude: "",
 // //     pcc_file: null,
@@ -20,6 +21,45 @@
 
 // //   const [message, setMessage] = useState(null);
 // //   const [error, setError] = useState(null);
+
+// //   // Fetch existing form data on component mount
+// //   useEffect(() => {
+// //     const fetchFormData = async () => {
+// //       try {
+// //         const accessToken = localStorage.getItem("accessToken");
+// //         if (!accessToken) {
+// //           throw new Error("No access token found. Please login.");
+// //         }
+
+// //         const response = await api.get("api/locksmiths/locksmithform_val/", {
+// //           headers: {
+// //             Authorization: `Bearer ${accessToken}`,
+// //           },
+// //         });
+
+// //         const data = response.data;
+// //         if (data && (data.address || data.contact_number || data.service_area || data.longitude || data.latitude)) {
+// //           console.log("Fields are already filled, navigating...");
+// //           navigate("/waiting-for-approval", { state: { token: accessToken } });
+// //         } else {
+// //           setFormData({
+// //             address: data.address || "",
+// //             contact_number: data.contact_number || "",
+// //             service_area: data.service_area || "",
+// //             longitude: data.longitude || "",
+// //             latitude: data.latitude || "",
+// //             pcc_file: null,
+// //             license_file: null,
+// //             photo: null,
+// //           });
+// //         }
+// //       } catch (error) {
+// //         console.error("Error fetching form data:", error);
+// //       }
+// //     };
+
+// //     fetchFormData();
+// //   }, [navigate]);
 
 // //   const handleChange = (e) => {
 // //     const { name, value, files } = e.target;
@@ -46,7 +86,7 @@
 // //         throw new Error("No access token found. Please login.");
 // //       }
 
-// //       const response = await axios.put("http://192.168.1.7:8000/locksmith/profile/update/", data, {
+// //       const response = await api.post("/locksmith/profile/update/", data, {
 // //         headers: {
 // //           "Content-Type": "multipart/form-data",
 // //           Authorization: `Bearer ${accessToken}`,
@@ -56,6 +96,10 @@
 // //       setMessage("Profile updated successfully!");
 // //       setError(null);
 // //       console.log("Profile updated successfully", response.data);
+
+// //       // Navigate after updating
+// //       navigate("/waiting-for-approval", { state: { token: accessToken } });
+
 // //     } catch (error) {
 // //       setError("Error updating profile. Please try again.");
 // //       setMessage(null);
@@ -78,12 +122,12 @@
 
 // //         <div className="form-group">
 // //           <label>Contact Number</label>
-// //           <input type="text" name="contact_number" value={formData.contactNumber} onChange={handleChange} className="form-control" />
+// //           <input type="text" name="contact_number" value={formData.contact_number} onChange={handleChange} className="form-control" />
 // //         </div>
 
 // //         <div className="form-group">
 // //           <label>Service Area</label>
-// //           <input type="text" name="serviceArea" value={formData.serviceArea} onChange={handleChange} className="form-control" />
+// //           <input type="text" name="service_area" value={formData.serviceArea} onChange={handleChange} className="form-control" />
 // //         </div>
 
 // //         <div className="form-group">
@@ -98,17 +142,17 @@
 
 // //         <div className="form-group">
 // //           <label>PCC File </label>
-// //           <input type="file" name="pcc_file"  onChange={handleChange} className="form-control-file" />
+// //           <input type="file" name="pcc_file" onChange={handleChange} className="form-control-file" />
 // //         </div>
 
 // //         <div className="form-group">
 // //           <label>License File </label>
-// //           <input type="file" name="license_file"  onChange={handleChange} className="form-control-file" />
+// //           <input type="file" name="license_file" onChange={handleChange} className="form-control-file" />
 // //         </div>
 
 // //         <div className="form-group">
 // //           <label>Photo </label>
-// //           <input type="file" name="photo"  onChange={handleChange} className="form-control-file" />
+// //           <input type="file" name="photo" onChange={handleChange} className="form-control-file" />
 // //         </div>
 
 // //         <div className="text-center">
@@ -120,17 +164,17 @@
 // // };
 
 // // export default LockSmithForm;
-// import React, { useState } from "react";
-// import axios from "axios";
-// import "./LockSmithForm.css";
+// import React, { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
+// import "./LockSmithForm.css";
+// import api from "../../api/api";
 
 // const LockSmithForm = () => {
 //   const navigate = useNavigate();
 //   const [formData, setFormData] = useState({
 //     address: "",
 //     contact_number: "",
-//     serviceArea: "",
+//     service_area: "",
 //     longitude: "",
 //     latitude: "",
 //     pcc_file: null,
@@ -141,55 +185,90 @@
 //   const [message, setMessage] = useState(null);
 //   const [error, setError] = useState(null);
 
+//   // 🔐 Check authentication & role
+//   useEffect(() => {
+//     const accessToken = localStorage.getItem("accessToken");
+//     const userRole = localStorage.getItem("userRole");
+
+//     if (!accessToken || userRole !== "locksmith") {
+//       navigate("/login");
+//       return;
+//     }
+
+//     // Fetch existing form data
+//     const fetchFormData = async () => {
+//       try {
+//         const response = await api.get("api/locksmiths/locksmithform_val/", {
+//           headers: { Authorization: `Bearer ${accessToken}` },
+//         });
+
+//         const data = response.data;
+//         if (data && (data.address || data.contact_number || data.service_area)) {
+//           navigate("/waiting-for-approval", { state: { token: accessToken } });
+//         } else {
+//           setFormData({
+//             address: data.address || "",
+//             contact_number: data.contact_number || "",
+//             service_area: data.service_area || "",
+//             longitude: data.longitude || "",
+//             latitude: data.latitude || "",
+//             pcc_file: null,
+//             license_file: null,
+//             photo: null,
+//           });
+//         }
+//       } catch (error) {
+//         console.error("Error fetching form data:", error);
+//       }
+//     };
+
+//     fetchFormData();
+//   }, [navigate]);
+
+//   // Handle form input changes
 //   const handleChange = (e) => {
 //     const { name, value, files } = e.target;
-
 //     setFormData((prevData) => ({
 //       ...prevData,
-//       [name]: files ? files[0] : value, // For file inputs, set the first file
+//       [name]: files ? files[0] : value,
 //     }));
 //   };
 
+//   // Handle form submission
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
 
-
-// const handleSubmit = async (e) => {
-//   e.preventDefault();
-
-//   const data = new FormData();
-//   Object.keys(formData).forEach((key) => {
-//     if (formData[key]) {
-//       data.append(key, formData[key]);
-//     }
-//   });
-
-//   try {
-//     const accessToken = localStorage.getItem("accessToken");
-//     if (!accessToken) {
-//       throw new Error("No access token found. Please login.");
-//     }
-
-//     const response = await axios.put("http://192.168.1.8:8000/locksmith/profile/update/", data, {
-//       headers: {
-//         "Content-Type": "multipart/form-data",
-//         Authorization: `Bearer ${accessToken}`,
-//       },
+//     const data = new FormData();
+//     Object.keys(formData).forEach((key) => {
+//       if (formData[key]) {
+//         data.append(key, formData[key]);
+//       }
 //     });
 
-//     setMessage("Profile updated successfully!");
-//     setError(null);
-//     console.log("Profile updated successfully", response.data);
-//     console.log("Navigating to /waiting-for-approval");
+//     try {
+//       const accessToken = localStorage.getItem("accessToken");
+//       if (!accessToken) {
+//         throw new Error("No access token found. Please login.");
+//       }
 
-//     // Navigate to waiting page with token
-//     navigate("/waiting-for-approval", { state: { token: accessToken } });
+//       await api.post("/locksmith/profile/update/", data, {
+//         headers: {
+//           "Content-Type": "multipart/form-data",
+//           Authorization: `Bearer ${accessToken}`,
+//         },
+//       });
 
-//   } catch (error) {
-//     setError("Error updating profile. Please try again.");
-//     setMessage(null);
-//     console.error("Error updating profile:", error);
-//   }
-// };
+//       setMessage("Profile updated successfully!");
+//       setError(null);
 
+//       // Redirect after success
+//       navigate("/waiting-for-approval", { state: { token: accessToken } });
+//     } catch (error) {
+//       setError("Error updating profile. Please try again.");
+//       setMessage(null);
+//       console.error("Error updating profile:", error);
+//     }
+//   };
 
 //   return (
 //     <div className="container locksmith-form">
@@ -211,7 +290,7 @@
 
 //         <div className="form-group">
 //           <label>Service Area</label>
-//           <input type="text" name="serviceArea" value={formData.serviceArea} onChange={handleChange} className="form-control" />
+//           <input type="text" name="service_area" value={formData.service_area} onChange={handleChange} className="form-control" />
 //         </div>
 
 //         <div className="form-group">
@@ -225,18 +304,18 @@
 //         </div>
 
 //         <div className="form-group">
-//           <label>PCC File </label>
-//           <input type="file" name="pcc_file"  onChange={handleChange} className="form-control-file" />
+//           <label>PCC File</label>
+//           <input type="file" name="pcc_file" onChange={handleChange} className="form-control-file" />
 //         </div>
 
 //         <div className="form-group">
-//           <label>License File </label>
-//           <input type="file" name="license_file"  onChange={handleChange} className="form-control-file" />
+//           <label>License File</label>
+//           <input type="file" name="license_file" onChange={handleChange} className="form-control-file" />
 //         </div>
 
 //         <div className="form-group">
-//           <label>Photo </label>
-//           <input type="file" name="photo"  onChange={handleChange} className="form-control-file" />
+//           <label>Photo</label>
+//           <input type="file" name="photo" onChange={handleChange} className="form-control-file" />
 //         </div>
 
 //         <div className="text-center">
@@ -248,12 +327,10 @@
 // };
 
 // export default LockSmithForm;
-import React, { useState, useEffect } from "react"; 
-import axios from "axios";
-import "./LockSmithForm.css";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import api from '../../api/api';
-
+import "./LockSmithForm.css";
+import api from "../../api/api";
 
 const LockSmithForm = () => {
   const navigate = useNavigate();
@@ -270,25 +347,25 @@ const LockSmithForm = () => {
 
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
+  const [fileError, setFileError] = useState(null);
 
-  // Fetch existing form data on component mount
   useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    const userRole = localStorage.getItem("userRole");
+
+    if (!accessToken || userRole !== "locksmith") {
+      navigate("/login?role=locksmith");
+      return;
+    }
+
     const fetchFormData = async () => {
       try {
-        const accessToken = localStorage.getItem("accessToken");
-        if (!accessToken) {
-          throw new Error("No access token found. Please login.");
-        }
-
         const response = await api.get("api/locksmiths/locksmithform_val/", {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
+          headers: { Authorization: `Bearer ${accessToken}` },
         });
 
         const data = response.data;
-        if (data && (data.address || data.contact_number || data.service_area || data.longitude || data.latitude)) {
-          console.log("Fields are already filled, navigating...");
+        if (data && (data.address || data.contact_number || data.service_area)) {
           navigate("/waiting-for-approval", { state: { token: accessToken } });
         } else {
           setFormData({
@@ -313,14 +390,26 @@ const LockSmithForm = () => {
   const handleChange = (e) => {
     const { name, value, files } = e.target;
 
+    if (files) {
+      const file = files[0];
+      if (file && file.size > 150 * 1024) {
+        setFileError("File size should be less than 150KB.");
+        return;
+      } else {
+        setFileError(null);
+      }
+    }
+
     setFormData((prevData) => ({
       ...prevData,
-      [name]: files ? files[0] : value, // For file inputs, set the first file
+      [name]: files ? files[0] : value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (fileError) return;
 
     const data = new FormData();
     Object.keys(formData).forEach((key) => {
@@ -335,7 +424,7 @@ const LockSmithForm = () => {
         throw new Error("No access token found. Please login.");
       }
 
-      const response = await api.post("/locksmith/profile/update/", data, {
+      await api.post("/locksmith/profile/update/", data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${accessToken}`,
@@ -344,11 +433,7 @@ const LockSmithForm = () => {
 
       setMessage("Profile updated successfully!");
       setError(null);
-      console.log("Profile updated successfully", response.data);
-
-      // Navigate after updating
       navigate("/waiting-for-approval", { state: { token: accessToken } });
-
     } catch (error) {
       setError("Error updating profile. Please try again.");
       setMessage(null);
@@ -362,6 +447,7 @@ const LockSmithForm = () => {
 
       {message && <div className="alert alert-success">{message}</div>}
       {error && <div className="alert alert-danger">{error}</div>}
+      {fileError && <div className="alert alert-warning">{fileError}</div>}
 
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="form-group">
@@ -376,7 +462,7 @@ const LockSmithForm = () => {
 
         <div className="form-group">
           <label>Service Area</label>
-          <input type="text" name="service_area" value={formData.serviceArea} onChange={handleChange} className="form-control" />
+          <input type="text" name="service_area" value={formData.service_area} onChange={handleChange} className="form-control" />
         </div>
 
         <div className="form-group">
@@ -390,17 +476,17 @@ const LockSmithForm = () => {
         </div>
 
         <div className="form-group">
-          <label>PCC File </label>
+          <label>PCC File (Max 150KB)</label>
           <input type="file" name="pcc_file" onChange={handleChange} className="form-control-file" />
         </div>
 
         <div className="form-group">
-          <label>License File </label>
+          <label>License File (Max 150KB)</label>
           <input type="file" name="license_file" onChange={handleChange} className="form-control-file" />
         </div>
 
         <div className="form-group">
-          <label>Photo </label>
+          <label>Photo (Max 150KB)</label>
           <input type="file" name="photo" onChange={handleChange} className="form-control-file" />
         </div>
 

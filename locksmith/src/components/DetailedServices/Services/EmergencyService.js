@@ -40,7 +40,7 @@ const EmergencyService = () => {
         {/* Image Placeholder */}
         <div className="image-container">
           <div className="image-placeholder">
-            <img src="/images/Emergency.jpg" alt="Emergency Locksmith" />
+            <img src="/images/Emergency.webp" alt="Emergency Locksmith" />
           </div>
         </div>
 

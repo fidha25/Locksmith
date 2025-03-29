@@ -53,7 +53,7 @@ const CommercialService = () => {
         {/* Image Placeholder */}
         <div className="image-container">
           <div className="image-placeholder">
-            <img src="/images/commercial.jpg" alt="Commercial Locksmith" />
+            <img src="/images/commercial.webp" alt="Commercial Locksmith" />
           </div>
         </div>
 

@@ -195,3 +195,10 @@
 .logout-button:active {
   transform: scale(0.98);
 }
+
+
+/* Or if you want to control the size specifically */
+.logo-img {
+  width: 180px; /* or your preferred size */
+  height: 180px;
+}

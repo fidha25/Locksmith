@@ -35,7 +35,7 @@ const AutomotiveService = () => {
         {/* Image Placeholder */}
         <div className="image-container">
           <div className="image-placeholder">
-            <img src="/images/automotive.jpg" alt="Automotive Locksmith Service" />
+            <img src="/images/automotive.webp" alt="Automotive Locksmith Service" />
           </div>
         </div>
 
