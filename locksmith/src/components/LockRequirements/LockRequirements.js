@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "./LockRequirements.css";
+import { Link } from 'react-router-dom';
 
 const LockRequirements = () => {
   useEffect(() => {
