@@ -12,11 +12,12 @@ export default function NotFound() {
         transition={{ duration: 0.5 }}
         className="text-center"
       >
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/2748/2748558.png" 
-          alt="404 Not Found"
-          className="w-52 mx-auto mb-6 opacity-80"
-        />
+       <img
+  src="images/not-found.png"
+  alt="404 Not Found"
+  style={{ width: "400px", height: "400px", objectFit: "contain" }}
+/>
+
         <h1 className="text-4xl font-bold text-gray-800">Oops! Page Not Found</h1>
         <p className="text-lg text-gray-600 mt-2">
           The page you’re looking for doesn’t exist. It might have been removed or you may have mistyped the URL.

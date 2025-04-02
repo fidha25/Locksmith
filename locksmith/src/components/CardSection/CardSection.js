@@ -78,12 +78,19 @@ const CardSection = () => {
 
   return (
     <Container fluid className="card-section"
+    // style={{
+    //   backgroundImage: "url('/images/dark-grey-bg.webp')",
+    //   backgroundPosition: "center",
+    //   backgroundRepeat: "no-repeat",
+    //   backgroundSize: "cover",
+    // }}
     style={{
-      backgroundImage: "url('/images/dark-grey-bg.webp')",
+      background: "linear-gradient(to right, #191919, #3a3a3a, #5a5a5a, #3a3a3a, #191919)",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
     }}
+    
     >
     <Container >
       <div className="text-center mb-4">

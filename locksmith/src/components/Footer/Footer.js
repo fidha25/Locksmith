@@ -133,15 +133,24 @@ const Footer = () => {
   return (
     <div
       className="footer-section"
+      // style={{
+      //   backgroundColor: "rgb(144, 145, 149)",
+      //   marginTop: "0 !important",
+      //   paddingTop: "0",
+      //   backgroundImage: "url('/images/dark-grey-bg.webp')",
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      //   color: "white",
+      // }}
       style={{
-        backgroundColor: "rgb(144, 145, 149)",
+        background: "linear-gradient(to right, #191919, #3a3a3a, #5a5a5a, #3a3a3a, #191919)",
         marginTop: "0 !important",
         paddingTop: "0",
-        backgroundImage: "url('/images/dark-grey-bg.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         color: "white",
       }}
+      
     >
       <Container className="footer">
         <Row>

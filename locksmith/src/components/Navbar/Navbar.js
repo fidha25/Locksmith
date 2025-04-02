@@ -77,14 +77,23 @@ export default function NavBar() {
       <Navbar 
         className="custom-navbar-bg" 
         expand="lg"
+        // style={{
+        //   backgroundImage: "url('/images/dark-grey-bg.webp')",
+        //   backgroundSize: "cover",
+        //   backgroundPosition: "center",
+        //   backgroundRepeat: "no-repeat",
+        //   padding: "4px 0",
+        //   height: `${navHeight}px`,
+        // }}
         style={{
-          backgroundImage: "url('/images/dark-grey-bg.webp')",
+          background: "linear-gradient(to right, #191919, #3a3a3a, #5a5a5a, #3a3a3a, #191919)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           padding: "4px 0",
           height: `${navHeight}px`,
         }}
+        
       >
         <Container>
           {/* <Navbar.Brand as={Link} to="/">
